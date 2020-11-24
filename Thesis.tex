@@ -1,5 +1,103 @@
-\documentclass{book}
+\documentclass[a4paper,11pt,titlepage]{book}	%classe e struttura
+\usepackage[italian]{babel} 	%lingua principale
+\usepackage[utf8]{inputenc}	%caratteri accentati
+\usepackage{graphicx}		%pacchetto per le immagini
+\usepackage{mathrsfs}		%pacchetto per scrittura manoscritto
+\usepackage{booktabs}		%pacchetto per separatori tabelle
+\usepackage{multirow}		%pacchetto per multirighe in tabelle
+\usepackage{siunitx}		%pacchetto per le tabelle dati
+\usepackage{wrapfig}		%pacchetto per le immagini immerse nel testo
+\usepackage{latexsym}		%pacchetto per lettere greche
+\usepackage{tabularx}		%pacchetto per tabelle 
+\usepackage{amsmath}		%pacchetto per matematica
+\usepackage{physics}		%pacchetto per fisica bra ket
+\usepackage{subfig}		%pacchetto per sottotitoli a immagini
+\usepackage{tikz}		%pacchetto per disegni
+%\usepackage{circuitikz}	%pacchetto per disegni di circuiti
+\usepackage{fancyhdr}
 
-\usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
-\usepackage{geometry}
+\usepackage{frontespizio}
+
+\frenchspacing 		%regola spazi
+\raggedbottom		%spazio vuoto a fine pagina, quando finisce il testo, se lo togli allunga gli spazi per riempire nell'altezza la pagina
+
+%\title{Fotorivelatori Criogenici per rivelazione di eventi rari in fisica delle alte energie}
+%\author{Villa Alessandro}
+%\date{27 febbraio 2018}
+
+%\pagestyle{fancy}\addtolength{\headwidth}{20pt}\addtolength{\headheight}{20pt}
+%\fancypagestyle{plain}{\fancyfoot[RO,LE]{\normalsize\thepage}} %%% numeri prima pagina
+
+%\makeatletter
+%\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+%\hbox{}
+%Potresti voler togliere il commento dalla linea seguente
+%Questa pagina è stata lasciata intenzionalmente vuota.
+%\thispagestyle{empty}
+%\newpage
+%\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+%\makeatother
+
+\begin{document}
+	
+	%---------FRONTESPIZIO-----
+	\begin{frontespizio}
+		\Universita{Pavia}
+		\Logo[3cm]{logo}
+		\Facolta{scienze matematiche, fisiche, naturali}
+		\Corso[laurea]{Fisica}
+		\Annoaccademico{2016-2017}
+		\Titoletto{Tesi di laurea triennale}
+		\Titolo{Fotorivelatori Criogenici per la rivelazione di eventi rari\\ in fisica delle alte energie}
+		\Candidato[427017]{Alessandro Villa}
+		\NRelatore{Supervisore}{}
+		\Relatore{Dott. Alessandro Menegolli}
+		\NCorrelatore{Co-Supervisore}{}
+		\Correlatore{Dott. Tommaso Cervi}		%è correlatore?
+	\end{frontespizio}
+	
+	%_________________________CORPO INIZIALE
+	\begin{frontmatter}
+		\tableofcontents
+		
+		%---------INTRODUZIONE------
+		\input{Introduzione}
+		
+	\end{frontmatter}
+	
+	%_________________________CORPO CENTRALE
+	\begin{mainmatter}
+		%---------CAPITOLO 1--------
+		\input{Cap1}
+		
+		%---------CAPITOLO 2--------
+		\input{Cap2}
+		
+		%--------CAPITOLO 3--------
+		\input{Cap3}
+		
+		%--------CAPITOLO 4--------
+		\input{Cap4}
+		
+		%-------CONCLUSIONE--------
+		\input{Conclusione}
+		
+	\end{mainmatter}
+	
+	%_________________________CORPO FINALE
+	\begin{backmatter}
+		\input{Ringraziamenti}
+		
+		%--------BIBLIOGRAFIA------
+		\begin{thebibliography}{99}
+			\addcontentsline{toc}{chapter}{Bibliografia}
+			
+			%\bibitem{stringa}autore libro ecc.		lo richiamo con \cite{stringa}
+			\bibitem{sk1} Y. Fukuda et al., Phys. Rev. Lett. 81 (1998) 1158-1162.
+			
+		\end{thebibliography}
+		
+	\end{backmatter}
+	
+	
+\end{document}
