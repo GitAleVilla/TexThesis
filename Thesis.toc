@@ -1,10 +1,10 @@
 \babel@toc {italian}{}
 \babel@toc {italian}{}
 \contentsline {chapter}{Introduction}{iii}%
-\contentsline {chapter}{\numberline {1}Chapter 1}{1}%
-\contentsline {chapter}{\numberline {2}Chapter 2}{3}%
-\contentsline {chapter}{\numberline {3}Chapter 3}{5}%
-\contentsline {chapter}{\numberline {4}Chapter 4}{7}%
+\contentsline {chapter}{\numberline {1}Future $e^+$ $e^-$ colliders}{1}%
+\contentsline {chapter}{\numberline {2}Calorimetry and Dual Readout}{3}%
+\contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{5}%
+\contentsline {chapter}{\numberline {4}IDEA project and simulation}{7}%
 \contentsline {chapter}{\numberline {5}Conclusion}{9}%
 \contentsline {chapter}{Thanks}{11}%
-\contentsline {chapter}{Bibliografia}{13}%
+\contentsline {chapter}{Bibliography}{13}%
