@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  8 DEC 2020 13:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  13 DEC 2020 19:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -719,16 +719,16 @@ Package pdftex.def Info: Thesis-frn.pdf  used on input line 44.
  <./Thesis-frn.pdf{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 }>] [2
 
-] (./Thesis.toc)
+] (./Thesis.toc
+[1
+
+])
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
+ (./Introduzione.tex [2]) [3
 
-(./Introduzione.tex [1
-
-] [2
-
-]) [3] [4
+] [4
 
 ] (./Cap1.tex
 Capitolo 1.
@@ -750,7 +750,12 @@ Capitolo 4.
 
 ]
 Capitolo 5.
-) (./Conclusione.tex [9] [10
+)
+Underfull \hbox (badness 10000) in paragraph at lines 5--86
+
+ []
+
+(./Conclusione.tex [9] [10
 
 ]
 Capitolo 6.
@@ -764,7 +769,7 @@ Capitolo 6.
 Here is how much of TeX's memory you used:
  18726 strings out of 480478
  378634 string characters out of 5903485
- 608586 words of memory out of 5000000
+ 609586 words of memory out of 5000000
  34386 multiletter control sequences out of 15000+600000
  546109 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -780,7 +785,7 @@ lic/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl1
 0.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:
 /texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Thesis.pdf (21 pages, 180205 bytes).
+Output written on Thesis.pdf (21 pages, 181831 bytes).
 PDF statistics:
  141 PDF objects out of 1000 (max. 8388607)
  101 compressed objects within 2 object streams
