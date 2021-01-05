@@ -15,13 +15,69 @@ In section \ref{sec:NN_waveform} neural networks working on digitized waveforms 
 The last section (sec.\ref{sec:NN_img})  exposes another type of neural networks. These have the purpose of identify if signal are generated from photons ($\gamma$) or neutral pions ($\pi^0$) analyzing the spazial pattern of energy released in the calorimeter.
 
 \section{Simulation structure} \label{sec:Sim_struc}
-aaa
 
 \subsection{Calorimeter simulation} \label{subsec:Sim_cal}
-aaa
+Following the idea show in chapter \ref{chap:Idea_project}, the calorimeter simulated is sketched in figure §ref{fig:$cal_geometry$}. As can be seen, it has a cylindrical symmetry characterized by a barrel and two endcaps. This $4\pi$ structure is obtained rotating $36$ simpler component, called slices, around the $z$ axis. The dimensions of the slices are shown in figure §ref{fig:$cal_slices$}, therefore the inner diameter and  the inner length are both $5\ m$ meanwhile the overall outer diameter and length are $9\ m$.\\
+Each half slice is composed by 75 $2\ m$ long towers ($40$ part of the barrel and $35$ part of the endcap), $5400$ of this element are used to set up the whole calorimeter.
+To correctly cover an almost $4\pi$ solid angle each tower has different trapezoidal inner face with dimensions that can vary from $\sim 5\ cm$ to $\sim 8\ cm$.
+A small circular area, with $0.25\ m$ of radius, centered along the $z$ axis is not covered by the calorimeter to permit the beam to reach the interaction point (IP).\\
+
+The towers are copper based and play the role of absorber. To have a sensitive element they are filled by optical fibres. The idea of a projective calorimeter make the absorber volume greater increasing the distances from the IP. New fibres at different depth have to be placed inside the calorimeter to keep constant the sampling fraction.\\
+As the dual-readout technique needs to distinguish Scintillating ($S$) and Cherenkov ($C$) signal, two types of fibres are used (fig. §ref{fig:$CS_fibres$}). Their characteristic are shown in tab. §ref{tab:fibres}.\\
+The fibre refractive indices determine the light transport (as consequence of the Snell's law \cite{Snell}). The signal from the scintillating fibres is parametrised by the deposited energy while the Cherenkov photons are produced accordingly to the Cherenkov emission process.\\
+
+For each event, the simulation gives as output useful information: 
+\begin{itemize}
+	\item Event ID;
+	\item Fibre Type;
+	\item Fibre ID;
+	\item the position of the fibre end closer to the IP;
+	\item the number of photons reaching the fibre further end;
+	\item the list of photons time of arrival to the fibre end.
+\end{itemize}
+
+The computation of light propagation is extremely time consuming, so that it has to be fine tuned to optimize the process. In particular, the propagation of $C$ photons is tracked until the single photon reach the core-cladding boundary (i.e. at the distance $R$ from the further end of the fibre and at the time $t_0$). If the emission angle is inside the range of the fibre numerical aperture, the photon is added to the final number of photons (after a Poissonian smearing on their number).
+The time of arrival on the sensor for each photon is estimated as:
+\begin{equation}
+t_C = t_0 + R \frac{n_C}{c}
+\end{equation}
+where $n_C = 1.49$ is the fibre refractive index and $c$ is the speed of light.\\
+
+The $S$ fibres, instead, carry scintillating photons produced considering the light yield of the fibres and the energy deposited by the interacting particle. The number of photons is smeared with as Poissonian law and de time of arrival on the sensor is obtained as:
+\begin{equation}
+	t_S = t_0 + R\frac{n_S}{c\times \cos(\vartheta)} + t^*
+\end{equation}
+where $n_S = 1.59$ is the refractive index and $t^*$ is a random time that considers the fibres decay time, it is chosen from an exponential distribution with $2.8\ ns$ as mean value.
+Considering the internal reflection, the photon path depends on the $\vartheta$ angle (i.e. the angle between the photon direction and the fibre axis). It is chosen randomly in the range $[\cos(\alpha),\cos(0)]$, where $\alpha = 20.4\degree$ is the fibre critical angle.\\
 
 \subsection{SiPM response digitization} \label{subsec:Sim_SiPM}
-aaa
+The results obtained are the input of the second part of the simulation: \textit{pySiPM}, a Monte Carlo simulation, performed mostly in Python, able to reproduce the SiPM response to a light source and replicate the waveforms recorded with a digitizer \cite{digitizer}.\\
+
+The importance of this software goes beyond our context, but perfectly fits our needs. In particular each fibre from the calorimeter simulation is considered coupled to a single SiPM, which digitized response is simulated through \textit{pySiPM}.
+
+The simulation allows to set most of the SiPM parameters:
+\begin{itemize}
+	\item \textbf{Geometrical parameters}: the sensor dimensions and the pixel pitch.
+	\item \textbf{Sensor parameters}: Photon Detection Efficiency, Dark Count Rate, After-Pulse probability, Optical Cross-Talk probability.
+	\item \textbf{Signal parameters}: rise time constant, decay time constant.
+	\item \textbf{Waveform parameters}: time window, sampling time, integration window, pregate window.
+\end{itemize}
+
+For each event and fibre, random parameters determine the photon position inside the sensor. Meanwhile the sensor PDE is tuned to have consistent mean values of $\sim 400\ Spe/GeV$ and $\sim 100\ Cpe/GeV$ respectively for $S$ and $C$ light yield.
+A control stop the count of impinging photons on the same cell to a maximum one, then each element of noise is generated with the set probability.\\
+The pulse generated is a combination of two exponentials characterized by the rise time constant ($\tau_{rise}$) and the decay time constant ($\tau_{fall}$), considering the different photon time of arrival ($t_S$ and $t_C$):
+\begin{equation}
+	y(t)= A \times \left( e^{-\frac{t}{\tau_{fall}}} - e^{-\frac{t}{\tau_{rise}}}\right).
+\end{equation}
+
+The total signal of each SiPM is the sum of all the signals generated from the activated cells.\\
+
+The information given as output of the simulation are:
+\begin{itemize}
+	\item \textbf{Data reported from GEANT4 simulation}: event ID, type of fibre, fibre ID, fibre position;
+	\item \textbf{Computated quantities}: integral, peak height, time of arrival, time over threshold, time of peak;
+	\item \textbf{Digitized waveform}.
+\end{itemize}
 
 \section{Simulation performances} \label{sec:Sim_perf}
 aaa
