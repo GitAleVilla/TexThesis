@@ -17,14 +17,56 @@ The last section (sec.\ref{sec:NN_img})  exposes another type of neural networks
 \section{Simulation structure} \label{sec:Sim_struc}
 
 \subsection{Calorimeter simulation} \label{subsec:Sim_cal}
-Following the idea show in chapter \ref{chap:Idea_project}, the calorimeter simulated is sketched in figure §ref{fig:$cal_geometry$}. As can be seen, it has a cylindrical symmetry characterized by a barrel and two endcaps. This $4\pi$ structure is obtained rotating $36$ simpler component, called slices, around the $z$ axis. The dimensions of the slices are shown in figure §ref{fig:$cal_slices$}, therefore the inner diameter and  the inner length are both $5\ m$ meanwhile the overall outer diameter and length are $9\ m$.\\
+Following the idea show in chapter \ref{chap:Idea_project}, the calorimeter simulated is sketched in figure \ref{fig:cal_geometry}. As can be seen, it has a cylindrical symmetry characterized by a barrel and two endcaps. This $4\pi$ structure is obtained rotating $36$ simpler component, called slices, around the $z$ axis. The dimensions of the slices are shown in figure \ref{fig:cal_slices}, therefore the inner diameter and  the inner length are both $5\ m$ meanwhile the overall outer diameter and length are $9\ m$.\\
 Each half slice is composed by 75 $2\ m$ long towers ($40$ part of the barrel and $35$ part of the endcap), $5400$ of this element are used to set up the whole calorimeter.
 To correctly cover an almost $4\pi$ solid angle each tower has different trapezoidal inner face with dimensions that can vary from $\sim 5\ cm$ to $\sim 8\ cm$.
 A small circular area, with $0.25\ m$ of radius, centered along the $z$ axis is not covered by the calorimeter to permit the beam to reach the interaction point (IP).\\
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/DRCGeometry3}
+	\caption{Calorimeter geometry.}
+	\label{fig:cal_geometry}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/DRCGeometry1}
+	\caption{Calorimeter single slice.}
+	\label{fig:cal_slices}
+\end{figure}
+
 The towers are copper based and play the role of absorber. To have a sensitive element they are filled by optical fibres. The idea of a projective calorimeter make the absorber volume greater increasing the distances from the IP. New fibres at different depth have to be placed inside the calorimeter to keep constant the sampling fraction.\\
-As the dual-readout technique needs to distinguish Scintillating ($S$) and Cherenkov ($C$) signal, two types of fibres are used (fig. §ref{fig:$CS_fibres$}). Their characteristic are shown in tab. §ref{tab:fibres}.\\
+As the dual-readout technique needs to distinguish Scintillating ($S$) and Cherenkov ($C$) signal, two types of fibres are used (fig. \ref{fig:CS_fibres}). Their characteristic are shown in tab. \ref{tab:fibres}.\\
 The fibre refractive indices determine the light transport (as consequence of the Snell's law \cite{Snell}). The signal from the scintillating fibres is parametrised by the deposited energy while the Cherenkov photons are produced accordingly to the Cherenkov emission process.\\
+
+\begin{table}
+	\centering
+	\setlength{\tabcolsep}{12pt}
+	\begin{tabular}{lp{0.6\textwidth}}
+		\toprule
+		\multicolumn{2}{c}{\textbf{Kuraray SCSF-78 ($S$)}}	\\
+		\midrule
+		Core:				& $r = 0.485\ mm$, Polystyrene ($C_5H_5$), $\rho=1.95\ g/cm^3$, $n = 1.59$	\\
+		Cladding: 			& Thickness $=2\%$ of $r$, PMMA ($C_5H_8o_2$), $\rho=1.19\ g/cm^3$, $n=1.49$	\\
+		Main properties:	& Emission constant $= 2.8\ ns$, LY $= 10^4\ \text{photons}/MeV$, $\lambda_{att} = 4\ m$	\\
+		\midrule
+		\multicolumn{2}{c}{\textbf{Mitsubishi SK-40 ($C$)}}	\\
+		\midrule
+		Core:				& $r = 0.485\ mm$, PMMA ($C_5H_8o_2$), $\rho=1.19\ g/cm^3$, $n = 1.49$	\\
+		Cladding: 			& Thickness $=2\%$ of $r$, Fluorinated Polymer ($C_2F_2$), $\rho=1.43\ g/cm^3$, $n=1.42$	\\
+		Main properties:	& $\lambda_{att} = 8.9\ m$	\\
+		\bottomrule
+	\end{tabular}
+	\caption{fibres $S$ and $C$.}
+	\label{tab:fibres}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/DRCGeometry2}
+	\caption{Fibres $C$ and $S$.}
+	\label{fig:CS_fibres}
+\end{figure}
 
 For each event, the simulation gives as output useful information: 
 \begin{itemize}
@@ -60,14 +102,15 @@ The simulation allows to set most of the SiPM parameters:
 	\item \textbf{Geometrical parameters}: the sensor dimensions and the pixel pitch.
 	\item \textbf{Sensor parameters}: Photon Detection Efficiency, Dark Count Rate, After-Pulse probability, Optical Cross-Talk probability.
 	\item \textbf{Signal parameters}: rise time constant, decay time constant.
-	\item \textbf{Waveform parameters}: time window, sampling time, integration window, pregate window.
+	\item \textbf{Waveform parameters}: time window, sampling time, integration window.
 \end{itemize}
 
 For each event and fibre, random parameters determine the photon position inside the sensor. Meanwhile the sensor PDE is tuned to have consistent mean values of $\sim 400\ Spe/GeV$ and $\sim 100\ Cpe/GeV$ respectively for $S$ and $C$ light yield.
 A control stop the count of impinging photons on the same cell to a maximum one, then each element of noise is generated with the set probability.\\
 The pulse generated is a combination of two exponentials characterized by the rise time constant ($\tau_{rise}$) and the decay time constant ($\tau_{fall}$), considering the different photon time of arrival ($t_S$ and $t_C$):
 \begin{equation}
-	y(t)= A \times \left( e^{-\frac{t}{\tau_{fall}}} - e^{-\frac{t}{\tau_{rise}}}\right).
+	y(t)= A \cdot \left( e^{-\frac{t}{\tau_{fall}}} - e^{-\frac{t}{\tau_{rise}}}\right).
+	\label{form:resp_func}
 \end{equation}
 
 The total signal of each SiPM is the sum of all the signals generated from the activated cells.\\
@@ -80,21 +123,144 @@ The information given as output of the simulation are:
 \end{itemize}
 
 \section{Simulation performances} \label{sec:Sim_perf}
-aaa
 
 \subsection{Different configurations} \label{subsec:SiPM_conf}
-aaa
+The results shown in this last chapter are obtained considering different SiPM parameters configurations.\\
+They have been chosen in a common parameter space identified checking the lineup of SiPMs produced by Hamamatsy \cite{SiPM_lineup}. 
+Two are the parameters that has been changed in our studies: 
+\begin{itemize}
+	\item the decay time constant of the signal, the chosen values are $10\ ns$ and $50\ ns$;
+	\item the pixel size, the chosen values are $10\ \mu m$, $15\ \mu m$ and $25\ \mu m$.
+\end{itemize}
+
+The other fixed values of parameters are listed in the table \ref{tab:SiPM_par}.\\
+
+\begin{table}
+	\centering
+	\setlength{\tabcolsep}{18pt}
+	\begin{tabular}{ll}
+		\toprule
+		\multicolumn{2}{c}{\textbf{Geometrical Parameter}}	\\
+		SiPM area	& $1 \times 1\ mm^2$	\\
+		\midrule
+		\multicolumn{2}{c}{\textbf{Sensor Parameters}}	\\
+		DCR			& $200 \ kHz$	\\
+		After-Pulse	& $3\% $	\\
+		Cross-Talk	& $1\% $	\\
+		\midrule
+		\multicolumn{2}{c}{\textbf{Signal Parameter}}	\\
+		Rise time	& $1\ ns$	\\
+		\midrule
+		\multicolumn{2}{c}{\textbf{Waveform Parameters}}	\\
+		Time window	& $500 \ ns$	\\
+		Integration window	& $300 \ ns$	\\
+		Sampling frequency	& $10\ GHz$	\\
+		\bottomrule
+	\end{tabular}
+	\caption{parameter}
+	\label{tab:SiPM_par}
+\end{table}
+
+An example of waveform generated is plotted in figure \ref{fig:diff_wf} where is clear the difference produced using two different decay time constant.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/SingleWaveform}
+	\caption{Single waveform}
+	\label{fig:diff_wf}
+\end{figure}
 
 \subsection{Time studies} \label{subsec:Time}
-aaa
+An important aspect that has to be studied is the temporal one.
+In order to do this, data of $1000$ events are produced. In each event a $40\ GeV$ electron is produced from the interaction point.\\
+A first step is to analyze the distribution of the time of arrival of the photons converted at the SiPMs (i.e. the time recorded in the GEANT4 simulation output).\\
+The distribution obtained from $C$ and $S$ photons are plotted in figure \ref{fig:true_toa_dist}.
+As expected, the distribution of $C$ photons time extremely narrow due to the instantaneous production of photons at the passage of relativistic charged particle in the fibres, instead the $S$ photons time distribution shows an exponential tail that is a direct consequence of the emission time constant of the Polystyrene.\\
 
-\subsection{Saturation effect} \label{subsec:Sat_effect}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/true_toa_dist}
+	\caption{True time of arrival distribution.}
+	\label{fig:true_toa_dist}
+\end{figure}
+
+Now a step forward can be done using this data as input for \textit{pySiPM}. The SiPM parameters are chosen as described in paragraph \ref{subsec:SiPM_conf}. In this context the most interesting editable parameter is the decay time constant.\\ 
+Figure \ref{top_50ns} and \ref{top_10ns} are in analogy with respect to the last described and presents clearly a widening of the distributions, the cause of this phenomenon has to be associated to the characteristic response function of the sensors \ref{form:resp_func}.\\
+These data can be compared looking for differences in changing SiPMs configurations. As we can see in figure \ref{fig:top_per_fib}, the same $C$ and $S$ photons produce narrower time of peak distribution due to the less impact of electronic noise on a sharper response function.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][\label{fig:top_50ns}$\tau_{fall} = 50\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/top_50ns}} \quad
+	\subfloat[][\label{fig:top_10ns}$\tau_{fall} = 10\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/top_10ns}}
+	\caption{time of peak distribution.}
+	\label{fig:top_per_tau}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\subfloat[][\label{fig:top_C}$C$ fibres.]{\includegraphics[width=.45\textwidth]{IMG/top_C}} \quad
+	\subfloat[][\label{fig:top_S}$S$ fibres.]{\includegraphics[width=.45\textwidth]{IMG/top_S}}
+	\caption{time of peak distribution.}
+	\label{fig:top_per_fib}
+\end{figure}
+
+The impact of noise on time of peak precision is also dependent on the number of photons impinging the same SiPM, in particular the peak precision increase with the number of photons.\\
+To prove this $10000$ SiPMs have been fired with each time increasing number of simultaneous photons. For each fixed number of photons, the time of peak has been recorded, plotted in an histogram and fitted with a Gaussian function. An example of these histograms is shown in figure \ref{fig:top_dummy}.\\
+
+The standard deviation of these Gaussian fit is the interested quantity that has been recorded and reported in the table \ref{tab:sigmas}.\\
+It is interesting to plot these data and study the behavior of the standard deviation in fuction of the number of photons. Figure \ref{fig:top_sigma} shows graphically the data, which are well fitted with a function of the form:
+\begin{equation}
+	\sigma = \frac{A}{\sqrt{n}} + B.
+\end{equation}
+The parameters obtained are $A = 0.8712\ ns$ and $B = 0.08734\ ns$ for data associated to SiPMs with $\tau_{fall}=10\ ns$, and $A = 1.949\ ns$ and $B = 0.008217\ ns$ for data associated to SiPMs with $\tau_{fall}=50\ ns$.
+
+\begin{table}
+	\centering
+	\begin{tabular}{lcc}
+		\toprule
+		Number of photons	& $\sigma$ with $\tau_{fall}=10\ ns$ [ns] & $\sigma$ with $\tau_{fall}=50\ ns$ [ns]	\\
+		\midrule
+		$1$ 	& $1.4150$ & $7.0680$ \\
+		$2$ 	& $0.8717$ & $2.6420$ \\
+		$3$ 	& $0.6738$ & $1.7370$ \\
+		$4$ 	& $0.5742$ & $1.3770$ \\
+		$5$ 	& $0.5146$ & $1.1230$ \\
+		$6$ 	& $0.4624$ & $0.9719$ \\
+		$7$ 	& $0.4314$ & $0.9148$ \\
+		$8$ 	& $0.3998$ & $0.8508$ \\
+		$9$ 	& $0.3811$ & $0.7717$ \\
+		$10$ 	& $0.3605$ & $0.7169$ \\
+		$25$ 	& $0.2339$ & $0.4481$ \\
+		$50$ 	& $0.1679$ & $0.3112$ \\
+		$100$ 	& $0.1229$ & $0.2297$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Sigmas}
+	\label{tab:sigmas}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/top_dummy}
+	\caption{Time of peak dummy, 5 photons, 50 ns.}
+	\label{fig:top_dummy}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/top_sigma}
+	\caption{Time of peak dummy, 5 photons, 50 ns.}
+	\label{fig:top_sigma}
+\end{figure}
+
+
+\subsection{Occupancy effect} \label{subsec:Sat_effect}
 aaa
 
 \subsubsection{Occupancy effect and Energy loss}
 Studies of the occupancy effect are important preliminary studies that give knowledge about the information loss in the detection process.\\
 
-\subsection{Digitization impact on energy resolution} \label{subsec:E_res}
+\subsection{Energy resolution} \label{subsec:E_res}
 aaa
 
 \section{Neural Network: Particle ID on waveform} \label{sec:NN_waveform}

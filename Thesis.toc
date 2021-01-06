@@ -26,19 +26,19 @@
 \contentsline {chapter}{\numberline {5}IDEA DR calorimeter full simulation}{9}%
 \contentsline {section}{\numberline {5.1}Simulation structure}{10}%
 \contentsline {subsection}{\numberline {5.1.1}Calorimeter simulation}{10}%
-\contentsline {subsection}{\numberline {5.1.2}SiPM response digitization}{11}%
-\contentsline {section}{\numberline {5.2}Simulation performances}{12}%
-\contentsline {subsection}{\numberline {5.2.1}Different configurations}{12}%
-\contentsline {subsection}{\numberline {5.2.2}Time studies}{12}%
-\contentsline {subsection}{\numberline {5.2.3}Saturation effect}{12}%
-\contentsline {subsubsection}{Occupancy effect and Energy loss}{13}%
-\contentsline {subsection}{\numberline {5.2.4}Digitization impact on energy resolution}{13}%
-\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{13}%
-\contentsline {subsection}{\numberline {5.3.1}Configuration}{13}%
-\contentsline {subsection}{\numberline {5.3.2}Performances}{13}%
-\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{13}%
-\contentsline {subsection}{\numberline {5.4.1}Configuration}{13}%
-\contentsline {subsection}{\numberline {5.4.2}Performances}{13}%
-\contentsline {chapter}{\numberline {6}Conclusion}{15}%
-\contentsline {chapter}{Thanks}{17}%
-\contentsline {chapter}{Bibliography}{19}%
+\contentsline {subsection}{\numberline {5.1.2}SiPM response digitization}{12}%
+\contentsline {section}{\numberline {5.2}Simulation performances}{14}%
+\contentsline {subsection}{\numberline {5.2.1}Different configurations}{14}%
+\contentsline {subsection}{\numberline {5.2.2}Time studies}{14}%
+\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{18}%
+\contentsline {subsubsection}{Occupancy effect and Energy loss}{18}%
+\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{18}%
+\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{18}%
+\contentsline {subsection}{\numberline {5.3.1}Configuration}{18}%
+\contentsline {subsection}{\numberline {5.3.2}Performances}{18}%
+\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{18}%
+\contentsline {subsection}{\numberline {5.4.1}Configuration}{18}%
+\contentsline {subsection}{\numberline {5.4.2}Performances}{18}%
+\contentsline {chapter}{\numberline {6}Conclusion}{19}%
+\contentsline {chapter}{Thanks}{21}%
+\contentsline {chapter}{Bibliography}{23}%

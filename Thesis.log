@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  5 JAN 2021 22:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  6 JAN 2021 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -600,6 +600,10 @@ s
 (c:/texlive/2020/texmf-dist/tex/latex/was/gensymb.sty
 Package: gensymb 2003/07/02 v1.0 (WaS)
 )
+(c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (c:/texlive/2020/texmf-dist/tex/latex/frontespizio/frontespizio.sty
 Package: frontespizio 2011/09/21 1.4a (Enrico Gregorio)
 
@@ -639,22 +643,22 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 ) (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Info: Redefining \it@ocap on input line 42.
-LaTeX Info: Redefining \it@ccap on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Info: Redefining \it@ocap on input line 43.
+LaTeX Info: Redefining \it@ccap on input line 43.
 
 
 File italian.ldf warning: 
@@ -662,7 +666,7 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 42.
+italian.ldf    on input line 43.
 
 (c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -698,25 +702,25 @@ Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 ABD: EveryShipout initializing macros
-LaTeX Info: Redefining \celsius on input line 42.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 42.
+LaTeX Info: Redefining \celsius on input line 43.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 43.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 42.
-Package gensymb Info: Using \Omega for \ohm on input line 42.
+LaTeX Info: Redefining \ohm on input line 43.
+Package gensymb Info: Using \Omega for \ohm on input line 43.
 
 Package gensymb Warning: Not defining \micro.
 
 \AtBeginShipoutBox=\box72
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 42
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 43
 .
 (c:/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 42
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 43
 .
 
 (c:/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
@@ -725,7 +729,7 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 <Thesis-frn.pdf, id=4, 597.50829pt x 845.0471pt>
 File: Thesis-frn.pdf Graphic file (type pdf)
 <use Thesis-frn.pdf>
-Package pdftex.def Info: Thesis-frn.pdf  used on input line 45.
+Package pdftex.def Info: Thesis-frn.pdf  used on input line 46.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
  [1
 
@@ -780,75 +784,190 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
+<IMG/DRCGeometry3.png, id=89, 400.49625pt x 395.22656pt>
+File: IMG/DRCGeometry3.png Graphic file (type png)
+<use IMG/DRCGeometry3.png>
+Package pdftex.def Info: IMG/DRCGeometry3.png  used on input line 27.
+(pdftex.def)             Requested size: 216.0022pt x 213.15984pt.
+<IMG/DRCGeometry1.png, id=91, 832.61063pt x 403.5075pt>
+File: IMG/DRCGeometry1.png Graphic file (type png)
+<use IMG/DRCGeometry1.png>
+Package pdftex.def Info: IMG/DRCGeometry1.png  used on input line 33.
+(pdftex.def)             Requested size: 288.0011pt x 139.5735pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 43--45
+[10 <./IMG/DRCGeometry3.png>]
+Underfull \hbox (badness 7540) in paragraph at lines 51--52
+[]|\OT1/cmr/m/n/10.95 Emission con-stant $= 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
+10.95 8 \OML/cmm/m/it/10.95 ns$\OT1/cmr/m/n/10.95 , LY $=
+ []
+
+<IMG/DRCGeometry2.png, id=96, 444.15938pt x 137.01187pt>
+File: IMG/DRCGeometry2.png Graphic file (type png)
+<use IMG/DRCGeometry2.png>
+Package pdftex.def Info: IMG/DRCGeometry2.png  used on input line 66.
+(pdftex.def)             Requested size: 288.0011pt x 88.84132pt.
+[11 <./IMG/DRCGeometry1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--52
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+[12 <./IMG/DRCGeometry2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+<IMG/SingleWaveform.jpg, id=113, 901.3675pt x 577.15625pt>
+File: IMG/SingleWaveform.jpg Graphic file (type jpg)
+<use IMG/SingleWaveform.jpg>
+Package pdftex.def Info: IMG/SingleWaveform.jpg  used on input line 168.
+(pdftex.def)             Requested size: 288.0011pt x 184.41196pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--179
+
+ []
+
+[14]
+<IMG/true_toa_dist.png, id=117, 1045.65656pt x 549.55313pt>
+File: IMG/true_toa_dist.png Graphic file (type png)
+<use IMG/true_toa_dist.png>
+Package pdftex.def Info: IMG/true_toa_dist.png  used on input line 182.
+(pdftex.def)             Requested size: 288.0011pt x 151.35817pt.
+
+
+LaTeX Warning: Reference `top_50ns' on page 15 undefined on input line 188.
+
+
+LaTeX Warning: Reference `top_10ns' on page 15 undefined on input line 188.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--190
+
+ []
+
+[15 <./IMG/SingleWaveform.jpg> <./IMG/True_toa_dist.png>]
+<IMG/top_50ns.png, id=122, 1078.0275pt x 554.07pt>
+File: IMG/top_50ns.png Graphic file (type png)
+<use IMG/top_50ns.png>
+Package pdftex.def Info: IMG/top_50ns.png  used on input line 193.
+(pdftex.def)             Requested size: 161.9989pt x 83.2591pt.
+<IMG/top_10ns.png, id=123, 1066.7353pt x 559.33969pt>
+File: IMG/top_10ns.png Graphic file (type png)
+<use IMG/top_10ns.png>
+Package pdftex.def Info: IMG/top_10ns.png  used on input line 194.
+(pdftex.def)             Requested size: 161.9989pt x 84.93857pt.
+<IMG/top_C.png, id=124, 1073.51062pt x 561.59813pt>
+File: IMG/top_C.png Graphic file (type png)
+<use IMG/top_C.png>
+Package pdftex.def Info: IMG/top_C.png  used on input line 201.
+(pdftex.def)             Requested size: 161.9989pt x 84.74167pt.
+<IMG/top_S.png, id=125, 1072.75781pt x 559.33969pt>
+File: IMG/top_S.png Graphic file (type png)
+<use IMG/top_S.png>
+Package pdftex.def Info: IMG/top_S.png  used on input line 202.
+(pdftex.def)             Requested size: 161.9989pt x 84.46062pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Overfull \hbox (1.18529pt too wide) in paragraph at lines 219--238
+ [][] 
+ []
+
+<IMG/top_dummy.png, id=126, 1065.9825pt x 568.37344pt>
+File: IMG/top_dummy.png Graphic file (type png)
+<use IMG/top_dummy.png>
+Package pdftex.def Info: IMG/top_dummy.png  used on input line 244.
+(pdftex.def)             Requested size: 288.0011pt x 153.55827pt.
+<IMG/top_sigma.png, id=127, 1032.85875pt x 545.78906pt>
+File: IMG/top_sigma.png Graphic file (type png)
+<use IMG/top_sigma.png>
+Package pdftex.def Info: IMG/top_sigma.png  used on input line 251.
+(pdftex.def)             Requested size: 288.0011pt x 152.18695pt.
+[16 <./IMG/top_50ns.png> <./IMG/top_10ns.png> <./IMG/top_C.png> <./IMG/top_S.pn
+g>] [17 <./IMG/top_dummy.png> <./IMG/top_sigma.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
 
  []
 
-[12]) (./Conclusione.tex [13] [14
+) (./Conclusione.tex [18]
+Capitolo 6.
+) [19
+
+] [20
+
+] (./Ringraziamenti.tex) [21
+
+] [22
 
 ]
-Capitolo 6.
-) [15] [16
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+[]\OT1/cmr/m/n/10.95 Hamamatsu Si-PMs li-neup $\OT1/cmtt/m/n/10.95 https : / / 
+www . hamamatsu . com / eu / en /
+ []
 
-] (./Ringraziamenti.tex) [17
 
-] [18
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+\OT1/cmtt/m/n/10.95 product / optical-[]sensors / mppc / mppc _ mppc-[]array / 
+all _ products /
+ []
 
-] [19] (./Thesis.aux) ) 
+[23] (./Thesis.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 18783 strings out of 480478
- 379448 string characters out of 5903485
- 610995 words of memory out of 5000000
- 34437 multiletter control sequences out of 15000+600000
- 546796 words of font info for 82 fonts, out of 8000000 for 9000
+ 19000 strings out of 480478
+ 382747 string characters out of 5903485
+ 615337 words of memory out of 5000000
+ 34628 multiletter control sequences out of 15000+600000
+ 549642 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,60p,819b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-
-super-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10
-.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/
-texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/20
-20/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c
-:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/
-2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2020/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmti10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm
-1095.pfb>
-Output written on Thesis.pdf (25 pages, 247147 bytes).
+ 60i,14n,60p,819b,595s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2020/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmmi12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
+i6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:
+/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2020/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10
+.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/
+texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/20
+20/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2020/texmf-dist/font
+s/type1/public/cm-super/sfrm1095.pfb>
+Output written on Thesis.pdf (29 pages, 921656 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
+ 221 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
