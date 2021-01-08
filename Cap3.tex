@@ -14,17 +14,90 @@ The switch is again open and the circuit returns in its initial OFF configuratio
 Fig. represents the current flowing during a discharge of a SPAD and its output signal time development.\\
 Thanks to the very thin depletion layer and the extremely short avalanche discharge development duration, the SPAD response is intrinsically very fast. The signal rise time ($< 500\ ps$) follows an exponential function with $\tau_D$ time constant and does not depend on the number of fired cells and bias voltage applied. The falling signal is an exponential with time constant $\tau_r$. The total recovery time ranges between $20$ and $250\ ns$, accordingly to the quenching resistance value and to the cell size.\\
 
+\subsection*{Gain and amplitude}
+The gain of each SPAD represents the number of carriers flowing per eachtriggered avalanche.   It is well defined by the internal capacitance and theintegrated resistor and its average value is generally expressed as:
+\begin{equation}
+	G = \frac{V_{Ov} C_D}{q}
+\end{equation}
+where $V_{Ov}=V_{Bias}-V_{Bk}$ is the excess bias with respect to the breakdown voltage at which the SiPM is operated and $q= 1.602\times 10^{-19}\ C$ is the elementary charge. Fig. shows the typical SiPM response to a low-intensity, nanosecond long pulsed light,  emitted by a LED, that conveyed few photons onto the sensor sensitive area. Each band of traces corresponds to a different number of fired cells. Since the typical gain value is high (in the order of $10^6$ up to $10^7$) compared to the noise level, traces are well separated, providing the good SiPM photon number resolving capabilities. It can be also estimated by the charge spectrum obtained integrating the SiPM signal, synchronous with the light pulses, over a certain time (fig.). Each entry corresponds to the recorded, digitized and integrated pixel current signal while each peak represents the number of cells with Geiger discharges at the same time (i.e. the number of fired cells). Their areas are related to the Poisson statistical property of the light source:  the lowest peak corresponds to no detected photons and its width $\sigma_0$ provides a measure of the stochastic fluctuations in the output signal (the noise of the system). The distance between two peaks, called peak-to-peak distance, is given by:$\Delta_{pp}= q \cdot G$ and can be turned directly into the SiPM gain.  Moreover, its value is the gauge to turn the digitised signal into the number of fired pixels.Usually the multi-photon spectrum is also shown in units of photoelectrons (pe),by scaling the ADC channels axis by $1/\Delta_{pp}$ and shifting the first peak mean value at zero. The peak at one photo-electron has a slightly larger width $\sigma_1$. This is related to the fact that, even if the pixel structure production is high uniform, not all of the cells were born equal: the avalanches generated in various pixel scan have a difference of about $10\%$ in the number of electrons generated (the so called cell-to-cell gain variation).\\
+Since the distribution of the fired cells in the SiPM sensitive area is random, the residual gain differences become evident broadening the peak and adding an extra contribution with respect to the $0$ peak width. The peak width increases with the number of fired cells ($N_{FC}$),following a $N_{FC}$ law and limiting the maximum number of resolved peaks.The same information can also be extracted if, instead of the charge, the SiPM signal amplitude is analysed.\\
 
-\section{SiPM Response}
-aaa
+\section{SiPM efficiency}
+Since each specific application can have various requirements in terms of wave-length sensitivity, the Photon Detection Efficiency is one of the first parameters to consider designing a SiPM-based readout detector. The silicon light absorption coefficient varies by several order of magnitude in the wavelength range from UV to infrared light (IR).\\
+PDE quantifies the probability of a SiPM to detect an impinging photon and is defined as the ratio between the number of fired cells and the total number of photons hitting the detector $N_\gamma$. It is a function of the wavelength $\lambda$ of the incident photon, of the temperature $T$ and of the overvoltage $V_{Ov}$ and can be calculated as:
+\begin{equation}\label{form:pde}
+	PDE = \frac{\expval{N_{FC}}}{N_\gamma} = FF \cdot QE(\lambda) \cdot P_T(\lambda, V_{Ov}, T)
+\end{equation}
+where $FF$ is the geometrical fill factor (i.e. the ratio between the sensitive and the total device area),$QE$ is the quantum efficiency (i.e. the probability for a photon with wavelength $\lambda$, to enter in the sensitive SiPM area and to create a primary \textit{eh} pair) and $P_T$ is the avalanche breakdown triggering probability (i.e.the probability that the carriers generates a Geiger discharge). Fig. is a sketch that shows how each factor of eq. \ref{form:pde} modifies the PDE.
+Starting with a PDE equal to $1$, since the $FF$ is (as first approximation) wavelength independent, it gives a first constant reduction. $QE$ gives the second PDE wavelength dependent decrease. Finally, last reduction comes from the$P_T$.\\
+
+\subsection*{Geometrical fill factor}
+The geometrical fill factor is the ratio between the sensitive area and the total area of the device. It is linked to the presence of dead regions in the SPAD structure(fig.4.10): each cell is surrounded by the guard ring (to quickly decrease the electric field at the border),  the quenching resistors,  the bias lines and the isolation structure providing the electrical and optical separation between the cells. One of the most used technique is trench isolation: a narrow and depleted region surrounding the active area and blocked up with a dielectric layer. This allows a strong reduction of the optical cross-talk (sec.4.3.2) between the cells, especially if some absorbing material is inserted in the trench between the two dielectric layers. Both the trench isolation and the guard ring are usually designed together to minimise their width and to maximise the $FF$.
+This parameter has to be optimised for each specific application: e.g. if the number of impinging photons is small, the best solution can be using SiPM with few bigger cells (i.e$100\ \mu m$ pixel size), while in case of a high number of photons expected, SiPMs with small pixel sizes ($10-25\ \mu m$) are needed to avoid saturation. Currently,$FF$ ranges from $90\%$ for $100\ \mu m$ down to $30\%$ for $10\ \mu m$ pixel pitch.\\
+
+\subsection*{Quantum efficiency}
+The SiPM quantum efficiency depends on the wavelength of the impinging photon and on the absorption region thickness (fig.4.11). More in detail, $QE$ depends on two factors: the probability that a photon crosses the anti-reflective coating (ARC) layer on top of the sensor and the one that a photon generates an \textit{eh} pair in the high-field region. The ARC is usually composed by a stack of different dielectric layers on top of the SiPM and should be optimised for each application. The second probability depends on the absorption depth of photons in silicon, that grows with the wavelength from $\sim10\ nm$ range for the UV/blue light, up to tens of microns for the near-infrared (NIR) light. The thickness of the active region has to be adequately chosen according to the wavelength specific for each application.  Considering a n+/p (p+/n) junction, for very short wavelengths photons, the absorption depth is really small, the \textit{eh} pairs are mainly photo-generated above the junction and only holes (electrons) are drifted towards the avalanche region.
+In this case a proper design of that layer is needed to allow the carriers diffusion towards the avalanche region and to minimise there combination.
+Instead, for visible part of the spectra, light is absorbed both above and below the high field region and thus both carriers can trigger the avalanche. Finally, NIR photons generate mostly electrons (holes) that trigger the avalanche below the junction. Since the two junction types generate different types of carriers triggering the avalanche, even considering the same $QE$ and the same structure of the device, a difference PDE spectral shape is expected.\\
+
+\subsection*{Avalanche breakdown trigger probability}
+The avalanche breakdown trigger probability $P_T$ is the probability that a carrier starts an avalanche passing through the SPAD high-field region.
+It depends on the electric field, i.e. on the overvoltage and on where the carriers are produced. When an \textit{eh} pair is created in the depletion region, the two carriers starts to drift in opposite direction, both contributing to the trigger probability:
+\begin{equation}
+	P_T = P_h + P_e - P_hP_e,
+\end{equation}
+where $P_h$ and$P_e$ are the hole and electron breakdown initiation probabilities.
+These terms depend on the generation position, are governed by the ionisation rates of holes and electrons, respectively, increase with the electric field and with low temperature.
+Electrons trigger the avalanche in a most efficient way because they have an impact ionization rate of $5\times 10^5\ V/cm$, about twice higher than holes.
+Fig.4.12 represents the triggering probability as a function of the carrier generation depth both for n+/p and p+/n configurations.
+$P_T$ has its maximum where the electrons can cross entirely the high-field zone: for the p+/n structure it is within the p+ layer near to the junction, while for the n+/p case it is the drift region $\pi$. In case of very short wavelength, i.e. for UV/blue light, the best solution is a buried n+/p structure. In this case electrons are generated near to the p+ layer and can enter in the high-field region, while holes move towards the electrode and do not contribute to the $P_T$. When moving to the green-red light detection (that have an absorption depth in silicon of about $3\ \mu m$) the best option is a p-type structure with a thin n+ layer ($\sim 0.1-1.5\ \mu m$) and a thicker drift region ranging from $3$ to $10\ \mu m$.
+For the NIR light, since the thickness of the high-field area is negligible with respect to the absorption depth, the proper choice is always a n+/p junction with illumination that can be from both the drift or the junction side.\\
 
 \section{Noise effects}
-aaa
+The main sources of the SiPM noise can be distinguished in two general categories called primary and correlated noise. The first category identifies the avalanche triggered by thermal generated free carriers or to the field-assisted generation (i.e. by tunneling generation). The correlated noise identifies all the avalanches discharges triggered in the SiPM by the primary ones, thus "correlated". The generation of these pulses is due to both the optical cross-talk(sec.) in neigh boring SiPM cells and the after-pulsing (sec.) in the same cell.
 
 \subsection{Dark Count Rate}
-aaa
+The primary noise source, that limits the SiPM single photon resolution, is the Dark Count Rate (DCR).
+It is due to the avalanche triggered by any generation of \textit{eh} pair in the depletion region, resulting in random and spurious avalanches that occur independently from the incoming light.
+Fig.4.13 shows the main sources of DCR along the SPAD depth.
+At room temperature, the main contribution is due to the thermal generation of the carriers in the band gap, i.e. the Shockley-Read-Hall (SRH) generation-recombination.
+The impurities and crystal defects of the epitaxial layer (in terms of number of activation energy and deep levels) define the generation rate: with a higher defect concentration, the equivalent "lifetime" ($\tau_{SRH}$) becomes lower and thus the DCR increases.
+So, the sensor design and production technology play a crucial role to limit the dark count rate.
+SRH is also affected by the electric field present in the avalanche region.
+Fig.4.14 represents the temperature dependence of the DCR.
+On one hand, at higher temperature, the diffusion current near the depleted regions (from the neutral ones) becomes not negligible too.
+On the other hand, at lower temperature, the tunneling generation becomes more important and it is the dominant effect in the cryogenic applications.
+DCR is also depending on the total active area and on the depletion region thickness.
+To reduce as much as possible the DCR, the SiPM has to be operated at low bias voltage and temperature, employing small area devices.
+The actual values (at room temperature) for DCR range from $1\ MHz$ for the $6\times6\ mm^2$, to about tens of $kHz$ for the $1\times1\ mm^2$, depending on the producer.\\
+
 
 \subsection{After-Pulse}
-aaa
+After-pulsing (AP) is a correlated noise generated when the carriers produced in an avalanche are trapped by an impurity in the high-field region and subsequently released after a time that spreads from $ns$ up to several $\mu s$, generating (on the same pixel) a delayed secondary avalanche [112].
+Thus, the AP probability depends on the sensor technology, i.e. on the number of traps and impurities present in the silicon lattice and on their (multi-exponential [107]) release time constant compared to the pixels recovery time $\tau_r$.
+It is also depending from the overvoltage because, when the gain increases, the correspondent avalanche trigger probability increases too.
+The general procedure to reduce this kind of correlated noise is to minimise the gain and the silicon impurities and to find an adequate hold-off cell time that allows the majority of traps to be released when the pixel is not yet completely recharged.
+AP can also be "optically-induced": secondary photons produced by an avalanche can be re-absorbed in the neutral region of the same cell below the active region (fig.4.18).
+Then, the carrier can reach the avalanche region by diffusion and trigger a new discharge.
+For this kind of AP, the carrier lifetime in the neutral region corresponds to the trap release time constant of the previous one and in the substrate this ranges between few to hundred of ns [126].
+The optically-induced AP can be reduced using a low-lifetime substrate compared to the pixel recharged time constant or introducing a second p/n junction to block all the carriers coming from the backside [127].
+Fig.4.19 summarises the SiPM output signal of the different noise sources: primary, prompt and delayed OCT and afterpulsing events.
 
 \subsection{Optical Cross-Talk}
+The number of secondary photons produced in an avalanche has been measured to be about $3\times 10^{-5}$ per charge carrier crossing the junction:  with a SiPM gain of $10^6$, about $30$ visible photons are generated during a cell break-down avalanche.
+These secondary photons are emitted isotropically and can be absorbed in the active volume of a neighbouring cells, triggering secondary avalanches resulting in a SiPM output pulse with two or three times the single-pixel amplitude (fig.4.15).
+This phenomenon is called "direct" or "prompt" Optical Cross-Talk (OCT) since the sum of the travel time of the photon from the first to the second pixel, the carrier drift time and the time needed to trigger the secondary avalanche is tens of picosecond and thus not distinguishable from the first avalanche with typical electronics.
+In addition to this, another type of OCT exists:  the "delayed" OCT.
+It is caused by secondary photons generating an \textit{eh} pair in the bulk or in the neutral regions next to the depleted area (fig.4.16).
+The generated carriers can diffuse to the active region and trigger a new avalanche.
+Another possible origin of OCT comes from photons exiting the silicon and reflected back in the avalanche region by e.g. the change of material reflective index fig.4.16.
+This can be defined as External OCT.
+Two examples of external reflector are the top surface of glass/resin layer added in some SiPM to protect the detector surface from environmental and mechanical stresses or a scintillator with diffusing/reflective surfaces.
+Contrary to prompt OCT, in this case the secondary avalanche production time can be long enough(from few $ns$ up to $\mu s$) to separate it from the starting time of the primary one and thus to identify two different and subsequent events.
+Anyway, due to the finite bandwidth and sampling rate available in the front-end and in the SiPM signal acquisition, part of the delayed OCT events can be identified as prompt OCT.
+Fig.4.17 shows an example of the DCR and OCT events frequency for a SiPM: higher order OCT decreases rapidly with the number of fired cells.
+The probability of simultaneously triggering $N$ avalanches due to the optical cross-talk can be described exponentially decreasing with $N$. Often this simple model is sufficient and can be used to phenomenologically include OCT in Monte Carlo simulations.
+However, this is a very simple, first order approximation, model and a more complex and exhaustive description of the OCT probability as a branching Poisson process can be found in [123] and in [124].
+OCT increases with higher bias voltage: increasing the $V_{Bias}$, the number of photons produced during the avalanche increases and a larger triggering probability is expected.
+The OCT probability increases also reducing the SiPM pixel pitch due to the less average distance that photons have to travel before reaching the neighbour cells.
+Nowadays, to reduce properly the OCT down to a value of $1-2\%$, optical trenches between the SiPM pixels are inserted [125].

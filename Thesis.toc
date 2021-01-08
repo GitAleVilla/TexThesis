@@ -8,37 +8,37 @@
 \contentsline {chapter}{\numberline {2}Calorimetry and dual-readout}{3}%
 \contentsline {section}{\numberline {2.1}Electomagnetic showers}{3}%
 \contentsline {subsection}{\numberline {2.1.1}Shower development}{3}%
-\contentsline {subsection}{\numberline {2.1.2}Energy resolution}{3}%
-\contentsline {section}{\numberline {2.2}Hadronic showers}{3}%
-\contentsline {subsection}{\numberline {2.2.1}Shower development}{3}%
-\contentsline {subsection}{\numberline {2.2.2}Energy resolution}{3}%
-\contentsline {section}{\numberline {2.3}Dual-readout calorimetry}{3}%
+\contentsline {subsection}{\numberline {2.1.2}Energy resolution}{4}%
+\contentsline {section}{\numberline {2.2}Hadronic showers}{4}%
+\contentsline {subsection}{\numberline {2.2.1}Shower development}{4}%
+\contentsline {subsection}{\numberline {2.2.2}Energy resolution}{4}%
+\contentsline {section}{\numberline {2.3}Dual-readout calorimetry}{4}%
 \contentsline {subsection}{\numberline {2.3.1}Working principles}{4}%
-\contentsline {subsection}{\numberline {2.3.2}Experiments}{4}%
-\contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{5}%
-\contentsline {section}{\numberline {3.1}Working principles}{5}%
-\contentsline {section}{\numberline {3.2}SiPM Response}{7}%
-\contentsline {section}{\numberline {3.3}Noise effects}{7}%
-\contentsline {subsection}{\numberline {3.3.1}Dark Count Rate}{7}%
-\contentsline {subsection}{\numberline {3.3.2}After-Pulse}{7}%
-\contentsline {subsection}{\numberline {3.3.3}Optical Cross-Talk}{7}%
-\contentsline {chapter}{\numberline {4}IDEA DR calorimeter project}{9}%
-\contentsline {chapter}{\numberline {5}IDEA DR calorimeter full simulation}{11}%
-\contentsline {section}{\numberline {5.1}Simulation structure}{12}%
-\contentsline {subsection}{\numberline {5.1.1}Calorimeter simulation}{12}%
-\contentsline {subsection}{\numberline {5.1.2}SiPM response digitization}{14}%
-\contentsline {section}{\numberline {5.2}Simulation performances}{16}%
-\contentsline {subsection}{\numberline {5.2.1}Different configurations}{16}%
-\contentsline {subsection}{\numberline {5.2.2}Time studies}{16}%
-\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{20}%
-\contentsline {subsubsection}{Occupancy effect and Energy loss}{20}%
-\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{20}%
-\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{20}%
-\contentsline {subsection}{\numberline {5.3.1}Configuration}{20}%
-\contentsline {subsection}{\numberline {5.3.2}Performances}{20}%
-\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{20}%
-\contentsline {subsection}{\numberline {5.4.1}Configuration}{20}%
-\contentsline {subsection}{\numberline {5.4.2}Performances}{20}%
-\contentsline {chapter}{\numberline {6}Conclusion}{21}%
-\contentsline {chapter}{Thanks}{23}%
-\contentsline {chapter}{Bibliography}{25}%
+\contentsline {subsection}{\numberline {2.3.2}Experiments}{5}%
+\contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{7}%
+\contentsline {section}{\numberline {3.1}Working principles}{7}%
+\contentsline {section}{\numberline {3.2}SiPM efficiency}{10}%
+\contentsline {section}{\numberline {3.3}Noise effects}{12}%
+\contentsline {subsection}{\numberline {3.3.1}Dark Count Rate}{12}%
+\contentsline {subsection}{\numberline {3.3.2}After-Pulse}{13}%
+\contentsline {subsection}{\numberline {3.3.3}Optical Cross-Talk}{14}%
+\contentsline {chapter}{\numberline {4}IDEA DR calorimeter project}{17}%
+\contentsline {chapter}{\numberline {5}IDEA DR calorimeter full simulation}{19}%
+\contentsline {section}{\numberline {5.1}Simulation structure}{20}%
+\contentsline {subsection}{\numberline {5.1.1}Calorimeter simulation}{20}%
+\contentsline {subsection}{\numberline {5.1.2}SiPM response digitization}{22}%
+\contentsline {section}{\numberline {5.2}Simulation performances}{24}%
+\contentsline {subsection}{\numberline {5.2.1}Different configurations}{24}%
+\contentsline {subsection}{\numberline {5.2.2}Time studies}{24}%
+\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{28}%
+\contentsline {subsubsection}{Occupancy effect and Energy loss}{28}%
+\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{28}%
+\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{28}%
+\contentsline {subsection}{\numberline {5.3.1}Configuration}{28}%
+\contentsline {subsection}{\numberline {5.3.2}Performances}{28}%
+\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{28}%
+\contentsline {subsection}{\numberline {5.4.1}Configuration}{28}%
+\contentsline {subsection}{\numberline {5.4.2}Performances}{28}%
+\contentsline {chapter}{\numberline {6}Conclusion}{29}%
+\contentsline {chapter}{Thanks}{31}%
+\contentsline {chapter}{Bibliography}{33}%

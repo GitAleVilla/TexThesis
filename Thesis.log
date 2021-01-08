@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.29)  7 JAN 2021 18:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.29)  8 JAN 2021 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -986,20 +986,55 @@ Capitolo 1.
 
 ]
 Capitolo 2.
-[3]) (./Cap3.tex [4]
-Capitolo 3.
-[5
+
+Underfull \hbox (badness 10000) in paragraph at lines 2--9
+
+ []
+
+[3]) (./Cap3.tex [4] [5] [6
 
 ]
+Capitolo 3.
+[7]
 Underfull \hbox (badness 10000) in paragraph at lines 11--16
 
  []
 
-[6]) (./Cap4.tex [7] [8
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 21--24
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 30--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 39--42
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 48--55
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--73
+
+ []
+
+[12] [13]) [14] (./Cap4.tex [15] [16
 
 ]
 Capitolo 4.
-) (./Cap5.tex [9] [10
+) (./Cap5.tex [17] [18
 
 ]
 Capitolo 5.
@@ -1025,13 +1060,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
 
  []
 
-[11]
-<IMG/DRCGeometry3.png, id=95, 400.49625pt x 395.22656pt>
+[19]
+<IMG/DRCGeometry3.png, id=122, 400.49625pt x 395.22656pt>
 File: IMG/DRCGeometry3.png Graphic file (type png)
 <use IMG/DRCGeometry3.png>
 Package pdftex.def Info: IMG/DRCGeometry3.png  used on input line 27.
 (pdftex.def)             Requested size: 216.0022pt x 213.15984pt.
-<IMG/DRCGeometry1.png, id=97, 832.61063pt x 403.5075pt>
+<IMG/DRCGeometry1.png, id=124, 832.61063pt x 403.5075pt>
 File: IMG/DRCGeometry1.png Graphic file (type png)
 <use IMG/DRCGeometry1.png>
 Package pdftex.def Info: IMG/DRCGeometry1.png  used on input line 33.
@@ -1041,18 +1076,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
 
-[12 <./IMG/DRCGeometry3.png>]
+[20 <./IMG/DRCGeometry3.png>]
 Underfull \hbox (badness 7540) in paragraph at lines 51--52
 []|\OT1/cmr/m/n/10.95 Emission con-stant $= 2\OML/cmm/m/it/10.95 :\OT1/cmr/m/n/
 10.95 8 \OML/cmm/m/it/10.95 ns$\OT1/cmr/m/n/10.95 , LY $=
  []
 
-<IMG/DRCGeometry2.png, id=102, 444.15938pt x 137.01187pt>
+<IMG/DRCGeometry2.png, id=129, 444.15938pt x 137.01187pt>
 File: IMG/DRCGeometry2.png Graphic file (type png)
 <use IMG/DRCGeometry2.png>
 Package pdftex.def Info: IMG/DRCGeometry2.png  used on input line 66.
 (pdftex.def)             Requested size: 288.0011pt x 88.84132pt.
-[13 <./IMG/DRCGeometry1.png>]
+[21 <./IMG/DRCGeometry1.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
@@ -1067,17 +1102,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
-[14 <./IMG/DRCGeometry2.png>]
+[22 <./IMG/DRCGeometry2.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
-[15]
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 136--137
 
  []
 
-<IMG/SingleWaveform.jpg, id=118, 901.3675pt x 577.15625pt>
+<IMG/SingleWaveform.jpg, id=143, 901.3675pt x 577.15625pt>
 File: IMG/SingleWaveform.jpg Graphic file (type jpg)
 <use IMG/SingleWaveform.jpg>
 Package pdftex.def Info: IMG/SingleWaveform.jpg  used on input line 168.
@@ -1087,41 +1122,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--179
 
  []
 
-[16]
-<IMG/true_toa_dist.png, id=122, 1045.65656pt x 549.55313pt>
+[24]
+<IMG/true_toa_dist.png, id=147, 1045.65656pt x 549.55313pt>
 File: IMG/true_toa_dist.png Graphic file (type png)
 <use IMG/true_toa_dist.png>
 Package pdftex.def Info: IMG/true_toa_dist.png  used on input line 182.
 (pdftex.def)             Requested size: 288.0011pt x 151.35817pt.
 
 
-LaTeX Warning: Reference `top_50ns' on page 17 undefined on input line 188.
+LaTeX Warning: Reference `top_50ns' on page 25 undefined on input line 188.
 
 
-LaTeX Warning: Reference `top_10ns' on page 17 undefined on input line 188.
+LaTeX Warning: Reference `top_10ns' on page 25 undefined on input line 188.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 187--190
 
  []
 
-[17 <./IMG/SingleWaveform.jpg> <./IMG/True_toa_dist.png>]
-<IMG/top_50ns.png, id=127, 1078.0275pt x 554.07pt>
+[25 <./IMG/SingleWaveform.jpg> <./IMG/True_toa_dist.png>]
+<IMG/top_50ns.png, id=153, 1078.0275pt x 554.07pt>
 File: IMG/top_50ns.png Graphic file (type png)
 <use IMG/top_50ns.png>
 Package pdftex.def Info: IMG/top_50ns.png  used on input line 193.
 (pdftex.def)             Requested size: 161.9989pt x 83.2591pt.
-<IMG/top_10ns.png, id=128, 1066.7353pt x 559.33969pt>
+<IMG/top_10ns.png, id=154, 1066.7353pt x 559.33969pt>
 File: IMG/top_10ns.png Graphic file (type png)
 <use IMG/top_10ns.png>
 Package pdftex.def Info: IMG/top_10ns.png  used on input line 194.
 (pdftex.def)             Requested size: 161.9989pt x 84.93857pt.
-<IMG/top_C.png, id=129, 1073.51062pt x 561.59813pt>
+<IMG/top_C.png, id=155, 1073.51062pt x 561.59813pt>
 File: IMG/top_C.png Graphic file (type png)
 <use IMG/top_C.png>
 Package pdftex.def Info: IMG/top_C.png  used on input line 201.
 (pdftex.def)             Requested size: 161.9989pt x 84.74167pt.
-<IMG/top_S.png, id=130, 1072.75781pt x 559.33969pt>
+<IMG/top_S.png, id=156, 1072.75781pt x 559.33969pt>
 File: IMG/top_S.png Graphic file (type png)
 <use IMG/top_S.png>
 Package pdftex.def Info: IMG/top_S.png  used on input line 202.
@@ -1136,31 +1171,31 @@ Overfull \hbox (1.18529pt too wide) in paragraph at lines 219--238
  [][] 
  []
 
-<IMG/top_dummy.png, id=131, 1065.9825pt x 568.37344pt>
+<IMG/top_dummy.png, id=157, 1065.9825pt x 568.37344pt>
 File: IMG/top_dummy.png Graphic file (type png)
 <use IMG/top_dummy.png>
 Package pdftex.def Info: IMG/top_dummy.png  used on input line 244.
 (pdftex.def)             Requested size: 288.0011pt x 153.55827pt.
-<IMG/top_sigma.png, id=132, 1032.85875pt x 545.78906pt>
+<IMG/top_sigma.png, id=158, 1032.85875pt x 545.78906pt>
 File: IMG/top_sigma.png Graphic file (type png)
 <use IMG/top_sigma.png>
 Package pdftex.def Info: IMG/top_sigma.png  used on input line 251.
 (pdftex.def)             Requested size: 288.0011pt x 152.18695pt.
-[18 <./IMG/top_50ns.png> <./IMG/top_10ns.png> <./IMG/top_C.png> <./IMG/top_S.pn
-g>] [19 <./IMG/top_dummy.png> <./IMG/top_sigma.png>]
+[26 <./IMG/top_50ns.png> <./IMG/top_10ns.png> <./IMG/top_C.png> <./IMG/top_S.pn
+g>] [27 <./IMG/top_dummy.png> <./IMG/top_sigma.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 261--262
 
  []
 
-) (./Conclusione.tex [20]
+) (./Conclusione.tex [28]
 Capitolo 6.
-) [21
+) [29
 
-] [22
+] [30
 
-] (./Ringraziamenti.tex) [23
+] (./Ringraziamenti.tex) [31
 
-] [24
+] [32
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 106--107
@@ -1174,19 +1209,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 all _ products /
  []
 
-[25] (./Thesis.aux)
+[33] (./Thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 28428 strings out of 492163
- 563035 string characters out of 6129075
- 589841 words of memory out of 5000000
- 32383 multiletter control sequences out of 15000+600000
+ 28429 strings out of 492163
+ 563045 string characters out of 6129075
+ 589853 words of memory out of 5000000
+ 32384 multiletter control sequences out of 15000+600000
  549301 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,14n,67p,1390b,594s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,67p,2028b,594s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2019
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/texlive/2019/texmf-dis
@@ -1204,10 +1239,10 @@ cm/cmsl10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
 .pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/t
 exlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/20
 19/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (31 pages, 923765 bytes).
+Output written on Thesis.pdf (39 pages, 951227 bytes).
 PDF statistics:
- 223 PDF objects out of 1000 (max. 8388607)
- 145 compressed objects within 2 object streams
+ 250 PDF objects out of 1000 (max. 8388607)
+ 164 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
