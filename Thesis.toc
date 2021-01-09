@@ -6,15 +6,16 @@
 \contentsline {section}{\numberline {1.2}Leptonic colliders}{1}%
 \contentsline {section}{\numberline {1.3}Detectors}{1}%
 \contentsline {chapter}{\numberline {2}Calorimetry and dual-readout}{3}%
-\contentsline {section}{\numberline {2.1}Electomagnetic showers}{3}%
-\contentsline {subsection}{\numberline {2.1.1}Shower development}{3}%
-\contentsline {subsection}{\numberline {2.1.2}Energy resolution}{4}%
-\contentsline {section}{\numberline {2.2}Hadronic showers}{4}%
-\contentsline {subsection}{\numberline {2.2.1}Shower development}{4}%
-\contentsline {subsection}{\numberline {2.2.2}Energy resolution}{4}%
-\contentsline {section}{\numberline {2.3}Dual-readout calorimetry}{4}%
-\contentsline {subsection}{\numberline {2.3.1}Working principles}{4}%
-\contentsline {subsection}{\numberline {2.3.2}Experiments}{5}%
+\contentsline {section}{\numberline {2.1}Physics of shower development}{5}%
+\contentsline {subsection}{\numberline {2.1.1}Electromagnetic Showers}{5}%
+\contentsline {subsection}{\numberline {2.1.2}Hadronic showers}{5}%
+\contentsline {section}{\numberline {2.2}Energy response of calorimeters}{5}%
+\contentsline {subsection}{\numberline {2.2.1}Homogeneous calorimeters}{5}%
+\contentsline {subsection}{\numberline {2.2.2}Sampling calorimeters}{5}%
+\contentsline {subsection}{\numberline {2.2.3}Compensation}{5}%
+\contentsline {section}{\numberline {2.3}Dual-readout calorimetry}{5}%
+\contentsline {subsection}{\numberline {2.3.1}Working principles}{5}%
+\contentsline {subsection}{\numberline {2.3.2}Experiments}{6}%
 \contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{7}%
 \contentsline {section}{\numberline {3.1}Working principles}{7}%
 \contentsline {section}{\numberline {3.2}SiPM efficiency}{10}%
