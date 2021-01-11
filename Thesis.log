@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  9 JAN 2021 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  10 JAN 2021 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,31 +756,40 @@ Capitolo 1.
 
 ]
 Capitolo 2.
+) (./Cap3.tex [3] [4
+
+]
+Capitolo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 2--9
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 28--32
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--14
 
  []
 
-[4]) (./Cap3.tex [5] [6]
-Capitolo 3.
-[7
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
+
+ []
+
+[6]) (./Cap4.tex [7] [8
 
 ]
+Capitolo 4.
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 11--16
 
  []
 
-[8]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 21--24
 
  []
 
-[9]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 30--33
 
  []
@@ -790,12 +799,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--37
 
  []
 
-[10]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 39--42
 
  []
 
-[11]
+[13]
 Underfull \hbox (badness 10000) in paragraph at lines 48--55
 
  []
@@ -805,11 +814,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--73
 
  []
 
-[12] [13]) [14] (./Cap4.tex [15] [16
-
-]
-Capitolo 4.
-) (./Cap5.tex [17] [18
+[14] [15]) [16] (./Cap5.tex [17] [18
 
 ]
 Capitolo 5.
@@ -985,7 +990,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  19001 strings out of 480478
  382757 string characters out of 5903485
- 615349 words of memory out of 5000000
+ 615348 words of memory out of 5000000
  34629 multiletter control sequences out of 15000+600000
  549642 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1009,7 +1014,7 @@ texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/20
 20/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2020/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2020/texmf-dist/font
 s/type1/public/cm-super/sfrm1095.pfb>
-Output written on Thesis.pdf (39 pages, 960250 bytes).
+Output written on Thesis.pdf (39 pages, 959075 bytes).
 PDF statistics:
  255 PDF objects out of 1000 (max. 8388607)
  168 compressed objects within 2 object streams

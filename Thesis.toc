@@ -5,25 +5,25 @@
 \contentsline {section}{\numberline {1.1}Physics goals}{1}%
 \contentsline {section}{\numberline {1.2}Leptonic colliders}{1}%
 \contentsline {section}{\numberline {1.3}Detectors}{1}%
-\contentsline {chapter}{\numberline {2}Calorimetry and dual-readout}{3}%
-\contentsline {section}{\numberline {2.1}Physics of shower development}{5}%
-\contentsline {subsection}{\numberline {2.1.1}Electromagnetic Showers}{5}%
-\contentsline {subsection}{\numberline {2.1.2}Hadronic showers}{5}%
-\contentsline {section}{\numberline {2.2}Energy response of calorimeters}{5}%
-\contentsline {subsection}{\numberline {2.2.1}Homogeneous calorimeters}{5}%
-\contentsline {subsection}{\numberline {2.2.2}Sampling calorimeters}{5}%
-\contentsline {subsection}{\numberline {2.2.3}Compensation}{5}%
-\contentsline {section}{\numberline {2.3}Dual-readout calorimetry}{5}%
-\contentsline {subsection}{\numberline {2.3.1}Working principles}{5}%
-\contentsline {subsection}{\numberline {2.3.2}Experiments}{6}%
-\contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{7}%
-\contentsline {section}{\numberline {3.1}Working principles}{7}%
-\contentsline {section}{\numberline {3.2}SiPM efficiency}{10}%
-\contentsline {section}{\numberline {3.3}Noise effects}{12}%
-\contentsline {subsection}{\numberline {3.3.1}Dark Count Rate}{12}%
-\contentsline {subsection}{\numberline {3.3.2}After-Pulse}{13}%
-\contentsline {subsection}{\numberline {3.3.3}Optical Cross-Talk}{14}%
-\contentsline {chapter}{\numberline {4}IDEA DR calorimeter project}{17}%
+\contentsline {chapter}{\numberline {2}IDEA DR calorimeter project}{3}%
+\contentsline {chapter}{\numberline {3}Calorimetry and dual-readout}{5}%
+\contentsline {section}{\numberline {3.1}Physics of shower development}{6}%
+\contentsline {subsection}{\numberline {3.1.1}Electromagnetic Showers}{7}%
+\contentsline {subsection}{\numberline {3.1.2}Hadronic showers}{7}%
+\contentsline {section}{\numberline {3.2}Energy response of calorimeters}{7}%
+\contentsline {subsection}{\numberline {3.2.1}Homogeneous calorimeters}{7}%
+\contentsline {subsection}{\numberline {3.2.2}Sampling calorimeters}{7}%
+\contentsline {subsection}{\numberline {3.2.3}Compensation}{7}%
+\contentsline {section}{\numberline {3.3}Dual-readout calorimetry}{7}%
+\contentsline {subsection}{\numberline {3.3.1}Working principles}{7}%
+\contentsline {subsection}{\numberline {3.3.2}Experiments}{7}%
+\contentsline {chapter}{\numberline {4}Silicon Photomultipliers}{9}%
+\contentsline {section}{\numberline {4.1}Working principles}{9}%
+\contentsline {section}{\numberline {4.2}SiPM efficiency}{12}%
+\contentsline {section}{\numberline {4.3}Noise effects}{14}%
+\contentsline {subsection}{\numberline {4.3.1}Dark Count Rate}{14}%
+\contentsline {subsection}{\numberline {4.3.2}After-Pulse}{15}%
+\contentsline {subsection}{\numberline {4.3.3}Optical Cross-Talk}{16}%
 \contentsline {chapter}{\numberline {5}IDEA DR calorimeter full simulation}{19}%
 \contentsline {section}{\numberline {5.1}Simulation structure}{20}%
 \contentsline {subsection}{\numberline {5.1.1}Calorimeter simulation}{20}%
