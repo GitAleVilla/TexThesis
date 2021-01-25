@@ -27,21 +27,22 @@
 \BOOKMARK [2][-]{subsection.4.3.1}{Dark Count Rate}{section.4.3}% 27
 \BOOKMARK [2][-]{subsection.4.3.2}{After-Pulse}{section.4.3}% 28
 \BOOKMARK [2][-]{subsection.4.3.3}{Optical Cross-Talk}{section.4.3}% 29
-\BOOKMARK [0][-]{chapter.5}{IDEA DR calorimeter full simulation}{}% 30
-\BOOKMARK [1][-]{section.5.1}{Simulation structure}{chapter.5}% 31
-\BOOKMARK [2][-]{subsection.5.1.1}{Calorimeter simulation}{section.5.1}% 32
-\BOOKMARK [2][-]{subsection.5.1.2}{SiPM response digitization}{section.5.1}% 33
-\BOOKMARK [1][-]{section.5.2}{Simulation performances}{chapter.5}% 34
-\BOOKMARK [2][-]{subsection.5.2.1}{Different configurations}{section.5.2}% 35
-\BOOKMARK [2][-]{subsection.5.2.2}{Time studies}{section.5.2}% 36
-\BOOKMARK [2][-]{subsection.5.2.3}{Occupancy effect}{section.5.2}% 37
-\BOOKMARK [2][-]{subsection.5.2.4}{Energy resolution}{section.5.2}% 38
-\BOOKMARK [1][-]{section.5.3}{Neural Network: Particle ID on waveform}{chapter.5}% 39
-\BOOKMARK [2][-]{subsection.5.3.1}{Configuration}{section.5.3}% 40
-\BOOKMARK [2][-]{subsection.5.3.2}{Performances}{section.5.3}% 41
-\BOOKMARK [1][-]{section.5.4}{Neural Network: Particle ID on imaging}{chapter.5}% 42
-\BOOKMARK [2][-]{subsection.5.4.1}{Configuration}{section.5.4}% 43
-\BOOKMARK [2][-]{subsection.5.4.2}{Performances}{section.5.4}% 44
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 45
-\BOOKMARK [0][-]{chapter*.21}{Thanks}{}% 46
-\BOOKMARK [0][-]{chapter*.22}{Bibliography}{}% 47
+\BOOKMARK [1][-]{section.4.4}{Timing properties}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.5}{IDEA DR calorimeter full simulation}{}% 31
+\BOOKMARK [1][-]{section.5.1}{Simulation structure}{chapter.5}% 32
+\BOOKMARK [2][-]{subsection.5.1.1}{Calorimeter simulation}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.2}{SiPM response digitization}{section.5.1}% 34
+\BOOKMARK [1][-]{section.5.2}{Simulation performances}{chapter.5}% 35
+\BOOKMARK [2][-]{subsection.5.2.1}{Different configurations}{section.5.2}% 36
+\BOOKMARK [2][-]{subsection.5.2.2}{Time studies}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.3}{Occupancy effect}{section.5.2}% 38
+\BOOKMARK [2][-]{subsection.5.2.4}{Energy resolution}{section.5.2}% 39
+\BOOKMARK [1][-]{section.5.3}{Neural Network: Particle ID on waveform}{chapter.5}% 40
+\BOOKMARK [2][-]{subsection.5.3.1}{Configuration}{section.5.3}% 41
+\BOOKMARK [2][-]{subsection.5.3.2}{Performances}{section.5.3}% 42
+\BOOKMARK [1][-]{section.5.4}{Neural Network: Particle ID on imaging}{chapter.5}% 43
+\BOOKMARK [2][-]{subsection.5.4.1}{Configuration}{section.5.4}% 44
+\BOOKMARK [2][-]{subsection.5.4.2}{Performances}{section.5.4}% 45
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 46
+\BOOKMARK [0][-]{chapter*.21}{Thanks}{}% 47
+\BOOKMARK [0][-]{chapter*.22}{Bibliography}{}% 48
