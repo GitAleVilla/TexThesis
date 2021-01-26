@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  25 JAN 2021 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.6.10)  26 JAN 2021 20:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -857,7 +857,7 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 34
 (c:/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<Thesis-frn.pdf, id=195, 597.50829pt x 845.0471pt>
+<Thesis-frn.pdf, id=203, 597.50829pt x 845.0471pt>
 File: Thesis-frn.pdf Graphic file (type pdf)
 <use Thesis-frn.pdf>
 Package pdftex.def Info: Thesis-frn.pdf  used on input line 37.
@@ -951,7 +951,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--55
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--73
+Underfull \hbox (badness 10000) in paragraph at lines 63--76
 
  []
 
@@ -975,12 +975,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--24
  []
 
 [19]
-<IMG/DRCGeometry3.png, id=401, 400.49625pt x 395.22656pt>
+<IMG/DRCGeometry3.png, id=410, 400.49625pt x 395.22656pt>
 File: IMG/DRCGeometry3.png Graphic file (type png)
 <use IMG/DRCGeometry3.png>
 Package pdftex.def Info: IMG/DRCGeometry3.png  used on input line 27.
 (pdftex.def)             Requested size: 216.0022pt x 213.15984pt.
-<IMG/DRCGeometry1.png, id=403, 832.61063pt x 403.5075pt>
+<IMG/DRCGeometry1.png, id=412, 832.61063pt x 403.5075pt>
 File: IMG/DRCGeometry1.png Graphic file (type png)
 <use IMG/DRCGeometry1.png>
 Package pdftex.def Info: IMG/DRCGeometry1.png  used on input line 33.
@@ -996,7 +996,7 @@ Underfull \hbox (badness 7540) in paragraph at lines 51--52
 10.95 8 \OML/cmm/m/it/10.95 ns$\OT1/cmr/m/n/10.95 , LY $=
  []
 
-<IMG/DRCGeometry2.png, id=415, 444.15938pt x 137.01187pt>
+<IMG/DRCGeometry2.png, id=424, 444.15938pt x 137.01187pt>
 File: IMG/DRCGeometry2.png Graphic file (type png)
 <use IMG/DRCGeometry2.png>
 Package pdftex.def Info: IMG/DRCGeometry2.png  used on input line 66.
@@ -1021,7 +1021,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
-<IMG/SingleWaveform.jpg, id=443, 901.3675pt x 577.15625pt>
+<IMG/SingleWaveform.jpg, id=452, 901.3675pt x 577.15625pt>
 File: IMG/SingleWaveform.jpg Graphic file (type jpg)
 <use IMG/SingleWaveform.jpg>
 Package pdftex.def Info: IMG/SingleWaveform.jpg  used on input line 170.
@@ -1032,7 +1032,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--181
  []
 
 [24]
-<IMG/true_toa_dist.png, id=452, 1045.65656pt x 549.55313pt>
+<IMG/true_toa_dist.png, id=461, 1045.65656pt x 549.55313pt>
 File: IMG/true_toa_dist.png Graphic file (type png)
 <use IMG/true_toa_dist.png>
 Package pdftex.def Info: IMG/true_toa_dist.png  used on input line 184.
@@ -1043,22 +1043,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--192
  []
 
 [25 <./IMG/SingleWaveform.jpg> <./IMG/True_toa_dist.png>]
-<IMG/top_50ns.png, id=465, 1078.0275pt x 554.07pt>
+<IMG/top_50ns.png, id=474, 1078.0275pt x 554.07pt>
 File: IMG/top_50ns.png Graphic file (type png)
 <use IMG/top_50ns.png>
 Package pdftex.def Info: IMG/top_50ns.png  used on input line 195.
 (pdftex.def)             Requested size: 161.9989pt x 83.2591pt.
-<IMG/top_10ns.png, id=466, 1066.7353pt x 559.33969pt>
+<IMG/top_10ns.png, id=475, 1066.7353pt x 559.33969pt>
 File: IMG/top_10ns.png Graphic file (type png)
 <use IMG/top_10ns.png>
 Package pdftex.def Info: IMG/top_10ns.png  used on input line 196.
 (pdftex.def)             Requested size: 161.9989pt x 84.93857pt.
-<IMG/top_C.png, id=467, 1073.51062pt x 561.59813pt>
+<IMG/top_C.png, id=476, 1073.51062pt x 561.59813pt>
 File: IMG/top_C.png Graphic file (type png)
 <use IMG/top_C.png>
 Package pdftex.def Info: IMG/top_C.png  used on input line 203.
 (pdftex.def)             Requested size: 161.9989pt x 84.74167pt.
-<IMG/top_S.png, id=468, 1072.75781pt x 559.33969pt>
+<IMG/top_S.png, id=477, 1072.75781pt x 559.33969pt>
 File: IMG/top_S.png Graphic file (type png)
 <use IMG/top_S.png>
 Package pdftex.def Info: IMG/top_S.png  used on input line 204.
@@ -1074,12 +1074,12 @@ Overfull \hbox (1.18529pt too wide) in paragraph at lines 221--240
  [][] 
  []
 
-<IMG/top_dummy.png, id=491, 1065.9825pt x 568.37344pt>
+<IMG/top_dummy.png, id=500, 1065.9825pt x 568.37344pt>
 File: IMG/top_dummy.png Graphic file (type png)
 <use IMG/top_dummy.png>
 Package pdftex.def Info: IMG/top_dummy.png  used on input line 246.
 (pdftex.def)             Requested size: 288.0011pt x 153.55827pt.
-<IMG/top_sigma.png, id=492, 1032.85875pt x 545.78906pt>
+<IMG/top_sigma.png, id=501, 1032.85875pt x 545.78906pt>
 File: IMG/top_sigma.png Graphic file (type png)
 <use IMG/top_sigma.png>
 Package pdftex.def Info: IMG/top_sigma.png  used on input line 253.
@@ -1089,16 +1089,91 @@ Underfull \hbox (badness 10000) in paragraph at lines 260--261
 
  []
 
-[27 <./IMG/top_dummy.png>]) (./Conclusione.tex [28 <./IMG/top_sigma.png>]
-[29] [30
+[27 <./IMG/top_dummy.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
-]
+ []
+
+<IMG/Saturation_40GeV_25um_scin.png, id=511, 995.21812pt x 536.0025pt>
+File: IMG/Saturation_40GeV_25um_scin.png Graphic file (type png)
+<use IMG/Saturation_40GeV_25um_scin.png>
+Package pdftex.def Info: IMG/Saturation_40GeV_25um_scin.png  used on input line
+ 266.
+(pdftex.def)             Requested size: 288.0011pt x 155.10959pt.
+[28 <./IMG/top_sigma.png> <./IMG/Saturation_40GeV_25um_scin.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 276--281
+
+ []
+
+<IMG/10pe_sat_check.png, id=521, 768.62157pt x 499.8675pt>
+File: IMG/10pe_sat_check.png Graphic file (type png)
+<use IMG/10pe_sat_check.png>
+Package pdftex.def Info: IMG/10pe_sat_check.png  used on input line 284.
+(pdftex.def)             Requested size: 288.0011pt x 187.30493pt.
+<IMG/NoSatLine.pdf, id=522, 569.12625pt x 364.36125pt>
+File: IMG/NoSatLine.pdf Graphic file (type pdf)
+<use IMG/NoSatLine.pdf>
+Package pdftex.def Info: IMG/NoSatLine.pdf  used on input line 291.
+(pdftex.def)             Requested size: 288.0011pt x 184.38737pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--299
+
+ []
+
+<IMG/Sat_Fib_40GeV_cher.jpg, id=524, 901.3675pt x 577.15625pt>
+File: IMG/Sat_Fib_40GeV_cher.jpg Graphic file (type jpg)
+<use IMG/Sat_Fib_40GeV_cher.jpg>
+Package pdftex.def Info: IMG/Sat_Fib_40GeV_cher.jpg  used on input line 302.
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+<IMG/Sat_Fib_40GeV_scin.jpg, id=525, 901.3675pt x 577.15625pt>
+File: IMG/Sat_Fib_40GeV_scin.jpg Graphic file (type jpg)
+<use IMG/Sat_Fib_40GeV_scin.jpg>
+Package pdftex.def Info: IMG/Sat_Fib_40GeV_scin.jpg  used on input line 303.
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+[29 <./IMG/10pe_sat_check.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 308--309
+
+ []
+
+<IMG/Sat_Ev_40GeV_cher.jpg, id=536, 901.3675pt x 577.15625pt>
+File: IMG/Sat_Ev_40GeV_cher.jpg Graphic file (type jpg)
+<use IMG/Sat_Ev_40GeV_cher.jpg>
+Package pdftex.def Info: IMG/Sat_Ev_40GeV_cher.jpg  used on input line 312.
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+<IMG/Sat_Ev_40GeV_scin.jpg, id=537, 901.3675pt x 577.15625pt>
+File: IMG/Sat_Ev_40GeV_scin.jpg Graphic file (type jpg)
+<use IMG/Sat_Ev_40GeV_scin.jpg>
+Package pdftex.def Info: IMG/Sat_Ev_40GeV_scin.jpg  used on input line 313.
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
+
+ []
+
+<IMG/PercEnergy_40GeV_cher.jpg, id=539, 901.3675pt x 577.15625pt>
+File: IMG/PercEnergy_40GeV_cher.jpg Graphic file (type jpg)
+<use IMG/PercEnergy_40GeV_cher.jpg>
+Package pdftex.def Info: IMG/PercEnergy_40GeV_cher.jpg  used on input line 324.
+
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+<IMG/PercEnergy_40GeV_scin.jpg, id=540, 901.3675pt x 577.15625pt>
+File: IMG/PercEnergy_40GeV_scin.jpg Graphic file (type jpg)
+<use IMG/PercEnergy_40GeV_scin.jpg>
+Package pdftex.def Info: IMG/PercEnergy_40GeV_scin.jpg  used on input line 325.
+
+(pdftex.def)             Requested size: 360.0pt x 230.51494pt.
+[30 <./IMG/NoSatLine.pdf, page is rotated 90 degrees>] [31 <./IMG/Sat_Fib_40GeV
+_cher.jpg> <./IMG/Sat_Fib_40GeV_scin.jpg>] [32 <./IMG/Sat_Ev_40GeV_cher.jpg> <.
+/IMG/Sat_Ev_40GeV_scin.jpg>] [33 <./IMG/PercEnergy_40GeV_cher.jpg> <./IMG/PercE
+nergy_40GeV_scin.jpg>]) (./Conclusione.tex [34]
 Capitolo 6.
-) [31] [32
+) [35
 
-] (./Ringraziamenti.tex) [33
+] [36
 
-] [34
+] (./Ringraziamenti.tex) [37
+
+] [38
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 102--103
@@ -1112,30 +1187,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--103
 all _ products /
  []
 
-[35]
+[39]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
-
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: BB7A9EA04A358F62D853CC127756B699;3137
-(rerunfilecheck)             After:  C596E6370D9B9308A63F811857CF1C9B;3201.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 760DB499BDBA7A472FED54D740B77942;3271.
  ) 
 Here is how much of TeX's memory you used:
- 22682 strings out of 480478
- 440393 string characters out of 5903485
- 698574 words of memory out of 5000000
- 38106 multiletter control sequences out of 15000+600000
+ 22780 strings out of 480478
+ 442758 string characters out of 5903485
+ 698952 words of memory out of 5000000
+ 38177 multiletter control sequences out of 15000+600000
  544588 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,14n,60p,2028b,928s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,14n,60p,2028b,891s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/tex
 live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2020
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2020/texmf-di
@@ -1153,10 +1221,10 @@ ype1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 .pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/
 texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/texlive/2
 020/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on Thesis.pdf (41 pages, 954364 bytes).
+Output written on Thesis.pdf (45 pages, 1315520 bytes).
 PDF statistics:
- 623 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 122 named destinations out of 1000 (max. 500000)
- 449 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 726 PDF objects out of 1000 (max. 8388607)
+ 595 compressed objects within 6 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 510 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -259,7 +259,76 @@ The parameters obtained are $A = 0.8712\ ns$ and $B = 0.08734\ ns$ for data asso
 \subsection{Occupancy effect} \label{subsec:Sat_effect}
 The occupancy effect, as shown in the paragraph \ref{subsec:SiPM_work}, is an important characteristic that has to be deeply studied to know the behaviour of the SiPMs under high number of impinging photons and to correctly reconstruct the released energy.\\
 
-In order to reconstruct the correct 
+As can be seen in figure \ref{fig:sat_example}, this effect is reproduced correctly in our simulations. The example shows the charge integral in dependence to the number of p.e. and follows the concepts already seen in paragraph \ref{subsec:occupancy_teo}.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/Saturation_40GeV_25um_scin}
+	\caption{Saturation 40GeV 25um scin.}
+	\label{fig:sat_example}
+\end{figure}
+
+The first step to perform these studies is to reconstruct a calibration law that reproduces the charge integral with respect to the number of p.e. firing the same SiPM.\\
+Starting by assuming that in the range of photoelectrons from $2$ to $10$ the saturation effect does not occur in our configurations (i.e. $10000$, $4356$ and $1600$ cells in each SiPM), $10000$ SiPM has been fired $9$ times with an increasing number of simultaneous p.e. in the range considered.\\
+To assume that no saturation effect occurs in these data the charge integral distribution from the three different configurations has been compared finding no bias as seen in figure \ref{fig:SatCheck}. The mean and the RMS values has been recorded and fitted with a strait line corresponding to the calibration law desired:
+\begin{equation}
+	I(n) = A \cdot n + B
+\end{equation}
+with $A = 49.43 \pm 0.03852$ and $B = 2.491 \pm 0.2516$ (fig \ref{fig:NoSatLine}).\\
+The parameter $A$ represents the contribution to the charge integral associated to a single photoelectron. Meanwhile $B$ is the pedestal that is originated mostly by the DCR. This contribution can be evaluated considering our parameters of DCR $= 200\ kH$ and the integration window of $300\ ns$.
+$B_{DCR} = 2 \cdot 10^5 \cdot 3 \cdot 10^{-7} p.e. = 6\cdot 10^{-2} p.e. = 6\cdot 10^{-2} \cdot 49.43 = 2.96$.\\
+In the following result, the value of the pedestal has been subtracted to the integral value of each SiPM.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/10pe_sat_check}
+	\caption{10pe sat check.}
+	\label{fig:SatCheck}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/NoSatLine}
+	\caption{NoSatLine.}
+	\label{fig:NoSatLine}
+\end{figure}
+
+The occupancy effect has been studied in electromagnetic shower produced by single electrons of different energies at each event with discrete values of $20,\ 40,\ 60,\ 80\ GeV$.\\
+The impact of the saturation has been quantified using the line $I = A\cdot n$ as no saturation reference. The result obtained from $10000$ events of single $40\ GeV\ e^-$ with different SiPM configurations are separated in Cherenkov and Scintillation signals. They are shown in figure \ref{fig:sat_fibres} where each point correspond to a single SiPM. The smaller is the number of cells, the greater is the occupancy effect.\\
+Moreover, as expected, the scintillation fibres transport $\sim 4$ times the p.e. from Cherenkov ones on average, therefore they are more affected to the saturation.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Fib_40GeV_scin}}
+	\caption{Saturation fibres.}
+	\label{fig:sat_fibres}
+\end{figure}
+
+This process can be extended considering one event at the time and adding the charge integral and the corresponding number of photoelectrons. The effect produced is represented in figure \ref{fig:sat_events} where each point correspond to a single event.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Ev_40GeV_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Ev_40GeV_scin}}
+	\caption{Saturation events.}
+	\label{fig:perc_sat}
+\end{figure}
+
+
+
+The discrepancy from the no saturation reference quantifies the effect of the occupancy when performing the energy reconstruction task. The percentage difference has been evaluated through the formula $\frac{E_{NoSat}-E}{E_{NoSat}}$, and the value obtained fill the histograms in figure \ref{fig:perc_sat}.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/PercEnergy_40GeV_cher.jpg}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/PercEnergy_40GeV_scin.jpg}}
+	\caption{Percentage discrepancy.}
+	\label{fig:sat_events}
+\end{figure}
+
+
+
 \subsection{Energy resolution} \label{subsec:E_res}
 aaa
 
