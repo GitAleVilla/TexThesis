@@ -263,7 +263,7 @@ As can be seen in figure \ref{fig:sat_example}, this effect is reproduced correc
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Saturation_40GeV_25um_scin}
+	\includegraphics[width=0.7\textwidth]{IMG/Saturation_40GeV_25um_scin}
 	\caption{Saturation 40GeV 25um scin.}
 	\label{fig:sat_example}
 \end{figure}
@@ -281,14 +281,14 @@ In the following result, the value of the pedestal has been subtracted to the in
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/10pe_sat_check}
+	\includegraphics[width=0.7\textwidth]{IMG/10pe_sat_check}
 	\caption{10pe sat check.}
 	\label{fig:SatCheck}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/NoSatLine}
+	\includegraphics[width=0.7\textwidth]{IMG/NoSatLine}
 	\caption{NoSatLine.}
 	\label{fig:NoSatLine}
 \end{figure}
@@ -299,8 +299,8 @@ Moreover, as expected, the scintillation fibres transport $\sim 4$ times the p.e
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Fib_40GeV_scin}}
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_scin}}
 	\caption{Saturation fibres.}
 	\label{fig:sat_fibres}
 \end{figure}
@@ -309,28 +309,146 @@ This process can be extended considering one event at the time and adding the ch
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Ev_40GeV_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/Sat_Ev_40GeV_scin}}
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_cher}}\\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_scin}}
 	\caption{Saturation events.}
 	\label{fig:perc_sat}
 \end{figure}
 
+As can be seen, the occupancy effect in our conditions is consistent. To mitigate this problem an analytical correction can be performed through the formula:
+\begin{equation}
+	N_{fired}=N_{cells} \cdot \left[ 1 - \exp\left(-\frac{N_{p.e.}}{N_{cells}}\right)\right]
+\end{equation}
 
+therefore the correction has been applied modifying the integral values such as:
+\begin{equation}
+	I_{corr} = - A N_{cells} \left[ \ln\left(1 - \frac{I}{A N_{cells}}\right) \right]
+\end{equation}
 
-The discrepancy from the no saturation reference quantifies the effect of the occupancy when performing the energy reconstruction task. The percentage difference has been evaluated through the formula $\frac{E_{NoSat}-E}{E_{NoSat}}$, and the value obtained fill the histograms in figure \ref{fig:perc_sat}.\\
+The results obtained can be visualized in figure \ref{fig:sat_corr} where are compared the data from SiPM with cell size of $10\ \mu m$ with and without analytical correction.
+
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=\textwidth]{IMG/PercEnergy_40GeV_cher.jpg}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[width=\textwidth]{IMG/PercEnergy_40GeV_scin.jpg}}
+	\subfloat[][$C$ signals fibres.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_fib_cher}}\\
+	\subfloat[][$S$ signals fibres.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_fib_scin}}\\
+	\subfloat[][$C$ signals events.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_ev_cher}} \\
+	\subfloat[][$S$ signals events.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_ev_scin}}
+	\caption{Saturation with correction.}
+	\label{fig:sat_corr}
+\end{figure}
+
+The discrepancy from the no saturation reference quantifies the effect of the occupancy when performing the energy reconstruction task. The percentage difference has been evaluated through the formula $\frac{E_{NoSat}-E}{E_{NoSat}}$, and the value obtained fill the histograms in figure \ref{fig:perc_sat}.\\
+After applying the analytical correction a clear improvement is show in figures \ref{fig:sat_corr_perc}.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/PercEnergy_40GeV_cher.jpg}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/PercEnergy_40GeV_scin.jpg}}
 	\caption{Percentage discrepancy.}
 	\label{fig:sat_events}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/CorrPerc_40GeV_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/CorrPerc_40GeV_scin}}
+	\caption{Percentage discrepancy with correction.}
+	\label{fig:sat_corr_perc}
+\end{figure}
 
+This whole process has been performed simulating electrons with energies of $20,\ 40,\ 60,\ 80\ GeV$. Mean and standard deviation of the gaussian fit applied on the percentage discrepancy have been recorded and the obtained plots are shown in figure \ref{fig:sat_vs_E}.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/PercEnergy_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/PercEnergy_scin}}
+	\caption{Percentage discrepancy versus energy.}
+	\label{fig:sat_vs_E}
+\end{figure}
 
 \subsection{Energy resolution} \label{subsec:E_res}
-aaa
+The first step to study the energy resolution is to calibrate the full simulation.\\
+Dual-readout calorimeters are typically calibrated at the electromagnetic scale. This is specially useful in a leptonic collider because, having easily access to electrons and positrons, the calorimeter can be calibrated precisely during all the life of the experiment.\\
+
+The calibration has been performed on $40\ GeV$ electrons applying the one-suppression already introduce un paragraph \ref{subsec:Sim_SiPM}. $10000$ events with single $40\ GeV$ electrons have been fired from the interaction point obtaining the charge integral distributions for scintillation and Cherenkov signals shown in figure \ref{fig:int_dist}. The calibration constants obtained to transform these histograms in energy distributions centered around $40\ GeV$ are: $k_S = 4.998 \times 10^{-5}$ and $k_C = 2.023 \times 10^{-4}$.\\
+Two analogue calibration constants have been obtained starting from the number of photoelectrons distribution with values of:  $k_{pe,S} = 2.48 \times 10^{-3}$ and $k_{pe,C} = 1.00 \times 10^{-2}$.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Intdist_40GeV_cher_cal}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Intdist_40GeV_scin_cal}}
+	\caption{Integral distrib.}
+	\label{fig:int_dist}
+\end{figure}
+
+Starting from these calibration constant, the energy distributions can be obtained from the number of p.e. (pre SiPM digitization simulation) of from the charge integral (post SiPM digitization simulation). The two types of distribution are compared in figure \ref{fig:cfr_e_dist}.\\
+As expected, the energy distributions obtained from the charge integrals are wider due to the introduction of the electronic noise. However, the effect is minimal considering the fact that in each event hundreds of SiPMs are active and the white noise has mean zero.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/E_hist_cfr_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/E_hist_cfr_scin}}
+	\caption{Integral distrib.}
+	\label{fig:cfr_e_dist}
+\end{figure}
+
+The energy distributions have been fitted with a Gaussian function to obtain mean, standard deviation e respective errors. Doing this with different primary electron energies the energy resolution can be studied. Mean and standard deviation are listed in tables \ref{tab:e_res_int} \ref{tab:e_res_pe}.\\
+Then fitting the $\sigma/E$ values in the energy range $20-80\ GeV$ can be seen there is a good agreement with the functions:
+\begin{equation}
+	\frac{\sigma}{E} = \frac{A_1}{\sqrt{E}} + B_1 \qquad \text{or} \qquad \frac{\sigma}{E} = \frac{A_2}{\sqrt{E}} \oplus B_2
+\end{equation} 
+as shown in figure \ref{fig:sigma_su_e}. The plots also show the loss of resolution with the introduction of the SiPM digitization software.\\
+
+\begin{table}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		& True Energy	(GeV) & Mean Energy (GeV) & Standard Deviation (GeV) \\
+		\midrule
+		\textbf{Scintillation} &	$20$ 	& $19.90$ & $0.95$ \\
+		& $40$ 	& $40.20$ & $1.44$ \\
+		& $60$ 	& $60.65$ & $1.85$ \\
+		& $80$ 	& $81.18$ & $2.26$ \\
+		\midrule
+		\textbf{Cherenkov} & $20$ 	& $19.88$ & $0.95$ \\
+		& $40$ 	& $40.16$ & $1.42$ \\
+		& $60$ 	& $60.61$ & $1.73$ \\
+		& $80$ 	& $81.12$ & $2.08$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Sigmas}
+	\label{tab:e_res_int}
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		& True Energy	(GeV) & Mean Energy (GeV) & Standard Deviation (GeV) \\
+		\midrule
+		\textbf{Scintillation} &	$20$ 	& $19.82$ & $0.92$ \\
+		& $40$ 	& $40.00$ & $1.39$ \\
+		& $60$ 	& $60.28$ & $1.78$ \\
+		& $80$ 	& $81.58$ & $2.16$ \\
+		\midrule
+		\textbf{Cherenkov} & $20$ 	& $19.76$ & $0.92$ \\
+		& $40$ 	& $40.01$ & $1.36$ \\
+		& $60$ 	& $60.40$ & $1.66$ \\
+		& $80$ 	& $81.86$ & $1.91$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{Sigmas}
+	\label{tab:e_res_pe}
+\end{table}
+
+\begin{figure}
+	\centering
+	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Res_cher}} \\
+	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Res_scin}}
+	\caption{Integral distrib.}
+	\label{fig:sigma_su_e}
+\end{figure}
 
 \section{Neural Network: Particle ID on waveform} \label{sec:NN_waveform}
 aaa
