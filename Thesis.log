@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.29)  27 JAN 2021 18:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.29)  28 JAN 2021 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1265,273 +1265,280 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--119
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 127--129
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
 <IMG/SingleWaveform.jpg, id=451, 901.3675pt x 577.15625pt>
 File: IMG/SingleWaveform.jpg Graphic file (type jpg)
 <use IMG/SingleWaveform.jpg>
-Package pdftex.def Info: IMG/SingleWaveform.jpg  used on input line 170.
+Package pdftex.def Info: IMG/SingleWaveform.jpg  used on input line 173.
 (pdftex.def)             Requested size: 288.0011pt x 184.41196pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--181
+Underfull \hbox (badness 10000) in paragraph at lines 179--184
 
  []
 
-[24]
-<IMG/true_toa_dist.png, id=460, 1045.65656pt x 549.55313pt>
+<IMG/true_toa_dist.png, id=453, 1045.65656pt x 549.55313pt>
 File: IMG/true_toa_dist.png Graphic file (type png)
 <use IMG/true_toa_dist.png>
-Package pdftex.def Info: IMG/true_toa_dist.png  used on input line 184.
+Package pdftex.def Info: IMG/true_toa_dist.png  used on input line 187.
 (pdftex.def)             Requested size: 288.0011pt x 151.35817pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--192
+[24] [25 <./IMG/SingleWaveform.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
 
  []
 
-[25 <./IMG/SingleWaveform.jpg> <./IMG/True_toa_dist.png>]
-<IMG/top_50ns.png, id=473, 1078.0275pt x 554.07pt>
+<IMG/top_50ns.png, id=472, 1078.0275pt x 554.07pt>
 File: IMG/top_50ns.png Graphic file (type png)
 <use IMG/top_50ns.png>
-Package pdftex.def Info: IMG/top_50ns.png  used on input line 195.
-(pdftex.def)             Requested size: 161.9989pt x 83.2591pt.
-<IMG/top_10ns.png, id=474, 1066.7353pt x 559.33969pt>
+Package pdftex.def Info: IMG/top_50ns.png  used on input line 198.
+(pdftex.def)             Requested size: 208.6436pt x 107.23967pt.
+<IMG/top_10ns.png, id=473, 1066.7353pt x 559.33969pt>
 File: IMG/top_10ns.png Graphic file (type png)
 <use IMG/top_10ns.png>
-Package pdftex.def Info: IMG/top_10ns.png  used on input line 196.
-(pdftex.def)             Requested size: 161.9989pt x 84.93857pt.
-<IMG/top_C.png, id=475, 1073.51062pt x 561.59813pt>
+Package pdftex.def Info: IMG/top_10ns.png  used on input line 199.
+(pdftex.def)             Requested size: 204.52112pt x 107.23967pt.
+<IMG/top_C.png, id=474, 1073.51062pt x 561.59813pt>
 File: IMG/top_C.png Graphic file (type png)
 <use IMG/top_C.png>
-Package pdftex.def Info: IMG/top_C.png  used on input line 203.
-(pdftex.def)             Requested size: 161.9989pt x 84.74167pt.
-<IMG/top_S.png, id=476, 1072.75781pt x 559.33969pt>
+Package pdftex.def Info: IMG/top_C.png  used on input line 206.
+(pdftex.def)             Requested size: 204.98473pt x 107.23967pt.
+<IMG/top_S.png, id=475, 1072.75781pt x 559.33969pt>
 File: IMG/top_S.png Graphic file (type png)
 <use IMG/top_S.png>
-Package pdftex.def Info: IMG/top_S.png  used on input line 204.
-(pdftex.def)             Requested size: 161.9989pt x 84.46062pt.
+Package pdftex.def Info: IMG/top_S.png  used on input line 207.
+(pdftex.def)             Requested size: 205.6758pt x 107.23967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--211
+Underfull \hbox (badness 10000) in paragraph at lines 212--214
 
  []
 
-[26 <./IMG/top_50ns.png> <./IMG/top_10ns.png> <./IMG/top_C.png> <./IMG/top_S.pn
-g>]
-Overfull \hbox (1.18529pt too wide) in paragraph at lines 221--240
+[26 <./IMG/True_toa_dist.png>] [27 <./IMG/top_50ns.png> <./IMG/top_10ns.png> <.
+/IMG/top_C.png> <./IMG/top_S.png>]
+Overfull \hbox (1.18529pt too wide) in paragraph at lines 224--243
  [][] 
  []
 
-<IMG/top_dummy.png, id=499, 1065.9825pt x 568.37344pt>
+<IMG/top_dummy.png, id=504, 1065.9825pt x 568.37344pt>
 File: IMG/top_dummy.png Graphic file (type png)
 <use IMG/top_dummy.png>
-Package pdftex.def Info: IMG/top_dummy.png  used on input line 246.
+Package pdftex.def Info: IMG/top_dummy.png  used on input line 249.
 (pdftex.def)             Requested size: 288.0011pt x 153.55827pt.
-<IMG/top_sigma.png, id=500, 1032.85875pt x 545.78906pt>
+<IMG/top_sigma.png, id=505, 1032.85875pt x 545.78906pt>
 File: IMG/top_sigma.png Graphic file (type png)
 <use IMG/top_sigma.png>
-Package pdftex.def Info: IMG/top_sigma.png  used on input line 253.
+Package pdftex.def Info: IMG/top_sigma.png  used on input line 256.
 (pdftex.def)             Requested size: 288.0011pt x 152.18695pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
-[27 <./IMG/top_dummy.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--266
 
  []
 
-<IMG/Saturation_40GeV_25um_scin.png, id=510, 995.21812pt x 536.0025pt>
+[28 <./IMG/top_dummy.png>]
+<IMG/Saturation_40GeV_25um_scin.png, id=514, 995.21812pt x 536.0025pt>
 File: IMG/Saturation_40GeV_25um_scin.png Graphic file (type png)
 <use IMG/Saturation_40GeV_25um_scin.png>
 Package pdftex.def Info: IMG/Saturation_40GeV_25um_scin.png  used on input line
- 266.
+ 269.
 (pdftex.def)             Requested size: 251.9989pt x 135.71782pt.
-[28 <./IMG/top_sigma.png> <./IMG/Saturation_40GeV_25um_scin.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 276--281
+
+Underfull \hbox (badness 10000) in paragraph at lines 279--284
 
  []
 
-<IMG/10pe_sat_check.png, id=521, 768.62157pt x 499.8675pt>
+[29 <./IMG/top_sigma.png> <./IMG/Saturation_40GeV_25um_scin.png>]
+<IMG/10pe_sat_check.png, id=526, 768.62157pt x 499.8675pt>
 File: IMG/10pe_sat_check.png Graphic file (type png)
 <use IMG/10pe_sat_check.png>
-Package pdftex.def Info: IMG/10pe_sat_check.png  used on input line 284.
+Package pdftex.def Info: IMG/10pe_sat_check.png  used on input line 287.
 (pdftex.def)             Requested size: 251.9989pt x 163.88132pt.
-<IMG/NoSatLine.pdf, id=522, 569.12625pt x 364.36125pt>
+<IMG/NoSatLine.pdf, id=527, 569.12625pt x 364.36125pt>
 File: IMG/NoSatLine.pdf Graphic file (type pdf)
 <use IMG/NoSatLine.pdf>
-Package pdftex.def Info: IMG/NoSatLine.pdf  used on input line 291.
+Package pdftex.def Info: IMG/NoSatLine.pdf  used on input line 294.
 (pdftex.def)             Requested size: 251.9989pt x 161.33687pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
+Underfull \hbox (badness 10000) in paragraph at lines 299--302
 
  []
 
-[29 <./IMG/10pe_sat_check.png> <./IMG/NoSatLine.pdf, page is rotated 90 degrees
+[30 <./IMG/10pe_sat_check.png> <./IMG/NoSatLine.pdf, page is rotated 90 degrees
 >]
-<IMG/Sat_Fib_40GeV_cher.jpg, id=574, 901.3675pt x 577.15625pt>
+<IMG/Sat_Fib_40GeV_cher.jpg, id=578, 901.3675pt x 577.15625pt>
 File: IMG/Sat_Fib_40GeV_cher.jpg Graphic file (type jpg)
 <use IMG/Sat_Fib_40GeV_cher.jpg>
-Package pdftex.def Info: IMG/Sat_Fib_40GeV_cher.jpg  used on input line 302.
+Package pdftex.def Info: IMG/Sat_Fib_40GeV_cher.jpg  used on input line 305.
 (pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/Sat_Fib_40GeV_scin.jpg, id=575, 901.3675pt x 577.15625pt>
+<IMG/Sat_Fib_40GeV_scin.jpg, id=579, 901.3675pt x 577.15625pt>
 File: IMG/Sat_Fib_40GeV_scin.jpg Graphic file (type jpg)
 <use IMG/Sat_Fib_40GeV_scin.jpg>
-Package pdftex.def Info: IMG/Sat_Fib_40GeV_scin.jpg  used on input line 303.
+Package pdftex.def Info: IMG/Sat_Fib_40GeV_scin.jpg  used on input line 306.
 (pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--309
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
 
  []
 
-[30 <./IMG/Sat_Fib_40GeV_cher.jpg> <./IMG/Sat_Fib_40GeV_scin.jpg>]
-<IMG/Sat_Ev_40GeV_cher.jpg, id=585, 901.3675pt x 577.15625pt>
+<IMG/Sat_Ev_40GeV_cher.jpg, id=581, 901.3675pt x 577.15625pt>
 File: IMG/Sat_Ev_40GeV_cher.jpg Graphic file (type jpg)
 <use IMG/Sat_Ev_40GeV_cher.jpg>
-Package pdftex.def Info: IMG/Sat_Ev_40GeV_cher.jpg  used on input line 312.
+Package pdftex.def Info: IMG/Sat_Ev_40GeV_cher.jpg  used on input line 315.
 (pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/Sat_Ev_40GeV_scin.jpg, id=586, 901.3675pt x 577.15625pt>
+<IMG/Sat_Ev_40GeV_scin.jpg, id=582, 901.3675pt x 577.15625pt>
 File: IMG/Sat_Ev_40GeV_scin.jpg Graphic file (type jpg)
 <use IMG/Sat_Ev_40GeV_scin.jpg>
-Package pdftex.def Info: IMG/Sat_Ev_40GeV_scin.jpg  used on input line 313.
+Package pdftex.def Info: IMG/Sat_Ev_40GeV_scin.jpg  used on input line 316.
 (pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/Corr_40GeV_fib_cher.png, id=588, 660.96938pt x 344.78813pt>
+[31 <./IMG/Sat_Fib_40GeV_cher.jpg> <./IMG/Sat_Fib_40GeV_scin.jpg>] [32 <./IMG/S
+at_Ev_40GeV_cher.jpg> <./IMG/Sat_Ev_40GeV_scin.jpg>]
+<IMG/Corr_40GeV_fib_cher.png, id=601, 660.96938pt x 344.78813pt>
 File: IMG/Corr_40GeV_fib_cher.png Graphic file (type png)
 <use IMG/Corr_40GeV_fib_cher.png>
-Package pdftex.def Info: IMG/Corr_40GeV_fib_cher.png  used on input line 333.
+Package pdftex.def Info: IMG/Corr_40GeV_fib_cher.png  used on input line 336.
 (pdftex.def)             Requested size: 251.9989pt x 131.45224pt.
-<IMG/Corr_40GeV_fib_scin.png, id=589, 631.60968pt x 335.75438pt>
+<IMG/Corr_40GeV_fib_scin.png, id=602, 631.60968pt x 335.75438pt>
 File: IMG/Corr_40GeV_fib_scin.png Graphic file (type png)
 <use IMG/Corr_40GeV_fib_scin.png>
-Package pdftex.def Info: IMG/Corr_40GeV_fib_scin.png  used on input line 334.
+Package pdftex.def Info: IMG/Corr_40GeV_fib_scin.png  used on input line 337.
 (pdftex.def)             Requested size: 251.9989pt x 133.96123pt.
-<IMG/Corr_40GeV_ev_cher.png, id=590, 627.84563pt x 341.02406pt>
+<IMG/Corr_40GeV_ev_cher.png, id=603, 627.84563pt x 341.02406pt>
 File: IMG/Corr_40GeV_ev_cher.png Graphic file (type png)
 <use IMG/Corr_40GeV_ev_cher.png>
-Package pdftex.def Info: IMG/Corr_40GeV_ev_cher.png  used on input line 335.
+Package pdftex.def Info: IMG/Corr_40GeV_ev_cher.png  used on input line 338.
 (pdftex.def)             Requested size: 251.9989pt x 136.87552pt.
-<IMG/Corr_40GeV_ev_scin.png, id=591, 625.58719pt x 339.51843pt>
+<IMG/Corr_40GeV_ev_scin.png, id=604, 625.58719pt x 339.51843pt>
 File: IMG/Corr_40GeV_ev_scin.png Graphic file (type png)
 <use IMG/Corr_40GeV_ev_scin.png>
-Package pdftex.def Info: IMG/Corr_40GeV_ev_scin.png  used on input line 336.
+Package pdftex.def Info: IMG/Corr_40GeV_ev_scin.png  used on input line 339.
 (pdftex.def)             Requested size: 251.9989pt x 136.76337pt.
 
 
-LaTeX Warning: Float too large for page by 59.85208pt on input line 339.
+LaTeX Warning: Float too large for page by 59.85208pt on input line 342.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--343
+Underfull \hbox (badness 10000) in paragraph at lines 344--346
 
  []
 
-[31 <./IMG/Sat_Ev_40GeV_cher.jpg> <./IMG/Sat_Ev_40GeV_scin.jpg>] [32 <./IMG/Cor
-r_40GeV_fib_cher.png> <./IMG/Corr_40GeV_fib_scin.png> <./IMG/Corr_40GeV_ev_cher
-.png> <./IMG/Corr_40GeV_ev_scin.png>]
-<IMG/PercEnergy_40GeV_cher.jpg, id=618, 901.3675pt x 577.15625pt>
+<IMG/PercEnergy_40GeV_cher.jpg, id=607, 901.3675pt x 577.15625pt>
 File: IMG/PercEnergy_40GeV_cher.jpg Graphic file (type jpg)
 <use IMG/PercEnergy_40GeV_cher.jpg>
-Package pdftex.def Info: IMG/PercEnergy_40GeV_cher.jpg  used on input line 346.
+Package pdftex.def Info: IMG/PercEnergy_40GeV_cher.jpg  used on input line 349.
 
-(pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/PercEnergy_40GeV_scin.jpg, id=619, 901.3675pt x 577.15625pt>
+(pdftex.def)             Requested size: 167.47932pt x 107.23967pt.
+<IMG/PercEnergy_40GeV_scin.jpg, id=608, 901.3675pt x 577.15625pt>
 File: IMG/PercEnergy_40GeV_scin.jpg Graphic file (type jpg)
 <use IMG/PercEnergy_40GeV_scin.jpg>
-Package pdftex.def Info: IMG/PercEnergy_40GeV_scin.jpg  used on input line 347.
+Package pdftex.def Info: IMG/PercEnergy_40GeV_scin.jpg  used on input line 350.
 
-(pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/CorrPerc_40GeV_cher.png, id=620, 690.32906pt x 323.70938pt>
+(pdftex.def)             Requested size: 167.47932pt x 107.23967pt.
+<IMG/CorrPerc_40GeV_cher.png, id=609, 690.32906pt x 323.70938pt>
 File: IMG/CorrPerc_40GeV_cher.png Graphic file (type png)
 <use IMG/CorrPerc_40GeV_cher.png>
-Package pdftex.def Info: IMG/CorrPerc_40GeV_cher.png  used on input line 354.
-(pdftex.def)             Requested size: 251.9989pt x 118.16528pt.
-<IMG/CorrPerc_40GeV_scin.png, id=621, 687.31781pt x 327.47343pt>
+Package pdftex.def Info: IMG/CorrPerc_40GeV_cher.png  used on input line 357.
+(pdftex.def)             Requested size: 228.6941pt x 107.23967pt.
+<IMG/CorrPerc_40GeV_scin.png, id=610, 687.31781pt x 327.47343pt>
 File: IMG/CorrPerc_40GeV_scin.png Graphic file (type png)
 <use IMG/CorrPerc_40GeV_scin.png>
-Package pdftex.def Info: IMG/CorrPerc_40GeV_scin.png  used on input line 355.
-(pdftex.def)             Requested size: 251.9989pt x 120.06396pt.
+Package pdftex.def Info: IMG/CorrPerc_40GeV_scin.png  used on input line 358.
+(pdftex.def)             Requested size: 225.07463pt x 107.23967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 363--364
 
  []
 
-<IMG/PercEnergy_cher.jpg, id=623, 901.3675pt x 577.15625pt>
+<IMG/PercEnergy_cher.jpg, id=612, 901.3675pt x 577.15625pt>
 File: IMG/PercEnergy_cher.jpg Graphic file (type jpg)
 <use IMG/PercEnergy_cher.jpg>
-Package pdftex.def Info: IMG/PercEnergy_cher.jpg  used on input line 364.
-(pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
-<IMG/PercEnergy_scin.jpg, id=624, 901.3675pt x 577.15625pt>
+Package pdftex.def Info: IMG/PercEnergy_cher.jpg  used on input line 367.
+(pdftex.def)             Requested size: 167.47932pt x 107.23967pt.
+<IMG/PercEnergy_scin.jpg, id=613, 901.3675pt x 577.15625pt>
 File: IMG/PercEnergy_scin.jpg Graphic file (type jpg)
 <use IMG/PercEnergy_scin.jpg>
-Package pdftex.def Info: IMG/PercEnergy_scin.jpg  used on input line 365.
-(pdftex.def)             Requested size: 251.9989pt x 161.35605pt.
+Package pdftex.def Info: IMG/PercEnergy_scin.jpg  used on input line 368.
+(pdftex.def)             Requested size: 167.47932pt x 107.23967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 371--373
-
- []
-
-[33 <./IMG/PercEnergy_40GeV_cher.jpg> <./IMG/PercEnergy_40GeV_scin.jpg>]
-[34 <./IMG/CorrPerc_40GeV_cher.png> <./IMG/CorrPerc_40GeV_scin.png>] [35 <./IMG
-/PercEnergy_cher.jpg> <./IMG/PercEnergy_scin.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 374--376
 
  []
 
-<IMG/Intdist_40GeV_cher_cal.png, id=649, 618.81187pt x 322.20375pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 377--379
+
+ []
+
+<IMG/Intdist_40GeV_cher_cal.png, id=616, 618.81187pt x 322.20375pt>
 File: IMG/Intdist_40GeV_cher_cal.png Graphic file (type png)
 <use IMG/Intdist_40GeV_cher_cal.png>
-Package pdftex.def Info: IMG/Intdist_40GeV_cher_cal.png  used on input line 379
+Package pdftex.def Info: IMG/Intdist_40GeV_cher_cal.png  used on input line 382
 .
-(pdftex.def)             Requested size: 251.9989pt x 131.2096pt.
-<IMG/Intdist_40GeV_scin_cal.png, id=650, 630.85687pt x 325.215pt>
+(pdftex.def)             Requested size: 205.96481pt x 107.23967pt.
+<IMG/Intdist_40GeV_scin_cal.png, id=617, 630.85687pt x 325.215pt>
 File: IMG/Intdist_40GeV_scin_cal.png Graphic file (type png)
 <use IMG/Intdist_40GeV_scin_cal.png>
-Package pdftex.def Info: IMG/Intdist_40GeV_scin_cal.png  used on input line 380
+Package pdftex.def Info: IMG/Intdist_40GeV_scin_cal.png  used on input line 383
 .
-(pdftex.def)             Requested size: 251.9989pt x 129.91pt.
+(pdftex.def)             Requested size: 208.01976pt x 107.23967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--387
+Underfull \hbox (badness 10000) in paragraph at lines 388--390
 
  []
 
-<IMG/E_hist_cfr_cher.png, id=652, 619.56468pt x 321.45094pt>
+[33] [34 <./IMG/Corr_40GeV_fib_cher.png> <./IMG/Corr_40GeV_fib_scin.png> <./IMG
+/Corr_40GeV_ev_cher.png> <./IMG/Corr_40GeV_ev_scin.png>] [35 <./IMG/PercEnergy_
+40GeV_cher.jpg> <./IMG/PercEnergy_40GeV_scin.jpg> <./IMG/CorrPerc_40GeV_cher.pn
+g> <./IMG/CorrPerc_40GeV_scin.png>] [36 <./IMG/PercEnergy_cher.jpg> <./IMG/Perc
+Energy_scin.jpg> <./IMG/Intdist_40GeV_cher_cal.png> <./IMG/Intdist_40GeV_scin_c
+al.png>]
+<IMG/E_hist_cfr_cher.png, id=661, 619.56468pt x 321.45094pt>
 File: IMG/E_hist_cfr_cher.png Graphic file (type png)
 <use IMG/E_hist_cfr_cher.png>
-Package pdftex.def Info: IMG/E_hist_cfr_cher.png  used on input line 390.
-(pdftex.def)             Requested size: 251.9989pt x 130.74117pt.
-<IMG/E_hist_cfr_scin.png, id=653, 627.84563pt x 328.22626pt>
+Package pdftex.def Info: IMG/E_hist_cfr_cher.png  used on input line 393.
+(pdftex.def)             Requested size: 206.68806pt x 107.23967pt.
+<IMG/E_hist_cfr_scin.png, id=662, 627.84563pt x 328.22626pt>
 File: IMG/E_hist_cfr_scin.png Graphic file (type png)
 <use IMG/E_hist_cfr_scin.png>
-Package pdftex.def Info: IMG/E_hist_cfr_scin.png  used on input line 391.
-(pdftex.def)             Requested size: 251.9989pt x 131.73892pt.
+Package pdftex.def Info: IMG/E_hist_cfr_scin.png  used on input line 394.
+(pdftex.def)             Requested size: 205.12996pt x 107.23967pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 400--402
+Underfull \hbox (badness 10000) in paragraph at lines 403--405
 
  []
 
 
-Overfull \hbox (73.20433pt too wide) in paragraph at lines 405--420
+Overfull \hbox (20.2184pt too wide) in paragraph at lines 408--423
  [][] 
  []
 
 
-Overfull \hbox (73.20433pt too wide) in paragraph at lines 426--441
+Overfull \hbox (20.2184pt too wide) in paragraph at lines 429--444
  [][] 
  []
 
-<IMG/Res_cher.png, id=657, 633.86812pt x 412.54124pt>
-File: IMG/Res_cher.png Graphic file (type png)
-<use IMG/Res_cher.png>
-Package pdftex.def Info: IMG/Res_cher.png  used on input line 447.
-(pdftex.def)             Requested size: 251.9989pt x 164.0064pt.
-<IMG/Res_scin.png, id=658, 632.3625pt x 412.54124pt>
-File: IMG/Res_scin.png Graphic file (type png)
-<use IMG/Res_scin.png>
-Package pdftex.def Info: IMG/Res_scin.png  used on input line 448.
-(pdftex.def)             Requested size: 251.9989pt x 164.39667pt.
-[36] [37 <./IMG/Intdist_40GeV_cher_cal.png> <./IMG/Intdist_40GeV_scin_cal.png>]
-[38 <./IMG/E_hist_cfr_cher.png> <./IMG/E_hist_cfr_scin.png>] [39 <./IMG/Res_che
-r.png> <./IMG/Res_scin.png>]) (./Conclusione.tex [40]
+<IMG/Res_cher.pdf, id=668, 569.12625pt x 364.36125pt>
+File: IMG/Res_cher.pdf Graphic file (type pdf)
+<use IMG/Res_cher.pdf>
+Package pdftex.def Info: IMG/Res_cher.pdf  used on input line 450.
+(pdftex.def)             Requested size: 288.0011pt x 184.38737pt.
+<IMG/Res_scin.pdf, id=669, 569.12625pt x 364.36125pt>
+File: IMG/Res_scin.pdf Graphic file (type pdf)
+<use IMG/Res_scin.pdf>
+Package pdftex.def Info: IMG/Res_scin.pdf  used on input line 451.
+(pdftex.def)             Requested size: 288.0011pt x 184.38737pt.
+[37 <./IMG/E_hist_cfr_cher.png> <./IMG/E_hist_cfr_scin.png>] [38] [39 <./IMG/Re
+s_cher.pdf, page is rotated 90 degrees> <./IMG/Res_scin.pdf, page is rotated 90
+ degrees>]) (./Conclusione.tex [40]
 Capitolo 6.
 ) [41
 
@@ -1560,12 +1567,12 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5130C630A0FBE5A62C1BAE19EBF98EAE;3271.
+(rerunfilecheck)             Checksum: CE9DD49F56ADBA1583FD1A58A53D24F3;3271.
  ) 
 Here is how much of TeX's memory you used:
- 32400 strings out of 492163
- 627466 string characters out of 6129075
- 677208 words of memory out of 5000000
+ 32402 strings out of 492163
+ 627558 string characters out of 6129075
+ 678300 words of memory out of 5000000
  36070 multiletter control sequences out of 15000+600000
  544247 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1585,10 +1592,10 @@ e1/public/amsfonts/cm/cmsl10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
 .pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Thesis.pdf (51 pages, 1607368 bytes).
+Output written on Thesis.pdf (51 pages, 1593580 bytes).
 PDF statistics:
- 813 PDF objects out of 1000 (max. 8388607)
- 650 compressed objects within 7 object streams
- 171 named destinations out of 1000 (max. 500000)
+ 901 PDF objects out of 1000 (max. 8388607)
+ 690 compressed objects within 7 object streams
+ 173 named destinations out of 1000 (max. 500000)
  580 words of extra memory for PDF output out of 10000 (max. 10000000)
 

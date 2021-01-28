@@ -38,8 +38,8 @@
 \contentsline {section}{\numberline {5.2}Simulation performances}{24}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Different configurations}{24}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Time studies}{24}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{27}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{36}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{28}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{33}{subsection.5.2.4}%
 \contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{40}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Configuration}{40}{subsection.5.3.1}%
 \contentsline {subsection}{\numberline {5.3.2}Performances}{40}{subsection.5.3.2}%
@@ -47,5 +47,5 @@
 \contentsline {subsection}{\numberline {5.4.1}Configuration}{40}{subsection.5.4.1}%
 \contentsline {subsection}{\numberline {5.4.2}Performances}{40}{subsection.5.4.2}%
 \contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}%
-\contentsline {chapter}{Thanks}{43}{chapter*.35}%
-\contentsline {chapter}{Bibliography}{45}{chapter*.36}%
+\contentsline {chapter}{Thanks}{43}{chapter*.37}%
+\contentsline {chapter}{Bibliography}{45}{chapter*.38}%
