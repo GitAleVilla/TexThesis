@@ -170,22 +170,22 @@ An example of waveform generated is plotted in figure \ref{fig:diff_wf} where is
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/SingleWaveform}
-	\caption{Single waveform}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap5/wf_different_conf}
+	\caption{Single waveforms generated in two identical condition except for the decay time constant in the SiPM configuration file.}
 	\label{fig:diff_wf}
 \end{figure}
 
 \subsection{Time studies} \label{subsec:Time}
 An important aspect that has to be studied is the temporal one.
-In order to do this, data of $1000$ events are produced. In each event a $40\ GeV$ electron is produced from the interaction point.\\
+In order to do this, data of $1000$ events are produced. In each event a $20\ GeV$ electron is produced from the interaction point.\\
 A first step is to analyze the distribution of the time of arrival of the photons converted at the SiPMs (i.e. the time recorded in the GEANT4 simulation output).\\
 The distribution obtained from $C$ and $S$ photons are plotted in figure \ref{fig:true_toa_dist}.
-As expected, the distribution of $C$ photons time extremely narrow due to the instantaneous production of photons at the passage of relativistic charged particle in the fibres, instead the $S$ photons time distribution shows an exponential tail that is a direct consequence of the emission time constant of the Polystyrene.\\
+As expected, the distribution of $C$ photons time extremely narrow due to the instantaneous production of photons at the passage of relativistic charged particle in the fibres, instead the $S$ photons time distribution shows an exponential tail that is a direct consequence of the emission time constant of the Polystyrene ($\tau = 2.8\ ns$).\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/true_toa_dist}
-	\caption{True time of arrival distribution.}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap5/TrueTimeDist20GeV}
+	\caption{The distributions of the time of arrivals of photons on the SiPMs surface, distinguishing the ones transported from Cherenkov fibres from the ones transported from scintillation fibres.}
 	\label{fig:true_toa_dist}
 \end{figure}
 
@@ -195,17 +195,17 @@ These data can be compared looking for differences in changing SiPMs configurati
 
 \begin{figure}
 	\centering
-	\subfloat[][\label{fig:top_50ns}$\tau_{fall} = 50\ ns$.]{\includegraphics[height=.18\textheight]{IMG/top_50ns}} \quad
-	\subfloat[][\label{fig:top_10ns}$\tau_{fall} = 10\ ns$.]{\includegraphics[height=.18\textheight]{IMG/top_10ns}}
-	\caption{time of peak distribution.}
+	\subfloat[][\label{fig:top_10ns}$\tau_{fall} = 10\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_10ns}} \quad
+	\subfloat[][\label{fig:top_50ns}$\tau_{fall} = 50\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_50ns}}
+	\caption{Time of peak distributions comparing in each histogram signals from Chernkov and from scintillation fibres. Different figures correspond to different decay time constants.}
 	\label{fig:top_per_tau}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\subfloat[][\label{fig:top_C}$C$ fibres.]{\includegraphics[height=.18\textheight]{IMG/top_C}} \quad
-	\subfloat[][\label{fig:top_S}$S$ fibres.]{\includegraphics[height=.18\textheight]{IMG/top_S}}
-	\caption{time of peak distribution.}
+	\subfloat[][\label{fig:top_C}Cherenkov fibres.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_cher}} \quad
+	\subfloat[][\label{fig:top_S}Scintillation fibres.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_scin}}
+	\caption{Time of peak distributions comparing in each histogram signals with different decay time constant of SiPMs. Different figures correspond to different photon emission processes.}
 	\label{fig:top_per_fib}
 \end{figure}
 

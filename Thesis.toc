@@ -38,14 +38,14 @@
 \contentsline {section}{\numberline {5.2}Simulation performances}{24}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Different configurations}{24}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Time studies}{24}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{28}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{33}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{40}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Configuration}{40}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Performances}{40}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{40}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Configuration}{40}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Performances}{40}{subsection.5.4.2}%
-\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}%
-\contentsline {chapter}{Thanks}{43}{chapter*.37}%
-\contentsline {chapter}{Bibliography}{45}{chapter*.38}%
+\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{29}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{36}{subsection.5.2.4}%
+\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{38}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Configuration}{38}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Performances}{38}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{38}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Configuration}{38}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Performances}{41}{subsection.5.4.2}%
+\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}%
+\contentsline {chapter}{Thanks}{45}{chapter*.37}%
+\contentsline {chapter}{Bibliography}{47}{chapter*.38}%
