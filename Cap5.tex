@@ -246,15 +246,15 @@ The parameters obtained are $A = 0.8712\ ns$ and $B = 0.08734\ ns$ for data asso
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/top_dummy}
-	\caption{Time of peak dummy, 5 photons, 50 ns.}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap5/Dummy11pe_50ns}
+	\caption{Time of peak distribution obtained firing $10000$ SiPMs with $11$ photoelectrons each, all at the same time ($10 ns$). Over this distribution a Gaussian fit has been applied.}
 	\label{fig:top_dummy}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/top_sigma}
-	\caption{Time of peak dummy, 5 photons, 50 ns.}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap5/PeakSpread}
+	\caption{Standard deviation behaviour with respect to the number of simultaneous photoelectrons. Study performed with two different decay time constant in SiPMs configuration.}
 	\label{fig:top_sigma}
 \end{figure}
 
@@ -266,8 +266,8 @@ As can be seen in figure \ref{fig:sat_example}, this effect is reproduced correc
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{IMG/Saturation_40GeV_25um_scin}
-	\caption{Saturation 40GeV 25um scin.}
+	\includegraphics[width=0.7\textwidth]{IMG/Cap5/SatExample.jpg}
+	\caption{Example of saturation effect produced with the simulation chain. Each point correspond to a SiPM with a cell size of $25\ \mu m$.}
 	\label{fig:sat_example}
 \end{figure}
 
@@ -291,8 +291,8 @@ In the following result, the value of the pedestal has been subtracted to the in
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{IMG/NoSatLine}
-	\caption{NoSatLine.}
+	\includegraphics[width=0.7\textwidth]{IMG/Cap5/NoSatLine}
+	\caption{Study of the proportional relation between integral and number of photoelectrons in the range from $2$ to $10$. A linear fit has been applied to find calibration law without saturation.}
 	\label{fig:NoSatLine}
 \end{figure}
 
@@ -302,9 +302,9 @@ Moreover, as expected, the scintillation fibres transport $\sim 4$ times the p.e
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_scin}}
-	\caption{Saturation fibres.}
+	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
+	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_scin}}
+	\caption{The plots, divided considering the two different photon production processes, show the occurrence of the occupancy effect studying single $40\ GeV$ electrons. Each point correspond to a SiPM with different values of cell size. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference.}
 	\label{fig:sat_fibres}
 \end{figure}
 
@@ -312,9 +312,9 @@ This process can be extended considering one event at the time and adding the ch
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_cher}}\\
-	\subfloat[][$S$ signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_scin}}
-	\caption{Saturation events.}
+	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_cher}}\\
+	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_scin}}
+	\caption{The plots, divided considering the two different photon production processes, show the occurrence of the occupancy effect studying single $40\ GeV$ electrons. Each of the $10000$ points correspond to a single event where integral and number of photoelectrons have been added over the fired SiPMs. Different values of cell size are represented with different colors. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference.}
 	\label{fig:perc_sat}
 \end{figure}
 
@@ -333,11 +333,11 @@ The results obtained can be visualized in figure \ref{fig:sat_corr} where are co
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals fibres.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_fib_cher}}\\
-	\subfloat[][$S$ signals fibres.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_fib_scin}}\\
-	\subfloat[][$C$ signals events.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_ev_cher}} \\
-	\subfloat[][$S$ signals events.]{\includegraphics[width=.7\textwidth]{IMG/Corr_40GeV_ev_scin}}
-	\caption{Saturation with correction.}
+	\subfloat[][Cherenkov signals. Points are single SiPMs.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_fib_cher}}\quad
+	\subfloat[][Scintillation signals. Points are single SiPMs.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_fib_scin}}\\
+	\subfloat[][Cherenkov signals. Points are single events.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_ev_cher}} \quad
+	\subfloat[][Scintillation signals. Points are single events.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_ev_scin}}
+	\caption{Similar plots to figures \ref{fig:sat_fibres} and \ref{fig:sat_events}. Two series of data are presented to show the effectiveness of the analytical correction. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference. }
 	\label{fig:sat_corr}
 \end{figure}
 
@@ -346,26 +346,26 @@ After applying the analytical correction a clear improvement is show in figures 
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_40GeV_cher.jpg}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_40GeV_scin.jpg}}
+	\subfloat[][Cherenkov signals.]{\includegraphics[width=.5\textwidth]{IMG/PercEnergy_40GeV_cher.jpg}} \quad
+	\subfloat[][Scintillation signals.]{\includegraphics[width=.5\textwidth]{IMG/PercEnergy_40GeV_scin.jpg}}
 	\caption{Percentage discrepancy.}
 	\label{fig:sat_events}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[height=.18\textheight]{IMG/CorrPerc_40GeV_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[height=.18\textheight]{IMG/CorrPerc_40GeV_scin}}
+	\subfloat[][Cherenkov signals.]{\includegraphics[width=.5\textwidth]{IMG/CorrPerc_40GeV_cher}} \quad
+	\subfloat[][Scintillation signals.]{\includegraphics[width=.5\textwidth]{IMG/CorrPerc_40GeV_scin}}
 	\caption{Percentage discrepancy with correction.}
-	\label{fig:sat_corr_perc}
+		\label{fig:sat_corr_perc}
 \end{figure}
 
 This whole process has been performed simulating electrons with energies of $20,\ 40,\ 60,\ 80\ GeV$. Mean and standard deviation of the gaussian fit applied on the percentage discrepancy have been recorded and the obtained plots are shown in figure \ref{fig:sat_vs_E}.\\
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_scin}}
+	\subfloat[][Cherenkov signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_cher}} \\
+	\subfloat[][Scintillation signals.]{\includegraphics[height=.18\textheight]{IMG/PercEnergy_scin}}
 	\caption{Percentage discrepancy versus energy.}
 	\label{fig:sat_vs_E}
 \end{figure}
@@ -379,8 +379,8 @@ Two analogue calibration constants have been obtained starting from the number o
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[height=.18\textheight]{IMG/Intdist_40GeV_cher_cal}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[height=.18\textheight]{IMG/Intdist_40GeV_scin_cal}}
+	\subfloat[][Cherenkov signals.]{\includegraphics[height=.18\textheight]{IMG/Intdist_40GeV_cher_cal}} \\
+	\subfloat[][Scintillation signals.]{\includegraphics[height=.18\textheight]{IMG/Intdist_40GeV_scin_cal}}
 	\caption{Integral distrib.}
 	\label{fig:int_dist}
 \end{figure}
@@ -390,8 +390,8 @@ As expected, the energy distributions obtained from the charge integrals are wid
 
 \begin{figure}
 	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[height=.18\textheight]{IMG/E_hist_cfr_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[height=.18\textheight]{IMG/E_hist_cfr_scin}}
+	\subfloat[][Cherenkov signals.]{\includegraphics[height=.18\textheight]{IMG/E_hist_cfr_cher}} \\
+	\subfloat[][Scintillation signals.]{\includegraphics[height=.18\textheight]{IMG/E_hist_cfr_scin}}
 	\caption{Integral distrib.}
 	\label{fig:cfr_e_dist}
 \end{figure}
