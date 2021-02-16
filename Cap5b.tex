@@ -77,8 +77,8 @@ and, to obtain a more compact expression, the values $x_0=z_0=1$ can be introduc
 \end{equation}
 making even more clear the two-layer mathematical structure.\\
 
-Once the neural network is set up a training process has to be performed to make the prediction consistent. In order to do that a large dataset of correctly labelled input has to be provided. During the training, the elements in the weight matrix $\bm{W}$ are constantly modified to adapt the output to be as closer as possible to the correct label. These are not random corrections but they are conditioned by a error function that quantifies the discrepancy between the output and the correct result. In classification tasks, a common error function choice is the \textit{cross-entropy} (given by the negative log likehood):
-\begin{equation}
+Once the neural network is set up a training process has to be performed to make the prediction consistent. In order to do that a large dataset of correctly labelled input has to be provided. During the training, the elements in the weight matrix $\bm{W}$ are constantly modified to adapt the output to be as closer as possible to the correct label. These are not random corrections but they are conditioned by a error function that quantifies the discrepancy between the output and the correct result. In classification tasks, a common error function choice is the \textit{cross-entropy} (given by the negative log likelihood):
+\begin{equation}\label{eq:err_func}
     E(\bm{w}) = -\sum_{n=1}^N\sum_{k=1}^K t_{nk}\ln{y_{nk}(\bm{x}_n,\bm{w})}
 \end{equation}
 where $t_n$ are the target vectors and $y_n=(\bm{x}_n,\bm{w})$ are the output vectors, with a dataset dimension of $N$ and $K$ different and mutually exclusive label possibilities.\\
@@ -149,7 +149,7 @@ In particular, MaxPool2D layer consider a sub-matrix with a fixed size, typical 
 %\subsection*{GlobalAveragePooling2D layer}
 
 
-\subsection*{VGGNet structure}
+\subsection*{VGGNet structure} \label{subsec:VGGNet_teo}
 The VGGNet structure is a neural network concept introduced in 2015 with the article "Very Deep Convolutional Networks for Large-Scale Image Recognition" \cite{VGGArt} (the name VGG is the acronym for Visual Geometry Group, their lab in Oxford).\\
 The proposed, and then accepted as a standard, powerful structure is composed by several small-size filter chain (i.e. kernel size of $1\times1$ or $3\times3$), max pooling with size of $2\times2$ is used after most, but not all, the convolutional layers. The idea is that consecutive small-size filters approximate larger filter effects with an higher number of parameters. Another important characteristic is the large number of filters used: typically deeper layer has greater number of kernels starting from, at least, $32$.\\
 In figure \ref{fig:VGG_table} the structure studied in \cite{VGGArt} are listed where groups of two or three convolutional layers are followed by max pooling ones, at the end the last max pooling layer output is flatten and used as input for a group of dense layers till the classification.\\
@@ -163,7 +163,7 @@ In figure \ref{fig:VGG_table} the structure studied in \cite{VGGArt} are listed 
 
 A VGGNet like structure has been used to perform the task already introduced and it will be described in detail later (see paragraph \ref{sec:NN_perf}).
 
-\subsection*{ResNet structure}
+\subsection*{ResNet structure} \label{subsec:ResNet_teo}
 Residual Networks, or ResNet, are another innovative concept of CNN introduced in 2016 with the article "Deep Residual Learning for Image Recognition" by Kaiming He et al. \cite{ResNetArt}.\\
 The structure is composed as a plain convolutional network with small kernel size (same as in VGGNet), this sequence of Conv-layers is splitted in several \textit{residual} blocks. The innovative aspect is that the input of each block is the sum of the input and the output of the previous block. The structure and flow of data are shown in figure \ref{fig:ResNet_scheme}, where two different ResBlock are sketched.\\
 
@@ -220,7 +220,62 @@ Hence the input matrix for each event has a shape of $133 \text{ (height) }\time
 The complete process of data preparation is applied on $10000$ events of photons and $10000$ events of neutral pions. All the events have been labelled ($\gamma$ and $\pi^0$), normalized to the max value of $1$ (same normalization constant for all the dataset), shuffled and splitted in two sub-set dedicated to training ($80\%$) and to validation ($20\%$).\\
 
 \section{Performances}\label{sec:NN_perf}
-aaa
+Analyses on the prepared data have been performed using the two different convolutional neural network structures already introduced, i.e. VGG Network and Residual Network. Some of the \textit{hyperparameters} of the CNNs, namely all the parameters that identify the structure of the networks such as the number of layers, the number of filters and the kernel size in convolutional layers, the number of neurons in dense layers.\\
+This section shows the comparison between CNNs with different hyperparameters and details of the best VGGNet and ResNet obtained.
+
+\subsection{VGG Network}
+The VGG neural networks used for the particle ID task follow the structure described in section \ref{subsec:VGGNet_teo}.\\
+The input and output are well defined by the data preparation and the classification task. The elaborated data set the input as ma 3D matrix with dimensions of $133\times 133\times 2$, meanwhile the aim of distinguishing between two types of primary particle set the last layer as a dense layer with two neurons with softmax as the activation function.\\
+The optimization process has to take into account a very large number of hyperparameters combinations, to make it simple and tidy the layers can be divided in two groups separated by the flatten one: the "convolutional half" and the "dense half". The halves have been analyzed one at a time keeping fixed the other one and ranging the hyperparameters in common values.\\
+In table \ref{fig:VGGNet-tested} the structure of the six different VGGNet tested are shown with the accuracy value and the time of training to evaluate the performances.\\
+The neural networks labelled as VGGNet A, VGGNet B and VGGNet C have the aim to optimize the dense half modifying the Dropout probability. Once the best dense half has been fixed the VGGNet D, E and F have been tested to select the best hyperparameters in the convolution half. The conclusion from this study set the best structure as the VGGNet ? with an accuracy of ? and a training time of ?.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-Tab.png}
+	\caption{Table of different VGGNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:VGGNet-tested}
+\end{figure}
+
+Once identified the VGGNet ? as the best structure for the task deeper study have been performed.\\
+The training is applied on a training dataset and simultaneously validated on a validation dataset, this can give a double view during the process.
+The accuracy is probably the most important aspect for a neural network, it is evaluated as the number of correct predictions over the total number of predictions ($n_c/N$). Figure \ref{fig:VGGNet-acc} shows the behaviour of the accuracy during the training process by overlapping the results from training and validation datasets.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-acc.pdf}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:VGGNet-acc}
+\end{figure}
+
+The loss function is another important feature that can be studied. It has been already introduced as error function \ref{eq:err_func}, in the specific case it get simpler noting that there are only two labels ($K = 2$). A loss value can be evaluated at the end of each training epoch to monitor the improvements in each training step. Figure \ref{fig:VGGNet-loss} shows the behaviour just described.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-loss.pdf}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:VGGNet-loss}
+\end{figure}
+
+The smoothness of both accuracy and loss plots is an indication of the good dataset size, if a too small dataset would be used the graphs would present high spikes.\\
+
+Results on test data are often represented in confusion matrices, matrices showing the percentage probability of a neural network in identifying categories emphasizing true positive, true negative, false positive and false negative. The confusion matrix obtained with the VGGNet selected is shown in figure \ref{fig:VGGNet-cm}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-loss.pdf}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:VGGNet-cm}
+\end{figure}
+
+\subsection{Residual Network}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/ResNet-Tab.png}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:ResNet-tested}
+\end{figure}
 
 \section{Energy range extension}
 aaa
