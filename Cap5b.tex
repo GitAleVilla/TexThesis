@@ -243,8 +243,8 @@ The accuracy is probably the most important aspect for a neural network, it is e
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-acc.pdf}
-	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-acc.pdf}
+	\caption{Accuracy behaviour over $50$ training epoches using the selected VGGNet. Train and validation accuracy are shown with different colors.}
 	\label{fig:VGGNet-acc}
 \end{figure}
 
@@ -252,8 +252,8 @@ The loss function is another important feature that can be studied. It has been 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-loss.pdf}
-	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-loss.pdf}
+	\caption{Loss behaviour over $50$ training epoches using the selected VGGNet. Train and validation loss are shown with different colors.}
 	\label{fig:VGGNet-loss}
 \end{figure}
 
@@ -263,18 +263,48 @@ Results on test data are often represented in confusion matrices, matrices showi
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-loss.pdf}
-	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-cm.pdf}
+	\caption{Confusion matrix obtained on test date  using the selected VGGNet. Values are normalized on rows (i.e. on the true label).}
 	\label{fig:VGGNet-cm}
 \end{figure}
 
 \subsection{Residual Network}
+The residual neural networks used for the particle ID task follow the structure described in section \ref{subsec:ResNet_teo}.\\
+The input and output of the ResNets has to coincide with the ones for VGGNets, due to the same data preparation process and the same classification task. The input data will have a 3D matrix shape ($133\times 133\times 2$) and the last layer is set to be the a two-neurons dense layer with the softmax activation function.\\
+The articulation of the middle layers follows the typical ResNet structure presented in section \ref{subsec:ResNet_teo}.\\
+As done for the VGGNet optimization, also this structure has been divided in two parts identified by the \textit{GlobalAveragePooling} layer ("colvolutional half" and "dense half"). In table \ref{fig:ResNet-tested} the six different ResNet with different hyperparameters are listed. ResNet A, B and C are dedicated to the optimization of the dense half. Once the best dense half structure has been found, the ResNet D, E and F have been trained to find the best ResNet for the task. As schematically shown in the table, ResNet ? has the best performances with an accuracy of ? and a training time of ?.\\
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1.\textwidth]{IMG/Cap6/ResNet-Tab.png}
-	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values. Note that the thicker lines divide the different Recurrent blocks as described in section \ref{subsec:ResNet_teo}.}
 	\label{fig:ResNet-tested}
+\end{figure}
+
+Residual Network and VGG Network performances have been studied in same conditions such as batch size ($128$) and number of epoches ($50$) and also with the same accuracy and loss evaluation.\\
+Both accuracy and loss values have been recorded during the training process and their behaviour with respect to the training epoches is shown in figures \ref{fig:ResNet-acc} and \ref{fig:ResNet-loss}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-acc.pdf}
+	\caption{Accuracy behaviour over $50$ training epoches using the selected ResNet. Train and validation accuracy are shown with different colors.}
+	\label{fig:ResNet-acc}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-loss.pdf}
+	\caption{Loss behaviour over $50$ training epoches using the selected ResNet. Train and validation loss are shown with different colors.}
+	\label{fig:ResNet-loss}
+\end{figure}
+
+Also in this case a confusion matrix has been produced on validation data reaching the results shown in figure \ref{fig:ResNet-cm}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-cm.pdf}
+	\caption{Confusion matrix obtained on test date  using the selected ResNet. Values are normalized on rows (i.e. on the true label).}
+	\label{fig:ResNet-cm}
 \end{figure}
 
 \section{Energy range extension}
