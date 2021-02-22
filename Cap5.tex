@@ -1,483 +1,311 @@
-\chapter{IDEA DR calorimeter full simulation}
-As already said, the concept described in chapter \ref{chap:Idea_project} is an on-going project and it has to be supported by simulation.
-With this goal, a dual-readout calorimeter full simulation has been developed allowing to generate data and monitor the whole process from the collision on the interaction point to the digitized signal produced by SiPMs.\\
+\chapter{Neural Network: Particle ID on imaging} \label{sec:NN_img}
+Neural network and machine learning algorithm are powerful and versatile instruments that can improve the process of data analysis learning from datasets and making prediction with a certain degree of accuracy. Modern science, including physics, is taking more and more advantage of these techniques as the years go by.
+The availability of big data is a key aspect in performing these studies and experimental particle physics is an area that can provide large datasets.\\
 
-The chapter presents a description of the simulation structure. The section \ref{sec:Sim_struc} describes in details the simulation dividing it in two main Monte Carlo processes:
+The chapter describes a possible application of deep neural networks on data generated through the IDEA DR Calorimeter full simulation with the aim to obtain simple particle identification analyzing the spatial deposited energy distribution.\\
+An introduction to the computational techniques is provided, briefly describing the role of each component and the common structures that are used to perform the study.\\
+
+All the data have to be prepared to be used in a neural network structure, the section \ref{sec:NN_data} shows which information has been used and how it has been processed to be analyzed by the deep learning algorithms.
+After that the structures are presented in details showing the performances obtained in training and testing phases.\\
+Eventually the study has been performed extending the energy range, the impact of this generalization conclude the chapter.\\
+\newpage
+
+\section{Project goal}
+The chapter will explore the possibility to perform particle identification through neural network algorithms. The chosen task is to recognise and distinguish neutral pions and photons analyzing the spatial released energy distribution in a fixed area where the particles are fired.\\
+As already introduced in paragraph \ref{subsec:em_shower}, photons produce electromagnetic showers in their path through matter. Considering the geometry of our DR calorimeter where the fibres are oriented towards the interaction point, a photon will release most of its energy in few adjacent fibres and the remnant energy will be absorbed by the surrounding fibres in a elliptical shape (an example can be seen in figure \ref{fig:demo_ph}.
+On the other hand, the meson has a different behaviour. It decays in two main modes shown in figure \ref{fig:pi_decays}:
+\begin{equation}
+    \pi^0\xrightarrow{} 2\gamma \qquad \pi^0\xrightarrow{} \gamma + e^- + e^+
+\end{equation}
+The two decay mode have very different occurrence probability, in particular the $2\gamma$ decay has a branching ratio of $(98.823\pm0.034)\%$, instead it is $(1.174\pm0.035)\%$ for the gamma-electron-positron decay \cite{pi_decay}.\\
+The consequence of this behaviour is that a electromagnetic shower is produced from each of the secondary particles. The result is a superposition of two or three (depending on which decay occurs) shower signals similar to the one produced by a single photon. In figure \ref{fig:demo_pi} the data obtained from a $\pi^0$ generation is sketched, it should be noted that, in the event represented, the meson decayed into two photons.\\
+
+\begin{figure}
+	\centering
+	\subfloat[][$40\ GeV$ photon.\label{fig:demo_ph}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Ph_01_cher.pdf}} \quad
+	\subfloat[][$40\ GeV$ neutral pion.\label{fig:demo_pi}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Pizero_01_cher.pdf}}
+	\caption{Spatial charge integral distributions from $\gamma$ and $\pi^0$. Each point correspond to an activated fibre and it is represented in cylindrical coordinates, the color indicates the charge integral obtained from the coupled SiPM.}
+	\label{fig:demo_shower}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\subfloat[][$\pi^0\xrightarrow{} 2\gamma$]{\includegraphics[height=.18\textheight]{IMG/Cap6/pi2gammas.png}} \quad
+	\subfloat[][$\pi^0\xrightarrow{} \gamma + e^- + e^+$]{\includegraphics[height=.2\textheight]{IMG/Cap6/pi_gamma_e_e.jpg}}
+	\caption{$\pi^0$ decay modes.}
+	\label{fig:pi_decays}
+\end{figure}
+
+Usually this ID task would be performed applying a number of filters to study the elliptical shape, to find the peaks of charge integral, to measure the distances between the peaks and finally establishing, with a certain probability, the primary particle. The goal is to create a neural network able to accept data associated to an event and make a prediction on the primary particle with a small computational and timing effort.\\
+
+\section{Neural Networks introduction}
+Neural Networks are neural-inspired nonlinear models consisting in a group of artificial \textit{neurons} or \textit{nodes} interconnected through \textit{layers}. This type of architecture is supported by a mathematical structure where each neuron has an activation degree typically ranging from $0$ to $1$ and each edge is identified by weights and biases.\\
+
+The simplest neural network structure follows a sequential model where neurons are grouped and linked to each other through \textit{layers} following a sequential order, but more complex neural networks implement also loops, branching and other different flows between layers.
+The sequential model present a first input level followed by a series of hidden levels composed by hidden neurons and then connected to the output units. A visual representation is shown in figure \ref{fig:NN_art}.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{IMG/Cap6/NN_art.png}
+	\caption{Schematic representation of a sequential model. The input, hidden, and output neurons are represented by nodes, and the weight parameters are represented by links between the nodes, for each connection the corresponding bias parameter is denoted by links coming from additional input and hidden variables $x_0$ and $z_0$. Green arrows indicate the direction of flow through the network. Figure from \cite{NN_Bishop}.}
+	\label{fig:NN_art}
+\end{figure}
+
+The mathematical representation can be introduced studying a simple two-layer model. Starting from a D-dimension input vector $\bm{x}$, the first layer apply a linear combination for each hidden neuron in the next level:
+\begin{equation}
+    a_j^{(1)} = \sum_{i=1}^D w_{ij}^{(1)} x_i + w_{i0}^{(1)}
+\end{equation}
+where $j = 1,..., M$ (M is the layer output dimension) and the matrix $\bm{W}$ is the weights matrix including biases. The quantities $a_j$ are known as \textit{activations}. On these values a $h$ nonlinear function, called \textit{activation function}, is applied:
+\begin{equation}
+    z_j = h(a_j^{(1)})
+\end{equation}
+common activation function are \textit{sigmoid}, \textit{tanh}, \textit{ReLU} (rectified linear activation unit) and \textit{Softmax}. The obtained value are the already introduced hidden units and are used as input of the next layer. The process in the second layer is similar, valuating the following activations:
+\begin{equation}
+    a_k^{(2)} = \sum_{i=1}^M w_{jk}^{(2)} z_j + w_{k0}^{(2)}
+\end{equation}
+where $k = 1,..., K$ (K is the layer output dimension) and then applying the activation function. In the context of classification neural network, Softmax function ($S$) is a common choice of activation function in the last layer, providing the probability associated to each possible label.
+\begin{equation}
+    y_k = S(a_k^{(2)}).
+\end{equation}
+The whole process ca be represented in a single equation for each output neuron:
+\begin{equation}
+    y_k = S\left(\sum_{i=1}^M w_{jk}^{(2)} h\left(\sum_{i=1}^D w_{ij}^{(1)} x_i + w_{i0}^{(1)}\right) + w_{k0}^{(2)}\right).
+\end{equation}
+and, to obtain a more compact expression, the values $x_0=z_0=1$ can be introduced:
+\begin{equation}
+    y_k = S\left(\sum_{i=0}^M w_{jk}^{(2)} h\left(\sum_{i=0}^D w_{ij}^{(1)} x_i \right) \right)
+\end{equation}
+making even more clear the two-layer mathematical structure.\\
+
+Once the neural network is set up a training process has to be performed to make the prediction consistent. In order to do that a large dataset of correctly labelled input has to be provided. During the training, the elements in the weight matrix $\bm{W}$ are constantly modified to adapt the output to be as closer as possible to the correct label. These are not random corrections but they are conditioned by a error function that quantifies the discrepancy between the output and the correct result. In classification tasks, a common error function choice is the \textit{cross-entropy} (given by the negative log likelihood):
+\begin{equation}\label{eq:err_func}
+    E(\bm{w}) = -\sum_{n=1}^N\sum_{k=1}^K t_{nk}\ln{y_{nk}(\bm{x}_n,\bm{w})}
+\end{equation}
+where $t_n$ are the target vectors and $y_n=(\bm{x}_n,\bm{w})$ are the output vectors, with a dataset dimension of $N$ and $K$ different and mutually exclusive label possibilities.\\
+The training aim is to correct the weights and biases values minimizing this error function.\\
+Once this step is completed the neural network is ready to perform predictions and classify new data.\\
+
+The study is performed with two different neural network structures that take advantages of few types of layers that will be briefly described.
+
+\subsection*{Dense layer}
+The dense layer is the simplest and most common layer, but far from being the lightest. It is classified as a fully connected layer, meaning that each output neuron receive an input value from each input node.\\
+Mathematically, this type of layer consist in a matrix application on the input vector ($\bm{v}_i$) providing an output vector ($\bm{v}_o$), adding a bias vector ($\bm{w}_0$):
+\begin{equation}
+    \bm{v}_o = \bm{W}\bm{v}_i+\bm{w}_0.
+\end{equation}
+
+The layer is extremely parameter consuming, let consider a single layer that connects two group of nodes: it is common to use number of neuron that are powers of $2$ ($32$, $64$, $128$...). So the number of parameters associated to a single dense layer with an input dimension of $64$ and an output dimension of $32$ is:
+\begin{equation*}
+    64 \cdot 32 \text{(weights)} + 1 \cdot 32 \text{(biases)} = 2080
+\end{equation*}
+this number can increase very rapidly with the number of neurons.\\
+Being the basic type of layer is often used to graphically represent general neural networks, figure \ref{fig:NN_art} shows sequence made by two consecutive dense layers.
+
+
+\subsection*{Dropout layer}
+Considering the extremely large number of training parameters, it is common practice to introduce the so called \textit{regularization} techniques to increase the capability of the neural network in generalizing well on new data. The use of a Dropout layer is one of them.\\
+The basic idea is to reduce the spurious correlations that could occur between neurons in the network, preventing the overfitting. In practical terms, the dropout layer randomly "drops out" neurons (and the corresponding connections) following a probability $p$. This process is applied in each training step. An intuitive representation is sketched in figure \ref{fig:Drop}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{IMG/Cap6/Dropout.png}
+	\caption{Neurons during training are randomly switched off with a probability $p$. A lighter network is produced reducing correlations between nodes. Figure from \cite{ML4ph}.}
+	\label{fig:Drop}
+\end{figure}
+
+\subsection*{Conv2D layer}
+A mandatory layer in analyzing images is the convolution layer and it identify a category of NN called Convolutional Neural Networks (CNNs).\\
+A convolution consist in a simple application of a filter to an input that results in an activation. The application of the same filter repeatedly to the same input results in a map of activations called a feature map, this indicate the locations of a detected feature (and its intensity) in an input, such as an image.\\
+Figure \ref{fig:Conv2D} represents the application of a filter or kernel ($K$) over a input matrix ($I$). As can be seen, the feature map is composed considering all the sub-images with the same size of the kernel, each sub-image is associated to an activation value obtained through the formula:
+\begin{equation}
+    a = \sum_{i = 1}^{D_K}\sum_{j = 1}^{D_K} I_{i,j} \cdot K_{i,j} + b
+\end{equation}
+where $D_K$ is the dimension of the kernel, typical values are $1$, $3$, $5$, and $b$ is the bias value. An activation is obtained from each sub-image and than corrected by the activation function, these outputs compose the feature map.\\
+The layer output is a group of feature maps obtained from different filters. The number of filters evaluated represents the capability of the layer to identify different patterns.\\
+
+In terms of trainable parameters, a convolution layer with $32$ kernels of $3\times3$ size is lighter then a dense one:
+\begin{equation*}
+    9\cdot 32 \text{(weights)} + 1 \cdot 32 \text{(biases)} = 320.
+\end{equation*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.6\textwidth]{IMG/Cap6/ConvScheme.png}
+	\caption{Example of convolution applying a single kernel $K$ on the input matrix $I$. The red square is the sub-image considered and convoluted with the blue matrix giving the activation value in the green box. The procedure is done over all the sub-images producing the feature map on the far right.}
+	\label{fig:Conv2D}
+\end{figure}
+
+\subsection*{MaxPool2D layer}
+A natural next-step to the convolution layer is represented by the category of pooling layers. This type of layers has the aim of reducing the size of the activation maps.\\
+In particular, MaxPool2D layer consider a sub-matrix with a fixed size, typical $2\times2$ or $3\times3$, and record the max value. Performing the process over all the input matrix, the result is a smaller output matrix that keeps the geometrical feature information. A pictorial representation of the layer is shown in figure \ref{fig:MaxPool}.
+
+\begin{figure}[b]
+	\centering
+	\includegraphics[width=.6\textwidth]{IMG/Cap6/MaxpoolSample2.png}
+	\caption{MaxPool2D effect sketched where the same color represent the sub-matrix considered and the corresponding output.}
+	\label{fig:MaxPool}
+\end{figure}
+
+%\subsection*{GlobalAveragePooling2D layer}
+
+
+\subsection*{VGGNet structure} \label{subsec:VGGNet_teo}
+The VGGNet structure is a neural network concept introduced in 2015 with the article "Very Deep Convolutional Networks for Large-Scale Image Recognition" \cite{VGGArt} (the name VGG is the acronym for Visual Geometry Group, their lab in Oxford).\\
+The proposed, and then accepted as a standard, powerful structure is composed by several small-size filter chain (i.e. kernel size of $1\times1$ or $3\times3$), max pooling with size of $2\times2$ is used after most, but not all, the convolutional layers. The idea is that consecutive small-size filters approximate larger filter effects with an higher number of parameters. Another important characteristic is the large number of filters used: typically deeper layer has greater number of kernels starting from, at least, $32$.\\
+In figure \ref{fig:VGG_table} the structure studied in \cite{VGGArt} are listed where groups of two or three convolutional layers are followed by max pooling ones, at the end the last max pooling layer output is flatten and used as input for a group of dense layers till the classification.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.8\textwidth]{IMG/Cap6/VGG_art.png}
+	\caption{Schematic representation of CNN structures studied by Karen Simonyan and Andrew Zisserman. Each column correspond to a CNN with different depth increasing from the left (A) to the right (E), as more layers are added (the added layers are shown in bold. The convolutional layer parameters are denoted as “conv[receptive field size]-[number of channels]".}
+	\label{fig:VGG_table}
+\end{figure}
+
+A VGGNet like structure has been used to perform the task already introduced and it will be described in detail later (see paragraph \ref{sec:NN_perf}).
+
+\subsection*{ResNet structure} \label{subsec:ResNet_teo}
+Residual Networks, or ResNet, are another innovative concept of CNN introduced in 2016 with the article "Deep Residual Learning for Image Recognition" by Kaiming He et al. \cite{ResNetArt}.\\
+The structure is composed as a plain convolutional network with small kernel size (same as in VGGNet), this sequence of Conv-layers is splitted in several \textit{residual} blocks. The innovative aspect is that the input of each block is the sum of the input and the output of the previous block. The structure and flow of data are shown in figure \ref{fig:ResNet_scheme}, where two different ResBlock are sketched.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.7\textwidth]{IMG/Cap6/ResNet_scheme.png}
+	\caption{Schematic representation of residual blocks with arrows to indicate the data flow. On the left a simple two convolution block, on the right a "bottleneck" building block. Figure from \cite{ResNetArt}.}
+	\label{fig:ResNet_scheme}
+\end{figure}
+
+The last block is followed by an average pooling layer (similar to the max pooling layer, but it record the average value and not the max value) and then a structure of consecutive dense layer till the classification one with softmax as activation function.\\
+
+A ResNet like structure has been used to perform the task already introduced and it will be described in detail later (see paragraph \ref{sec:NN_perf}).
+
+\section{Data setup}\label{sec:NN_data}
+The data are produced through the IDEA DR Calorimeter full simulation, neutral pions and photons are fired from the interaction point to a fixed area of the calorimeter. In the first step particles with the fixed energy of $40\ GeV$ are produced.\\
+Useful data from the simulation are:
 \begin{itemize}
-	\item the calorimeter simulation, coded in GEANT4;
-	\item the SiPM response digitization (``pySIPM"), coded in Python.
+    \item starting fibre spatial coordinates ($x$, $y$, $z$);
+    \item fibre type (Cherenkov or scintillating);
+    \item charge integral from the SiPM digitization software.
 \end{itemize}
+The typical coordinate system for a $4\pi$ calorimeter is the spherical one so the cartesian coordinates have been transformed in spherical ones. Then, at each point the charge integral has been associated. Finally the are grouped in two subset by filtering with respect to the fibre types. The results obtained can be plotted in a 3D-graph to check the effective correctness of the process, an event taken as example can be seen in figure \ref{fig:3Dgraph}.
 
-Later, the performances obtained will be shown. The temporal behavior, the SiPM saturation effect and the energy resolution will be described in section \ref{sec:Sim_perf}.\\
-
-Then the chapter treats of the possibility of simple particle identification using neural network structures.\\
-%In section \ref{sec:NN_waveform} neural networks working on digitized waveforms are described. The aim of these neural network is to correctly distinguish waveforms generated by electrons ($e^-$) or pions ($\pi^-$) in a range of energy from $20$ to $80$ GeV.\\
-The last section (sec.\ref{sec:NN_img})  exposes a neural network that has the purpose of identify if signal are generated from photons ($\gamma$) or neutral pions ($\pi^0$). This aim is achieved analyzing the spatial pattern of energy released in the calorimeter.
-
-\section{Simulation structure} \label{sec:Sim_struc}
-
-\subsection{Calorimeter simulation} \label{subsec:Sim_cal}
-The calorimeter simulated follows the idea show in chapter \ref{chap:Idea_project}. It has a cylindrical symmetry characterized by a barrel and two endcaps. This $4\pi$ structure is obtained rotating $36$ simpler component, called slices, around the $z$ axis. The dimensions of the slices are shown in figure \ref{fig:cal_slices}, therefore the inner diameter and  the inner length are both $5\ m$ meanwhile the overall outer diameter and length are $9\ m$.\\
-Each half slice is composed by 75 $2\ m$ long towers ($40$ part of the barrel and $35$ part of the endcap), $5400$ of this element are used to set up the whole calorimeter.
-To correctly cover an almost $4\pi$ solid angle each tower has different trapezoidal inner face with dimensions that can vary from $\sim 5\ cm$ to $\sim 8\ cm$.
-A small circular area, with $0.25\ m$ of radius, centered along the $z$ axis is not covered by the calorimeter to permit the beam to reach the interaction point (IP).\\
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=0.6\textwidth]{IMG/DRCGeometry3}
-%	\caption{Calorimeter geometry.}
-%	\label{fig:cal_geometry}
-%\end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/DRCGeometry1}
-	\caption{Calorimeter single slice.}
-	\label{fig:cal_slices}
+	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_3Dgraph_cher.png}} \quad
+	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_3Dgraph_scin.png}}
+	\caption{3D-graphs representing Cherenkov and scintillation signals from the same sample event ($40\ GeV$ photon as primary particle).}
+	\label{fig:3Dgraph}
 \end{figure}
 
-The towers are copper based and play the role of absorber. To have a sensitive element they are filled by optical fibres. The idea of a projective calorimeter make the absorber volume greater increasing the distances from the IP. New fibres at different depth have to be placed inside the calorimeter to keep constant the sampling fraction.\\
-As the dual-readout technique needs to distinguish Scintillating ($S$) and Cherenkov ($C$) signal, two types of fibres are used (fig. \ref{fig:CS_fibres}). Their characteristic are shown in tab. \ref{tab:fibres}.\\
-The fibre refractive indices determine the light transport (as consequence of the Snell's law \cite{Snell}). The signal from the scintillating fibres is parametrised by the deposited energy while the Cherenkov photons are produced accordingly to the Cherenkov emission process.\\
-
-\begin{table}
-	\centering
-	\setlength{\tabcolsep}{12pt}
-	\begin{tabular}{lp{0.6\textwidth}}
-		\toprule
-		\multicolumn{2}{c}{\textbf{Kuraray SCSF-78 ($S$)}}	\\
-		\midrule
-		Core:				& $r = 0.485\ mm$, Polystyrene ($C_5H_5$), $\rho=1.95\ g/cm^3$, $n = 1.59$	\\
-		Cladding: 			& Thickness $=2\%$ of $r$, PMMA ($C_5H_8o_2$), $\rho=1.19\ g/cm^3$, $n=1.49$	\\
-		Main properties:	& Emission constant $= 2.8\ ns$, LY $= 10^4\ \text{photons}/MeV$, $\lambda_{att} = 4\ m$	\\
-		\midrule
-		\multicolumn{2}{c}{\textbf{Mitsubishi SK-40 ($C$)}}	\\
-		\midrule
-		Core:				& $r = 0.485\ mm$, PMMA ($C_5H_8o_2$), $\rho=1.19\ g/cm^3$, $n = 1.49$	\\
-		Cladding: 			& Thickness $=2\%$ of $r$, Fluorinated Polymer ($C_2F_2$), $\rho=1.43\ g/cm^3$, $n=1.42$	\\
-		Main properties:	& $\lambda_{att} = 8.9\ m$	\\
-		\bottomrule
-	\end{tabular}
-	\caption{Technical characteristics of the two type of fibres used.}
-	\label{tab:fibres}
-\end{table}
+To train and take advantage of CNNs, the dataset has to be prepared. The input for VGGNet and ResNet has to be a dimension-fixed matrix for each event. Every event will be characterized by two features (Cherenkov charge integral and scintillation charge integral), each one of this represented by a grid reproducing the spatial distribution of the data. The squared area of interest in the $\theta-\phi$ space has been identified as $[(1.51,-0.02),(1.63,0.10)]$. Different values of grid step in this area has been compared reaching a good compromise between grid shape efficiency and imaging resolution choosing a grid step of $0.0009$ rad for both axes. The grid can be represented as 2D-histograms using the sum of all the charge integral values in each bin as bin height (figure \ref{fig:2Dhist} shows the histograms obtained from the same data in figure \ref{fig:3Dgraph}).\\
+Hence the input matrix for each event has a shape of $133 \text{ (height) }\times 133\text{ (width) }\times 2\text{ (features)}$. A 2D visualization can be seen in figure \ref{fig:2Dvision}.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/DRCGeometry2}
-	\caption{Chess-like configuration to dispose the fibres in the copper structure.}
-	\label{fig:CS_fibres}
-\end{figure}
-
-For each event, the simulation gives as output useful information: 
-\begin{itemize}
-	\item Event ID;
-	\item Fibre Type;
-	\item Fibre ID;
-	\item the position of the fibre end closer to the IP;
-	\item the number of photons reaching the fibre further end;
-	\item the list of photons time of arrival to the fibre end.
-\end{itemize}
-
-The computation of light propagation is extremely time consuming, so that it has to be fine tuned to optimize the process. In particular, the propagation of $C$ photons is tracked until the single photon reach the core-cladding boundary (i.e. at the distance $R$ from the further end of the fibre and at the time $t_0$). If the emission angle is inside the range of the fibre numerical aperture, the photon is added to the final number of photons (after a Poissonian smearing on their number).
-The time of arrival on the sensor for each photon is estimated as:
-\begin{equation}
-t_C = t_0 + R \frac{n_C}{c}
-\end{equation}
-where $n_C = 1.49$ is the fibre refractive index and $c$ is the speed of light.\\
-
-The $S$ fibres, instead, carry scintillating photons produced considering the light yield of the fibres and the energy deposited by the interacting particle. The number of photons is smeared with as Poissonian law and de time of arrival on the sensor is obtained as:
-\begin{equation}
-	t_S = t_0 + R\frac{n_S}{c\cdot \cos(\vartheta)} + t^*
-\end{equation}
-where $n_S = 1.59$ is the refractive index and $t^*$ is a random time that considers the fibres decay time, it is chosen from an exponential distribution with $2.8\ ns$ as mean value.
-Considering the internal reflection, the photon path depends on the $\vartheta$ angle (i.e. the angle between the photon direction and the fibre axis). It is chosen randomly in the range $[\cos(\alpha),\cos(0)]$, where $\alpha = 20.4\degree$ is the fibre critical angle.\\
-Eventually, the light produced is smeared by two Poissonian distribution, one for scintillation photo-electrons and the other one for Cherenkov photo-electrons. This procedure correctly reproduces statistic fluctuations in scintillation and Cherenkov light production and allows to reproduce within simulations the scintillating light yield (p.e./GeV) desired. To make the full simulation lighter, this process also includes the attenuation due to the PDE of the simulated SiPMs. The simulation is tuned to produce $\sim 400\ Spe/GeV$ and $\sim 100\ Cpe/GeV$ at the electromagnetic scale.
-
-\subsection{SiPM response digitization} \label{subsec:Sim_SiPM}
-The results obtained are the input of the second part of the simulation: \textit{pySiPM}, a Monte Carlo simulation, performed mostly in Python, able to reproduce the SiPM response to a light source and replicate the waveforms recorded with a digitizer \cite{digitizer}.\\
-
-The importance of this software goes beyond our context, but perfectly fits our needs. In particular each fibre from the calorimeter simulation is considered coupled to a single SiPM, which digitized response is simulated through \textit{pySiPM}.
-
-The simulation allows to set most of the SiPM parameters:
-\begin{itemize}
-	\item \textbf{Geometrical parameters}: the sensor dimensions and the pixel pitch.
-	\item \textbf{Sensor parameters}: Photon Detection Efficiency, Dark Count Rate, After-Pulse probability, Optical Cross-Talk probability.
-	\item \textbf{Signal parameters}: rise time constant, decay time constant.
-	\item \textbf{Waveform parameters}: time window, sampling time, integration window.
-\end{itemize}
-
-For each event and fibre, random parameters determine the photon position inside the sensor. %Meanwhile the sensor PDE is tuned to have consistent mean values of $\sim 400\ Spe/GeV$ and $\sim 100\ Cpe/GeV$ respectively for $S$ and $C$ light yield.
-Meanwhile the sensor PDE is set at $100\%$ to be consistent with the smearing applied at the calorimeter simulation level.
-A control stop the count of impinging photons on the same cell to a maximum one, then each element of noise is generated with the set probability.\\
-The pulse generated is a combination of two exponentials characterized by the rise time constant ($\tau_{rise}$) and the decay time constant ($\tau_{fall}$), considering the different photon time of arrival ($t_S$ and $t_C$):
-\begin{equation}
-	y(t)= A \cdot \left( e^{-\frac{t}{\tau_{fall}}} - e^{-\frac{t}{\tau_{rise}}}\right).
-	\label{form:resp_func}
-\end{equation}
-
-The total signal of each SiPM is the sum of all the signals generated from the activated cells.\\
-
-The information given as output of the simulation are:
-\begin{itemize}
-	\item \textbf{Data reported from GEANT4 simulation}: event ID, type of fibre, fibre ID, fibre position;
-	\item \textbf{Computated quantities}: integral, peak height, time of arrival, time over threshold, time of peak;
-	\item \textbf{Digitized waveform}.
-\end{itemize}
-
-All this features can be rejected through a trigger, in particular a threshold can be set to establish the informations that have to be recorded.
-The threshold is defined as a scale of the maximum value of a waveform generated by a single photoelectron (neglecting the electrical noise). In the results showed later a one-suppression has been applied using a threshold factor of $1.5$, a typical setup to filter isolated signals of DCR.\\
-
-\section{Simulation performances} \label{sec:Sim_perf}
-
-\subsection{Different configurations} \label{subsec:SiPM_conf}
-The results shown in this last chapter are obtained considering different SiPM parameters configurations.\\
-They have been chosen in a common parameter space identified checking the lineup of SiPMs produced by Hamamatsu \cite{SiPM_lineup}. 
-Two are the parameters that has been changed in our studies: 
-\begin{itemize}
-	\item the decay time constant of the signal, the chosen values are $10\ ns$ and $50\ ns$;
-	\item the pixel size, the chosen values are $10\ \mu m$, $15\ \mu m$ and $25\ \mu m$.
-\end{itemize}
-
-The other fixed values of parameters are listed in the table \ref{tab:SiPM_par}.\\
-
-\begin{table}
-	\centering
-	\setlength{\tabcolsep}{18pt}
-	\begin{tabular}{ll}
-		\toprule
-		\multicolumn{2}{c}{\textbf{Geometrical Parameter}}	\\
-		SiPM area	& $1 \times 1\ mm^2$	\\
-		\midrule
-		\multicolumn{2}{c}{\textbf{Sensor Parameters}}	\\
-		DCR			& $200 \ kHz$	\\
-		After-Pulse	& $3\% $	\\
-		Cross-Talk	& $1\% $	\\
-		\midrule
-		\multicolumn{2}{c}{\textbf{Signal Parameter}}	\\
-		Rise time	& $1\ ns$	\\
-		\midrule
-		\multicolumn{2}{c}{\textbf{Waveform Parameters}}	\\
-		Time window	& $500 \ ns$	\\
-		Integration window	& $300 \ ns$	\\
-		Sampling frequency	& $10\ GHz$	\\
-		\bottomrule
-	\end{tabular}
-	\caption{Fixed SiPM parameters used in the simulation configuration file. To know also variable parameters see text.}
-	\label{tab:SiPM_par}
-\end{table}
-
-An example of waveform generated is plotted in figure \ref{fig:diff_wf} where is clear the difference produced using two different decay time constant.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap5/wf_different_conf}
-	\caption{Single waveforms generated in two identical condition except for the decay time constant in the SiPM configuration file.}
-	\label{fig:diff_wf}
-\end{figure}
-
-\subsection{Time studies} \label{subsec:Time}
-An important aspect that has to be studied is the temporal one.
-In order to do this, data of $1000$ events are produced. In each event a $20\ GeV$ electron is produced from the interaction point.\\
-A first step is to analyze the distribution of the time of arrival of the photons converted at the SiPMs (i.e. the time recorded in the GEANT4 simulation output).\\
-The distribution obtained from $C$ and $S$ photons are plotted in figure \ref{fig:true_toa_dist}.
-As expected, the distribution of $C$ photons time extremely narrow due to the instantaneous production of photons at the passage of relativistic charged particle in the fibres, instead the $S$ photons time distribution shows an exponential tail that is a direct consequence of the emission time constant of the Polystyrene ($\tau = 2.8\ ns$).\\
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap5/TrueTimeDist20GeV}
-	\caption{The distributions of the time of arrivals of photons on the SiPMs surface, distinguishing the ones transported from Cherenkov fibres from the ones transported from scintillation fibres.}
-	\label{fig:true_toa_dist}
-\end{figure}
-
-Now a step forward can be done using this data as input for \textit{pySiPM}. The SiPM parameters are chosen as described in paragraph \ref{subsec:SiPM_conf}. In this context the most interesting editable parameter is the decay time constant.\\ 
-Figure \ref{fig:top_50ns} and \ref{fig:top_10ns} are in analogy with respect to the last described and presents clearly a widening of the distributions, the cause of this phenomenon has to be associated to the characteristic response function of the sensors \ref{form:resp_func}.\\
-These data can be compared looking for differences in changing SiPMs configurations. As we can see in figure \ref{fig:top_per_fib}, the same $C$ and $S$ photons produce narrower time of peak distribution due to the less impact of electronic noise on a sharper response function.\\
-
-\begin{figure}
-	\centering
-	\subfloat[][\label{fig:top_10ns}$\tau_{fall} = 10\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_10ns}} \quad
-	\subfloat[][\label{fig:top_50ns}$\tau_{fall} = 50\ ns$.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_50ns}}
-	\caption{Time of peak distributions comparing in each histogram signals from Chernkov and from scintillation fibres. Different figures correspond to different decay time constants.}
-	\label{fig:top_per_tau}
+	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dhist_cher.png}} \quad
+	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dhist_scin.png}}
+	\caption{2D-histograms representing Cherenkov and scintillation signals from the same sample event ($40\ GeV$ photon as primary particle).}
+	\label{fig:2Dhist}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\subfloat[][\label{fig:top_C}Cherenkov fibres.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_cher}} \quad
-	\subfloat[][\label{fig:top_S}Scintillation fibres.]{\includegraphics[width=.45\textwidth]{IMG/Cap5/ToP_20GeV_scin}}
-	\caption{Time of peak distributions comparing in each histogram signals with different decay time constant of SiPMs. Different figures correspond to different photon emission processes.}
-	\label{fig:top_per_fib}
+	\subfloat[][Cherenkov signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_pre_cher.png}} \quad
+	\subfloat[][Scintillation signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_pre_scin.png}} \\
+	\subfloat[][Cherenkov signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_post_cher.png}} \quad
+	\subfloat[][Scintillation signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_post_scin.png}}
+	\caption{2D-vision of data before and after data setup.}
+	\label{fig:2Dvision}
 \end{figure}
 
-The impact of noise on time of peak precision is also dependent on the number of photons impinging the same SiPM, in particular the peak precision increase with the number of photons.\\
-To prove this $10000$ SiPMs have been fired with an increasing number of simultaneous photons. For each fixed number of photons, the time of peak has been recorded, plotted in an histogram and fitted with a Gaussian function. An example of these histograms is shown in figure \ref{fig:top_dummy}.\\
+The complete process of data preparation is applied on $10000$ events of photons and $10000$ events of neutral pions. All the events have been labelled ($\gamma$ and $\pi^0$), normalized to the max value of $1$ (same normalization constant for all the dataset), shuffled and splitted in two sub-set dedicated to training ($80\%$) and to validation ($20\%$).\\
 
-The standard deviation of these Gaussian fit is the interested quantity that has been recorded and reported in the table \ref{tab:sigmas}.\\
-It is interesting to plot these data and study the behavior of the standard deviation in fuction of the number of photons. Figure \ref{fig:top_sigma} shows graphically the data, which are well fitted with a function of the form:
-\begin{equation}
-	\sigma = \frac{A}{\sqrt{n}} + B.
-\end{equation}
-The parameters obtained are $A = 0.8712\ ns$ and $B = 0.08734\ ns$ for data associated to SiPMs with $\tau_{fall}=10\ ns$, and $A = 1.949\ ns$ and $B = 0.008217\ ns$ for data associated to SiPMs with $\tau_{fall}=50\ ns$.
+\section{Performances}\label{sec:NN_perf}
+Analyses on the prepared data have been performed using the two different convolutional neural network structures already introduced, i.e. VGG Network and Residual Network. Some of the \textit{hyperparameters} of the CNNs, namely all the parameters that identify the structure of the networks such as the number of layers, the number of filters and the kernel size in convolutional layers, the number of neurons in dense layers.\\
+This section shows the comparison between CNNs with different hyperparameters and details of the best VGGNet and ResNet obtained.
 
-\begin{table}
-	\centering
-	\begin{tabular}{lcc}
-		\toprule
-		Number of photons	& $\sigma$ with $\tau_{fall}=10\ ns$ (ns) & $\sigma$ with $\tau_{fall}=50\ ns$ (ns)	\\
-		\midrule
-		$1$ 	& $1.4150$ & $7.0680$ \\
-		$2$ 	& $0.8717$ & $2.6420$ \\
-		$3$ 	& $0.6738$ & $1.7370$ \\
-		$4$ 	& $0.5742$ & $1.3770$ \\
-		$5$ 	& $0.5146$ & $1.1230$ \\
-		$6$ 	& $0.4624$ & $0.9719$ \\
-		$7$ 	& $0.4314$ & $0.9148$ \\
-		$8$ 	& $0.3998$ & $0.8508$ \\
-		$9$ 	& $0.3811$ & $0.7717$ \\
-		$10$ 	& $0.3605$ & $0.7169$ \\
-		$25$ 	& $0.2339$ & $0.4481$ \\
-		$50$ 	& $0.1679$ & $0.3112$ \\
-		$100$ 	& $0.1229$ & $0.2297$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Standard deviations obtained through the Gaussian fit applied on the time of peak distributions under different conditions. }
-	\label{tab:sigmas}
-\end{table}
+\subsection{VGG Network}
+The VGG neural networks used for the particle ID task follow the structure described in section \ref{subsec:VGGNet_teo}.\\
+The input and output are well defined by the data preparation and the classification task. The elaborated data set the input as ma 3D matrix with dimensions of $133\times 133\times 2$, meanwhile the aim of distinguishing between two types of primary particle set the last layer as a dense layer with two neurons with softmax as the activation function.\\
+The optimization process has to take into account a very large number of hyperparameters combinations, to make it simple and tidy the layers can be divided in two groups separated by the flatten one: the "convolutional half" and the "dense half". The halves have been analyzed one at a time keeping fixed the other one and ranging the hyperparameters in common values.\\
+In table \ref{fig:VGGNet-tested} the structure of the six different VGGNet tested are shown with the accuracy value and the time of training to evaluate the performances.\\
+The neural networks labelled as VGGNet A, VGGNet B and VGGNet C have the aim to optimize the dense half modifying the Dropout probability. Once the best dense half has been fixed the VGGNet D, E and F have been tested to select the best hyperparameters in the convolution half. The conclusion from this study set the best structure as the VGGNet D with an accuracy of $98.875$ and a training time of $212 \s/\text{epoch}$.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap5/Dummy11pe_50ns}
-	\caption{Time of peak distribution obtained firing $10000$ SiPMs with $11$ photoelectrons each, all at the same time ($10 ns$). Over this distribution a Gaussian fit has been applied.}
-	\label{fig:top_dummy}
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-Tab.png}
+	\caption{Table of different VGGNet structure studied. Performances are valuated looking at accuracy and training time values.}
+	\label{fig:VGGNet-tested}
 \end{figure}
+
+Once identified the VGGNet D as the best structure for the task deeper study have been performed.\\
+The training is applied on a training dataset and simultaneously validated on a validation dataset, this can give a double view during the process.
+The accuracy is probably the most important aspect for a neural network, it is evaluated as the number of correct predictions over the total number of predictions ($n_c/N$). Figure \ref{fig:VGGNet-acc} shows the behaviour of the accuracy during the training process by overlapping the results from training and validation datasets.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap5/PeakSpread}
-	\caption{Standard deviation behaviour with respect to the number of simultaneous photoelectrons. Study performed with two different decay time constant in SiPMs configuration.}
-	\label{fig:top_sigma}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-D_Accuracy.pdf}
+	\caption{Accuracy behaviour over $50$ training epoches using the selected VGGNet. Train and validation accuracy are shown with different colors.}
+	\label{fig:VGGNet-acc}
 \end{figure}
 
-
-\subsection{Occupancy effect} \label{subsec:Sat_effect}
-The occupancy effect, as shown in the paragraph \ref{subsec:SiPM_work}, is an important characteristic that has to be deeply studied to know the behaviour of the SiPMs under high number of impinging photons and to correctly reconstruct the released energy.\\
-
-As can be seen in figure \ref{fig:sat_example}, this effect is reproduced correctly in our simulations. The example shows the charge integral in dependence to the number of p.e. and follows the concepts already seen in paragraph \ref{subsec:occupancy_teo}.\\
+The loss function is another important feature that can be studied. It has been already introduced as error function \ref{eq:err_func}, in the specific case it get simpler noting that there are only two labels ($K = 2$). A loss value can be evaluated at the end of each training epoch to monitor the improvements in each training step. Figure \ref{fig:VGGNet-loss} shows the behaviour just described.\\
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{IMG/Cap5/SatExample.jpg}
-	\caption{Example of saturation effect produced with the simulation chain. Each point correspond to a SiPM with a cell size of $25\ \mu m$.}
-	\label{fig:sat_example}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-D_Loss.pdf}
+	\caption{Loss behaviour over $50$ training epoches using the selected VGGNet. Train and validation loss are shown with different colors.}
+	\label{fig:VGGNet-loss}
 \end{figure}
 
-The first step to perform these studies is to reconstruct a calibration law that reproduces the charge integral with respect to the number of p.e. firing the same SiPM.\\
-Starting by assuming that in the range of photoelectrons from $2$ to $10$ the saturation effect does not occur in our configurations (i.e. $10000$, $4356$ and $1600$ cells in each SiPM), $10000$ SiPM has been fired $9$ times with an increasing number of simultaneous p.e. in the range considered.\\
-To assume that no saturation effect occurs in these data the charge integral distribution from the three different configurations has been compared finding no bias as seen in figure \ref{fig:SatCheck}. The mean and the RMS values has been recorded and fitted with a strait line corresponding to the calibration law desired:
-\begin{equation}
-	I(n) = A \cdot n + B
-\end{equation}
-with $A = 49.43 \pm 0.03852$ and $B = 2.491 \pm 0.2516$ (fig \ref{fig:NoSatLine}).\\
-The parameter $A$ represents the contribution to the charge integral associated to a single photoelectron. Meanwhile $B$ is the pedestal that is originated mostly by the DCR. This contribution can be evaluated considering our parameters of DCR $= 200\ kH$ and the integration window of $300\ ns$.
-$B_{DCR} = 2 \cdot 10^5 \cdot 3 \cdot 10^{-7} p.e. = 6\cdot 10^{-2} p.e. = 6\cdot 10^{-2} \cdot 49.43 = 2.96$.\\
-In the following result, the value of the pedestal has been subtracted to the integral value of each SiPM.\\
+The smoothness of both accuracy and loss plots is an indication of the good dataset size, if a too small dataset would be used the graphs would present high spikes.\\
+
+Results on test data are often represented in confusion matrices, matrices showing the percentage probability of a neural network in identifying categories emphasizing true positive, true negative, false positive and false negative. The confusion matrix obtained with the VGGNet selected is shown in figure \ref{fig:VGGNet-cm}.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{IMG/Cap5/6pe_sat}
-	\caption{Charge integral distributions with different SiPM cell size considering $6$ simultaneous photoelectrons. The distribution shape with less then $10$ simultaneous p.e. is not dependent to the number of cells.}
-	\label{fig:SatCheck}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/VGGNet-D_ConfMatrix.pdf}
+	\caption{Confusion matrix obtained on test date  using the selected VGGNet. Values are normalized on rows (i.e. on the true label).}
+	\label{fig:VGGNet-cm}
+\end{figure}
+
+\subsection{Residual Network}
+The residual neural networks used for the particle ID task follow the structure described in section \ref{subsec:ResNet_teo}.\\
+The input and output of the ResNets has to coincide with the ones for VGGNets, due to the same data preparation process and the same classification task. The input data will have a 3D matrix shape ($133\times 133\times 2$) and the last layer is set to be the a two-neurons dense layer with the softmax activation function.\\
+The articulation of the middle layers follows the typical ResNet structure presented in section \ref{subsec:ResNet_teo}.\\
+As done for the VGGNet optimization, also this structure has been divided in two parts identified by the \textit{GlobalAveragePooling} layer ("colvolutional half" and "dense half"). In table \ref{fig:ResNet-tested} the six different ResNet with different hyperparameters are listed. ResNet A, B, C and D are dedicated to the optimization of the dense half. Once the best dense half structure has been found, the ResNet E and F have been trained to find the best ResNet for the task. As schematically shown in the table, ResNet D has the best performances with an accuracy of $97.275\%$ and a training time of $192 \s/\text{epoch}$.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1.\textwidth]{IMG/Cap6/ResNet-Tab.png}
+	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values. Note that the thicker lines divide the different Recurrent blocks as described in section \ref{subsec:ResNet_teo}.}
+	\label{fig:ResNet-tested}
+\end{figure}
+
+Residual Network and VGG Network performances have been studied in same conditions such as batch size ($128$) and number of epoches ($50$) and also with the same accuracy and loss evaluation.\\
+Both accuracy and loss values have been recorded during the training process and their behaviour with respect to the training epoches is shown in figures \ref{fig:ResNet-acc} and \ref{fig:ResNet-loss}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-D_Accuracy.pdf}
+	\caption{Accuracy behaviour over $50$ training epoches using the selected ResNet. Train and validation accuracy are shown with different colors.}
+	\label{fig:ResNet-acc}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\textwidth]{IMG/Cap5/NoSatLine}
-	\caption{Study of the proportional relation between integral and number of photoelectrons in the range from $2$ to $10$. A linear fit has been applied to find calibration law without saturation.}
-	\label{fig:NoSatLine}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-D_Loss.pdf}
+	\caption{Loss behaviour over $50$ training epoches using the selected ResNet. Train and validation loss are shown with different colors.}
+	\label{fig:ResNet-loss}
 \end{figure}
 
-The occupancy effect has been studied in electromagnetic shower produced by single electrons of different energies at each event with discrete values of $20,\ 40,\ 60,\ 80\ GeV$.\\
-The impact of the saturation has been quantified using the line $I = A\cdot n$ as no saturation reference. The result obtained from $10000$ events of single $40\ GeV\ e^-$ with different SiPM configurations are separated in Cherenkov and Scintillation signals. They are shown in figure \ref{fig:sat_fibres} where each point correspond to a single SiPM. The smaller is the number of cells, the greater is the occupancy effect.\\
-Moreover, as expected, the scintillation fibres transport $\sim 4$ times the p.e. from Cherenkov ones on average, therefore they are more affected to the saturation.\\
+Also in this case a confusion matrix has been produced on validation data reaching the results shown in figure \ref{fig:ResNet-cm}.
 
 \begin{figure}
 	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_cher}} \\
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Fib_40GeV_scin}}
-	\caption{The plots, divided considering the two different photon production processes, show the occurrence of the occupancy effect studying single $40\ GeV$ electrons. Each point correspond to a SiPM with different values of cell size. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference.}
-	\label{fig:sat_fibres}
+	\includegraphics[width=0.6\textwidth]{IMG/Cap6/ResNet-D_ConfMatrix.pdf}
+	\caption{Confusion matrix obtained on test date  using the selected ResNet. Values are normalized on rows (i.e. on the true label).}
+	\label{fig:ResNet-cm}
 \end{figure}
 
-This process can be extended considering one event at the time and adding the charge integral and the corresponding number of photoelectrons. The effect produced is represented in figure \ref{fig:sat_events} where each point correspond to a single event.\\
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_cher}}\\
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Sat_Ev_40GeV_scin}}
-	\caption{The plots, divided considering the two different photon production processes, show the occurrence of the occupancy effect studying single $40\ GeV$ electrons. Each of the $10000$ points correspond to a single event where integral and number of photoelectrons have been added over the fired SiPMs. Different values of cell size are represented with different colors. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference.}
-	\label{fig:perc_sat}
-\end{figure}
-
-As can be seen, the occupancy effect in our conditions is consistent. To mitigate this problem an analytical correction can be performed through the formula:
-\begin{equation}
-	N_{fired}=N_{cells} \cdot \left[ 1 - \exp\left(-\frac{N_{p.e.}}{N_{cells}}\right)\right]
-\end{equation}
-
-therefore the correction has been applied modifying the integral values such as:
-\begin{equation}
-	I_{corr} = - A N_{cells} \left[ \ln\left(1 - \frac{I}{A N_{cells}}\right) \right]
-\end{equation}
-
-The results obtained can be visualized in figure \ref{fig:sat_corr} where are compared the data from SiPM with cell size of $10\ \mu m$ with and without analytical correction.
-
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals. Points are single SiPMs.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_fib_cher}}\quad
-	\subfloat[][Scintillation signals. Points are single SiPMs.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_fib_scin}}\\
-	\subfloat[][Cherenkov signals. Points are single events.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_ev_cher}} \quad
-	\subfloat[][Scintillation signals. Points are single events.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/SatCorr_40GeV_ev_scin}}
-	\caption{Similar plots to figures \ref{fig:sat_fibres} and \ref{fig:sat_events}. Two series of data are presented to show the effectiveness of the analytical correction. The no saturation line shown in figure \ref{fig:NoSatLine} has been added as reference. }
-	\label{fig:sat_corr}
-\end{figure}
-
-The discrepancy from the no saturation reference quantifies the effect of the occupancy when performing the energy reconstruction task. The percentage difference has been evaluated through the formula $\frac{E_{NoSat}-E}{E_{NoSat}}$, and the value obtained fill the histograms in figure \ref{fig:perc_sat}.\\
-After applying the analytical correction a clear improvement is show in figures \ref{fig:sat_corr_perc}.\\
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.5\textwidth]{IMG/PercEnergy_40GeV_cher.jpg}} \quad
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.5\textwidth]{IMG/PercEnergy_40GeV_scin.jpg}}
-	\caption{Percentage discrepancy distribution considering events with single 40GeV electrons. Different colors correspond to different cell size values.}
-	\label{fig:sat_events}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/PercEnergy_40GeV_corr_cher}} \quad
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.5\textwidth]{IMG/Cap5/PercEnergy_40GeV_corr_scin}}
-	\caption{Percentage discrepancy distribution considering events with single 40GeV electrons to evaluate the effect of the analytical correction applied on data obtained with a cell size of $10\ \mu m$.}
-		\label{fig:sat_corr_perc}
-\end{figure}
-
-This whole process has been performed simulating electrons with energies of $20,\ 40,\ 60,\ 80\ GeV$. Mean and standard deviation of the gaussian fit applied on the percentage discrepancy have been recorded and the obtained plots are shown in figure \ref{fig:sat_vs_E}.\\
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Cap5/PercEnergy_cher}} \\
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Cap5/PercEnergy_scin}}
-	\caption{Percentage discrepancy behaviour with respect to the primary particle energy. Different cell sizes are compared also with data obtained performing the analytical correction.}
-	\label{fig:sat_vs_E}
-\end{figure}
-
-\subsection{Energy resolution} \label{subsec:E_res}
-The first step to study the energy resolution is to calibrate the full simulation.\\
-Dual-readout calorimeters are typically calibrated at the electromagnetic scale. This is specially useful in a leptonic collider because, having easily access to electrons and positrons, the calorimeter can be calibrated precisely during all the life of the experiment.\\
-
-The calibration has been performed on $40\ GeV$ electrons applying the one-suppression already introduce un paragraph \ref{subsec:Sim_SiPM}. $10000$ events with single $40\ GeV$ electrons have been fired from the interaction point obtaining the charge integral distributions for scintillation and Cherenkov signals.% shown in figure \ref{fig:int_dist}.
-The calibration constants obtained to transform these data in energy distributions centered around $40\ GeV$ are: $k_S = 4.998 \times 10^{-5}$ and $k_C = 2.023 \times 10^{-4}$.\\
-Two analogue calibration constants have been obtained starting from the number of photoelectrons distribution with values of:  $k_{pe,S} = 2.48 \times 10^{-3}$ and $k_{pe,C} = 1.00 \times 10^{-2}$.\\
-
-%\begin{figure}
-%	\centering
-%	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Intdist_40GeV_cher_cal}} \\
-%	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Intdist_40GeV_scin_cal}}
-%	\caption{Integral distrib.}
-%	\label{fig:int_dist}
-%\end{figure}
-
-Starting from these calibration constant, the energy distributions can be obtained from the number of p.e. (pre SiPM digitization simulation) of from the charge integral (post SiPM digitization simulation). The two types of distribution are compared in figure \ref{fig:cfr_e_dist}.\\
-As expected, the energy distributions obtained from the charge integrals are wider due to the introduction of the electronic noise. However, the effect is minimal considering the fact that in each event hundreds of SiPMs are active and the white noise has mean zero.\\
-
-\begin{figure}
-	\centering
-	\subfloat[][Cherenkov signals.]{\includegraphics[width=.7\textwidth]{IMG/Cap5/E_hist_cfr_cher}} \\
-	\subfloat[][Scintillation signals.]{\includegraphics[width=.7\textwidth]{IMG/Cap5/E_hist_cfr_scin}}
-	\caption{Charge integral distributions generated with data from GEANT4 (\textit{pre pySiPM}) or from the full simulation (\textit{post pySiPM}). The histograms are shifted by their mean values to show the minimal difference in the distributions spread.}
-	\label{fig:cfr_e_dist}
-\end{figure}
-
-The energy distributions have been fitted with a Gaussian function to obtain mean, standard deviation e respective errors. Doing this with different primary electron energies the energy resolution can be studied. Mean and standard deviation are listed in tables \ref{tab:e_res_int} \ref{tab:e_res_pe}.\\
-Then fitting the $\sigma/E$ values in the energy range $20-80\ GeV$ can be seen there is a good agreement with the functions:
-\begin{equation}\label{eq:resolution}
-	\frac{\sigma}{E} = \frac{A_1}{\sqrt{E}} + B_1 \qquad \text{or} \qquad \frac{\sigma}{E} = \frac{A_2}{\sqrt{E}} \oplus B_2
-\end{equation} 
-as shown in figure \ref{fig:sigma_su_e}, with the fit parameters listed in table \ref{tab:res_regular_sum} and \ref{tab:res_quadratic_sum}. The plots also show the loss of resolution with the introduction of the SiPM digitization software.\\
-
-\begin{table}
-	\centering
-	\begin{tabular}{lccc}
-		\toprule
-		& True E (GeV) & Mean E (GeV) & Standard Deviation (GeV) \\
-		\midrule
-		\textbf{Scintillation} &	$20$ 	& $19.90$ & $0.95$ \\
-		& $40$ 	& $40.00$ & $1.44$ \\
-		& $60$ 	& $60.65$ & $1.85$ \\
-		& $80$ 	& $81.18$ & $2.26$ \\
-		\midrule
-		\textbf{Cherenkov} & $20$ 	& $19.88$ & $0.95$ \\
-		& $40$ 	& $40.00$ & $1.42$ \\
-		& $60$ 	& $60.61$ & $1.73$ \\
-		& $80$ 	& $81.12$ & $2.08$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Mean and standard deviation obtained by fitting with Gaussian function the energy distributions. The data are obtained with results from the full simulation.}
-	\label{tab:e_res_int}
-\end{table}
-
-\begin{table}
-	\centering
-	\begin{tabular}{lccc}
-		\toprule
-		& True E (GeV) & Mean E (GeV) & Standard Deviation (GeV) \\
-		\midrule
-		\textbf{Scintillation} &	$20$ 	& $19.82$ & $0.92$ \\
-		& $40$ 	& $40.00$ & $1.39$ \\
-		& $60$ 	& $60.28$ & $1.78$ \\
-		& $80$ 	& $81.58$ & $2.16$ \\
-		\midrule
-		\textbf{Cherenkov} & $20$ 	& $19.76$ & $0.92$ \\
-		& $40$ 	& $40.00$ & $1.36$ \\
-		& $60$ 	& $60.40$ & $1.66$ \\
-		& $80$ 	& $81.86$ & $1.91$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Mean and standard deviation obtained by fitting with Gaussian function the energy distributions. The data are obtained with results from DR calorimeter simulation applying the calibration from the photoelectrons number.}
-	\label{tab:e_res_pe}
-\end{table}
-
-\begin{figure}
-	\centering
-	\subfloat[][$C$ signals.]{\includegraphics[width=.8\textwidth]{IMG/Res_cher}} \\
-	\subfloat[][$S$ signals.]{\includegraphics[width=.8\textwidth]{IMG/Res_scin}}
-	\caption{Calorimeter resolution plot where the data have been fitted with the formula on the left of line \ref{eq:resolution}.}
-	\label{fig:sigma_su_e}
-\end{figure}
-
-\begin{table}
-	\centering
-	\begin{tabular}{lcc}
-		\toprule
-		& \textbf{Scintillation} & \textbf{Cherenkov} \\
-		\midrule
-		\textbf{pre pySiPM} &	$\frac{17.39\%}{\sqrt{E}}+0.37\%$ 	& $\frac{21.13\%}{\sqrt{E}}+0.01\%$ \\
-		\textbf{post pySiPM} & $\frac{17.84\%}{\sqrt{E}}+0.77\%$ 	& $\frac{20.01\%}{\sqrt{E}}+0.30\%$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Fit results on the energy resolution using the functional form \ref{eq:resolution} on the left.}
-	\label{tab:res_regular_sum}
-\end{table}
-
-\begin{table}
-	\centering
-	\begin{tabular}{lcc}
-		\toprule
-		& \textbf{Scintillation} & \textbf{Cherenkov} \\
-		\midrule
-		\textbf{pre pySiPM} &	$\frac{19.78\%}{\sqrt{E}}\oplus1.55\%$ 	& $\frac{21.21\%}{\sqrt{E}}\oplus0.07\%$ \\
-		\textbf{post pySiPM} & $\frac{20.14\%}{\sqrt{E}}\oplus1.62\%$ 	& $\frac{21.04\%}{\sqrt{E}}\oplus0.98\%$ \\
-		\bottomrule
-	\end{tabular}
-	\caption{Fit results on the energy resolution using the functional form \ref{eq:resolution} on the right.}
-	\label{tab:res_quadratic_sum}
-\end{table}
+\section{Energy range extension}
+aaa
