@@ -227,12 +227,113 @@ In short, compensation through SAND can be achieved in sampling calorimeters wit
 In the IDEA dual-readout calorimeter, a more recent compensation strategy is designed. The dual-readout compensation used will be described in section \ref{sec:DRComp}.
 
 \subsection{Fluctuations}
-aaa
+The energy response of a calorimeter represent an average value, but the energy loss is a statistical phenomenon therefore the precision of these detectors is affected and limited by fluctuations. The effect is quantified by the relative resolution defined energy distribution standard deviation divided by the mean value ($\sigma/E$).\\
+Considering the simpler case of em calorimeters, four are the main sources of fluctuation:
+\begin{itemize}
+    \item sampling fluctuations;
+    \item signal quantum fluctuations;
+    \item shower leakage fluctuations;
+    \item instrumental fluctuations.
+\end{itemize}
+Sampling effects are affected both by the sampling fraction (i.e. the ratio of the active material on the total) and the sampling frequency (the thickness of the layers). The sampling fraction is  defined as:
+\begin{equation}
+    f_{samp} = \frac{E_{active}}{E_{passive}+E_{active}}
+\end{equation}
+where $E_{active}$ and $E_{passive}$ are the energies deposited in the active and passive part by an incident minimum ionizing particle (mip).
+This type of fluctuation is dominated by the Poisson statistics, hence it contribute with a term proportional to $1/\sqrt{E}$ to the energy resolution.
+In em calorimeter with non-gaseous active material the sampling contribution follow the empirical law:
+\begin{equation}
+    \frac{\sigma}{E} = \frac{2.7\% \sqrt{d/f_{samp}}}{\sqrt{E}}
+\end{equation}
+where $d$ is the thickness of the active material layer measured in $mm$.\\
+Under the label of signal quantum fluctuations are grouped fluctuation effects due, for example, to photon statistics in light emitting active materials. Also these fluctuations follow the rules of Poisson statistics, with the constrain of uncorrelated separate contributions. Another contribution that scales with $E^{-1/2}$ is added to the relative energy resolution expression.\\
+In leakage fluctuations there are three possibilities: longitudinal, lateral and albedo. These fluctuation are highly dependent to the geometry and the material of the calorimeter. For this reason their contribution to the resolution does not have a precise energy dependent form. The typical solution to numerically evaluate their effect is to produce Monte Carlo simulation for the calorimeter and study the obtained data.\\
+Finally, instrumental fluctuations are the ones provided, for example, by electronic noise or geometrical inhomogeneities. The electronic noise contribution is usually described with a term that scales with $1/E$ because it is largely independent of the shower energy. Meanwhile fluctuations induced by structural inhomogeneities depend on the shower position and might be energy dependent.\\
+Typically, these contribution are uncorrelated and have to be added in quadrature to obtain the total resolution. As seen, different contribution with different energy dependence have to be considered. The consequence is that different effects dominate the energy resolution in different energy ranges. These behaviour have to be considered in the design of the calorimeter in order to optimize the resources.\\
+
+All the sources described affect also hadronic calorimeters. For example, sampling fluctuation has a higher impact in hadronic showers due mainly to the lower average number of particle that release energy in the hadronic ones. 
+At the same time, in hadronic detectors, resolution is affected also by other fluctuation effects.\\
+The introduction of quantities such as $f_{em}$ in hadronic calorimeters produces new sources of fluctuations. In non-compensating calorimeter, event-by-event fluctuation in em component affect the detector response. It contributes to the relative energy resolution through a term scaling as $c E^{-0.28}$.
+\begin{equation}
+    \frac{\sigma}{E} = \frac{a_1}{\sqrt{E}} \oplus c E^{-0.28}
+\end{equation}
+Up to $400 GeV$, this law runs almost parallel to an energy resolution in which only the stochastic term is included ($\sigma/E = a/\sqrt{E}$). For this reason, the resolution of non-compensating calorimeter is described as:
+\begin{equation}
+    \frac{\sigma}{E} = \frac{a_2}{\sqrt{E}} + b.
+\end{equation}l
+A useful solution that bring remove these fluctuations is to design a compensating calorimeter, greatly improving the energy resolution.\\
+Finally, the calorimeter resolution is also affected by invisible energy fluctuations. To evaluate the impact of these fluctuations the correlation between $f_{em}$ and $f_{inv}$ has to be known, and in particular if they are correlated or not. If they are uncorrelated the contribution to the resolution has to be added in quadrature. Moreover, in compensating calorimeter, the contribution of invisible energy fluctuations are different depending on the techniques used to achieve compensation.
 
 \section{Dual-readout compensation}\label{sec:DRComp}
-aaa
+All the benefits obtained with compensating calorimeters are obtaining by sampling em and non-em components in hadronic showers with the same response ($e=h$). Dual-readout is a method that perform this correction event-by-event, constantly measuring the electromagnetic fraction [cite?]. 
 
 \subsection{Working principles}
-aaa
+This technique is based on the concept that the em component is mostly provided by relativistic electrons and positrons, while the majority of non-em one is carried by non-relativistic particles. Hence, collecting the Cherenkov signal produced by an hadronic shower is almost equivalent to sampling the em component, estimating the electromagnetic fraction. A second simultaneous signal, typically from scintillators, is recorded. Thanks to this second signal, the non-em component can be evaluated starting from the $f_{em}$ already obtained.\\
+
+Entering the details of the process, let's consider scintillation (S) and Cherenkov (C) signals produced by an hadronic shower. The mean values of these signals are calibrated with an electron beam of known energy $E$ so that, for em showers, $\expval{S} = \expval{C} = E$. The hadronic signals can be written (for each event) as:
+\begin{align}
+    S &= E \left[f_{em} + (h/e)_S (1-f_{em}) \right], \label{eq:S} \\
+    C &= E \left[f_{em} + (h/e)_C (1-f_{em}) \right], \label{eq:C}
+\end{align}
+where $h/e$ quantify the two different degree of non-compensation for the two signals. Considering that $h/e$ are measurable quantities and are assumed to be constants, the ratio $C/S$ is also energy independent:
+\begin{equation}
+    \frac{S}{C} = \frac{f_{em} + (h/e)_S (1-f_{em})}{f_{em} + (h/e)_C. (1-f_{em})} \label{eq:em_frac}
+\end{equation}
+This expression can straightforwardly give an evaluation of the em fraction:
+\begin{equation}
+    f_{em} = \frac{(h/e)_C-(C/S)(h/e)_S}{(C/S)\left[1-(h/e)_S\right]-\left[1-(h/e)_C\right]}
+\end{equation}
+allowing the rewriting of \ref{eq:S} and \ref{eq:C} as
+\begin{align}
+    S/E &= (h/e)_S + f_{em}\left[1-(h/e)_S\right], \label{eq:S2} \\
+    C/E &= (h/e)_C + f_{em}\left[1-(h/e)_C\right]. \label{eq:C2}
+\end{align}
+
+A $C/E$ vs $S/E$ scatter plot can be sketched using signals from a generic DR calorimeter for electrons, pions and protons showers. An example is shown in figure \ref{fig:theta_DR}. As expected, data generated from electrons are always around the point $[1,1]$ (where $f_{em} = 1$). On the other hand an hypothetical signals with only non-em component would be at $[(h/e)_S,(h/e)_C]$ where $f_{em}$ is $0$. Signals from pions and protons showers are clustered along a straight line linking these two points. From this geometric construction it is clear that the slope of this line (the $\theta$ angle) is energy independent because it is determined only by the two $e/h$ values. Thanks to the fact that $\theta$ is energy and particle independent, it is possible to define the parameter:
+\begin{equation}
+    \chi = \frac{1-(h/e)_S}{1-(h/e)_C} = \cot{\theta},
+\end{equation}
+this parameter can also easily estimated with test beam data depending only on calorimeter material and geometry.
+Finally, event-by-event, the energy of each hadron shower can reconstructed  using the $S$ and $C$ signals in an unique way:
+\begin{equation}
+    E = \frac{S - \chi C}{1 - \chi}.
+\end{equation}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{IMG/Cap2/theta_DR.png}
+	\caption{Relation between the calorimeter response ratio to em and non-em energy deposits, $e/h$, and the measured $e/\pi$ signal ratios \cite{Wigmans_e_gamma}.}
+	\label{fig:theta_DR}
+\end{figure}
+
+The ideal DR calorimeter is able to identify the Cherenkov signal as the exact electromagnetic component ($h/e = 0$) being a direct measurement of $f_{em}$. The worst DR calorimeter instead is designed when $(h/e)_C = (h/e)_S$, in this case the two signals would sample the two components (em and non-em) with the same response giving no information about the $f_{em}$ from the $S/C$ ratio.  Therefore, the best real DR calorimeter is the one with the lower $\chi$ parameter found with the lower $(h/e)_C$ and the higher $(h/e)_S$ values possible. 
 
 \subsection{Experiments}
+At present a few dual-readout calorimeter have been built and tested, and more project are under study.\\
+The first practical usefulness of the dual-readout method was tested in a R&D study for the Advanced Cosmic Composition Experiment at the Space Station (ACCESS) cite?. The prototype had a depth of $1.4\lambda_{int}$ and was equipped with both plastic-scintillator ($S$) and quartz ($Q$) optical fibres to measure and collect the scintillation and Cherenkov light, respectively. With this detector, the $Q/S$ signals ratio was found to represent a good event-by-event measurement of the shower energy fraction carried by $\pi^0$.\\
+Later, a $10 \lambda_{int}$ deep calorimeter known as Dual-REAdout Method (DREAM) was built and tested. 
+The detector is composed by $5580$ basic element represented in figure \ref{fig:DREAM}. These are $200\ cm$ long, hollow, extruded copper rod of $4\times 4 mm^2$ cross section in which $3$ scintillating and $4$ Cherenkov fibres are inserted.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{IMG/Cap2/DREAM.png}
+	\caption{The DREAM calorimeter layout cite?.}
+	\label{fig:DREAM}
+\end{figure}
+
+Figure \ref{fig:theta_DREAM} shows the $C-S$ scatter plot of the calibrated signals, where the correlation between them its clear.
+The two $h/e$ ratios for Cherenkov and scintillator DREAM structures are $0.21$ and $0.77$, respectively. The expression of the em fraction \ref{eq:em_frac} becomes:
+%\begin{equation}
+%    \frac{C}{S} = \frac{f_{em} + 0.12 (1-f_{em})}{f_{em} + 0.77 (1-f_{em})}.
+%\end{equation}
+\begin{equation}
+    f_{em} = \frac{0.21-0.77(C/S)}{(C/S)\left[1-0.77\right]-\left[1-0.21\right]}
+\end{equation}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.65\textwidth]{IMG/Cap2/theta_DREAM.png}
+	\caption{ The $C−S$ scatter plot showing the correlation between both types of signals. The signals are expressed in the same units used to calibrate the calorimeter (em GeV) cite?.}
+	\label{fig:theta_DREAM}
+\end{figure}
+
+The DREAM results, together with other studies (e.g. SPACAL and RD52) confirmed the potentiality and the good concept of the dual-readout compensation method, bringing to the IDEA dual-readout calorimetry project.
