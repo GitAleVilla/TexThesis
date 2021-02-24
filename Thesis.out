@@ -3,47 +3,47 @@
 \BOOKMARK [1][-]{section.1.1}{Physics goals}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.2}{Leptonic colliders}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.3}{Hadronic colliders}{chapter.1}% 5
-\BOOKMARK [0][-]{chapter.2}{IDEA Detector concept}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Vertex detector}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Drift chamber}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.3}{Magnet system}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.4}{Dual-readout calorimeter}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.5}{Preshower and muon chambers}{chapter.2}% 11
-\BOOKMARK [0][-]{chapter.3}{Calorimetry and dual-readout}{}% 12
-\BOOKMARK [1][-]{section.3.1}{Physics of shower development}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.1.1}{Electromagnetic Showers}{section.3.1}% 14
-\BOOKMARK [2][-]{subsection.3.1.2}{Hadronic showers}{section.3.1}% 15
-\BOOKMARK [1][-]{section.3.2}{Energy response of calorimeters}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.2.1}{Homogeneous calorimeters}{section.3.2}% 17
-\BOOKMARK [2][-]{subsection.3.2.2}{Sampling calorimeters}{section.3.2}% 18
-\BOOKMARK [2][-]{subsection.3.2.3}{Compensation}{section.3.2}% 19
-\BOOKMARK [1][-]{section.3.3}{Dual-readout calorimetry}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.1}{Working principles}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.2}{Experiments}{section.3.3}% 22
-\BOOKMARK [0][-]{chapter.4}{Silicon Photomultipliers}{}% 23
-\BOOKMARK [1][-]{section.4.1}{Working principles}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.2}{SiPM efficiency}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.2.1}{Occupancy effect}{section.4.2}% 26
-\BOOKMARK [1][-]{section.4.3}{Noise effects}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.3.1}{Dark Count Rate}{section.4.3}% 28
-\BOOKMARK [2][-]{subsection.4.3.2}{After-Pulse}{section.4.3}% 29
-\BOOKMARK [2][-]{subsection.4.3.3}{Optical Cross-Talk}{section.4.3}% 30
-\BOOKMARK [1][-]{section.4.4}{Timing properties}{chapter.4}% 31
-\BOOKMARK [0][-]{chapter.5}{IDEA DR calorimeter full simulation}{}% 32
-\BOOKMARK [1][-]{section.5.1}{Simulation structure}{chapter.5}% 33
-\BOOKMARK [2][-]{subsection.5.1.1}{Calorimeter simulation}{section.5.1}% 34
-\BOOKMARK [2][-]{subsection.5.1.2}{SiPM response digitization}{section.5.1}% 35
-\BOOKMARK [1][-]{section.5.2}{Simulation performances}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.2.1}{Different configurations}{section.5.2}% 37
-\BOOKMARK [2][-]{subsection.5.2.2}{Time studies}{section.5.2}% 38
-\BOOKMARK [2][-]{subsection.5.2.3}{Occupancy effect}{section.5.2}% 39
-\BOOKMARK [2][-]{subsection.5.2.4}{Energy resolution}{section.5.2}% 40
-\BOOKMARK [1][-]{section.5.3}{Neural Network: Particle ID on waveform}{chapter.5}% 41
-\BOOKMARK [2][-]{subsection.5.3.1}{Configuration}{section.5.3}% 42
-\BOOKMARK [2][-]{subsection.5.3.2}{Performances}{section.5.3}% 43
-\BOOKMARK [1][-]{section.5.4}{Neural Network: Particle ID on imaging}{chapter.5}% 44
-\BOOKMARK [2][-]{subsection.5.4.1}{Configuration}{section.5.4}% 45
-\BOOKMARK [2][-]{subsection.5.4.2}{Performances}{section.5.4}% 46
+\BOOKMARK [1][-]{section.1.4}{IDEA Detector concept}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.4.1}{Vertex detector}{section.1.4}% 7
+\BOOKMARK [2][-]{subsection.1.4.2}{Drift chamber}{section.1.4}% 8
+\BOOKMARK [2][-]{subsection.1.4.3}{Magnet system}{section.1.4}% 9
+\BOOKMARK [2][-]{subsection.1.4.4}{Dual-readout calorimeter}{section.1.4}% 10
+\BOOKMARK [2][-]{subsection.1.4.5}{Preshower and muon chambers}{section.1.4}% 11
+\BOOKMARK [0][-]{chapter.2}{Calorimetry and dual-readout}{}% 12
+\BOOKMARK [1][-]{section.2.1}{Physics of shower development}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.1.1}{Electromagnetic showers}{section.2.1}% 14
+\BOOKMARK [2][-]{subsection.2.1.2}{Hadronic showers}{section.2.1}% 15
+\BOOKMARK [1][-]{section.2.2}{Energy response of calorimeters}{chapter.2}% 16
+\BOOKMARK [2][-]{subsection.2.2.1}{Fluctuations}{section.2.2}% 17
+\BOOKMARK [1][-]{section.2.3}{Dual-readout compensation}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.3.1}{Working principles}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.2}{Experiments}{section.2.3}% 20
+\BOOKMARK [0][-]{chapter.3}{Silicon Photomultipliers}{}% 21
+\BOOKMARK [1][-]{section.3.1}{Working principles}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.2}{SiPM efficiency}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.2.1}{Occupancy effect}{section.3.2}% 24
+\BOOKMARK [1][-]{section.3.3}{Noise effects}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.1}{Dark Count Rate}{section.3.3}% 26
+\BOOKMARK [2][-]{subsection.3.3.2}{After-Pulse}{section.3.3}% 27
+\BOOKMARK [2][-]{subsection.3.3.3}{Optical Cross-Talk}{section.3.3}% 28
+\BOOKMARK [1][-]{section.3.4}{Timing properties}{chapter.3}% 29
+\BOOKMARK [0][-]{chapter.4}{IDEA DR calorimeter full simulation}{}% 30
+\BOOKMARK [1][-]{section.4.1}{Simulation structure}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.1.1}{Calorimeter simulation}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.2}{SiPM response digitization}{section.4.1}% 33
+\BOOKMARK [1][-]{section.4.2}{Simulation performances}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.2.1}{Different configurations}{section.4.2}% 35
+\BOOKMARK [2][-]{subsection.4.2.2}{Time studies}{section.4.2}% 36
+\BOOKMARK [2][-]{subsection.4.2.3}{Occupancy effect}{section.4.2}% 37
+\BOOKMARK [2][-]{subsection.4.2.4}{Energy resolution}{section.4.2}% 38
+\BOOKMARK [0][-]{chapter.5}{Neural Network: Particle ID on imaging}{}% 39
+\BOOKMARK [1][-]{section.5.1}{Project goal}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.2}{Neural Networks introduction}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.3}{Data setup}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.4}{Performances}{chapter.5}% 43
+\BOOKMARK [2][-]{subsection.5.4.1}{VGG Network}{section.5.4}% 44
+\BOOKMARK [2][-]{subsection.5.4.2}{Residual Network}{section.5.4}% 45
+\BOOKMARK [1][-]{section.5.5}{Energy range extension}{chapter.5}% 46
 \BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 47
-\BOOKMARK [0][-]{chapter*.36}{Thanks}{}% 48
-\BOOKMARK [0][-]{chapter*.37}{Bibliography}{}% 49
+\BOOKMARK [0][-]{chapter*.74}{Thanks}{}% 48
+\BOOKMARK [0][-]{chapter*.75}{Bibliography}{}% 49

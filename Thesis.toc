@@ -4,47 +4,47 @@
 \contentsline {section}{\numberline {1.1}Physics goals}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Leptonic colliders}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Hadronic colliders}{1}{section.1.3}%
-\contentsline {chapter}{\numberline {2}IDEA Detector concept}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Vertex detector}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Drift chamber}{2}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Magnet system}{2}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Dual-readout calorimeter}{2}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Preshower and muon chambers}{2}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Calorimetry and dual-readout}{3}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Physics of shower development}{4}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Electromagnetic Showers}{5}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Hadronic showers}{5}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Energy response of calorimeters}{5}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Homogeneous calorimeters}{5}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Sampling calorimeters}{5}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Compensation}{5}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Dual-readout calorimetry}{5}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Working principles}{5}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Experiments}{5}{subsection.3.3.2}%
-\contentsline {chapter}{\numberline {4}Silicon Photomultipliers}{6}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Working principles}{6}{section.4.1}%
-\contentsline {section}{\numberline {4.2}SiPM efficiency}{9}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Occupancy effect}{11}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Noise effects}{11}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Dark Count Rate}{12}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}After-Pulse}{12}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Optical Cross-Talk}{13}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Timing properties}{14}{section.4.4}%
-\contentsline {chapter}{\numberline {5}IDEA DR calorimeter full simulation}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Simulation structure}{16}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Calorimeter simulation}{16}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}SiPM response digitization}{19}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Simulation performances}{20}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Different configurations}{20}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Time studies}{20}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Occupancy effect}{24}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Energy resolution}{28}{subsection.5.2.4}%
-\contentsline {section}{\numberline {5.3}Neural Network: Particle ID on waveform}{35}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Configuration}{35}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Performances}{35}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Neural Network: Particle ID on imaging}{39}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Configuration}{39}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Performances}{39}{subsection.5.4.2}%
-\contentsline {chapter}{\numberline {6}Conclusion}{40}{chapter.6}%
-\contentsline {chapter}{Thanks}{41}{chapter*.36}%
-\contentsline {chapter}{Bibliography}{42}{chapter*.37}%
+\contentsline {section}{\numberline {1.4}IDEA Detector concept}{1}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Vertex detector}{1}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Drift chamber}{1}{subsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.4.3}Magnet system}{1}{subsection.1.4.3}%
+\contentsline {subsection}{\numberline {1.4.4}Dual-readout calorimeter}{2}{subsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.4.5}Preshower and muon chambers}{2}{subsection.1.4.5}%
+\contentsline {chapter}{\numberline {2}Calorimetry and dual-readout}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Physics of shower development}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Electromagnetic showers}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Hadronic showers}{9}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Energy response of calorimeters}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Fluctuations}{15}{subsection.2.2.1}%
+\contentsline {section}{\numberline {2.3}Dual-readout compensation}{17}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Working principles}{17}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Experiments}{19}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Silicon Photomultipliers}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Working principles}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}SiPM efficiency}{21}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Occupancy effect}{22}{subsection.3.2.1}%
+\contentsline {section}{\numberline {3.3}Noise effects}{22}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Dark Count Rate}{22}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}After-Pulse}{22}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Optical Cross-Talk}{22}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Timing properties}{22}{section.3.4}%
+\contentsline {chapter}{\numberline {4}IDEA DR calorimeter full simulation}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Simulation structure}{24}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Calorimeter simulation}{24}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}SiPM response digitization}{27}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Simulation performances}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Different configurations}{28}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Time studies}{29}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Occupancy effect}{30}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Energy resolution}{38}{subsection.4.2.4}%
+\contentsline {chapter}{\numberline {5}Neural Network: Particle ID on imaging}{47}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Project goal}{48}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Neural Networks introduction}{48}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Data setup}{57}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Performances}{58}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}VGG Network}{58}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Residual Network}{60}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Energy range extension}{63}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Conclusion}{65}{chapter.6}%
+\contentsline {chapter}{Thanks}{66}{chapter*.74}%
+\contentsline {chapter}{Bibliography}{67}{chapter*.75}%
