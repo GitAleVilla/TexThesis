@@ -10,7 +10,7 @@ aaa
 \section{Hadronic colliders}
 aaa
 
-\section{IDEA Detector concept} \label{chap:Idea_project}
+\section{IDEA Detector concept} \label{sec:Idea_project}
 IDEA (Innovative Detector for an Electron-positron Accelerator) is an innovative general-purpose detector concept, designed to study electron-positron collisions in a wide energy range provided by a very large circular leptonic collider, with a typical circumference of 100 km.
 The new detector concept called was proposed in 2017 and was included in conceptual design reports of both FCC-ee \cite{FCC-ee_design} and CEPC \cite{CEPC_design}.
 
@@ -93,7 +93,29 @@ In this scenario a relatively low field of $2\ T$ can be produced.
 The flux return yoke scales with the square of the coil diameter, thus with the given dimensions a yoke thickness of less than $100\ cm$ of iron is sufficient to contain the magnetic flux and to shield the muon chambers.
 
 \subsection{Dual-readout calorimeter}
-aaa
+The IDEA calorimeter consist in a dual-readout projective fiber detector. It is designed starting from the studies on dual-readout performed in calorimeters as SPACAL \cite{SPACAL} and RD52 \cite{RD52}.\\
+The detector is a $4\pi$ calorimeter that does not present segmentation longitudinally, but only in the direction towards the Interaction Point (IP).
+The segmentation is chosen subtle to have the shower development confined in a small number of cells and most of the energy deposited in a single cell.
+This highly simplifies the calibration procedures for which each cell response can be considered individually.
+Considering that in accelerator-based experiments all the particle come, in good approximation, from the IP, the projective segmentation can be obtained with a tower-based structure.\\
+
+DR calorimeters, as described in section \ref{sec:DRComp}, are composed by an absorber and two different active media to induce and transport two different signals. In the IDEA DR calorimeter copper is used as absorber, composing the structure of the towers, and filled with optical fibres as active volumes.
+The possibility to independently readout each fiber with a dedicated Silicon  PhotoMultiplier (SiPM), as described in \cite{Massi_tesi}, brings a series of advantages especially in terms of spatial and angular resolution removing the limitations given by the towers. Also two particle showering in the same tower, in this way, can still be identified.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.9\textwidth]{IMG/Cap1/DRCal_geo.png}
+	\caption{IDEA dual-readout calorimetry geometry produced with GEANT4 from different angles. In orange the towers composing the barrel, in blue the ones composing the endcaps.}
+	\label{fig:DRCal_geo}
+\end{figure}
+
+The geometry of the calorimeter is shown from different angles in figure \ref{fig:DRCal_geo}. To have projective towers the solution proposed is a series of truncated pyramids pointing to the IP. In such a way, each tower cover a specific region of the solid angle.\\
+The cylindrical symmetry is obtained producing a rotation around the beam axis of a minimal structure called slice. A single slice cover a range of $1o\degree$ of the $\varphi$ angle, therefore $36$ of these elements cover all the calorimeter volume.
+In each slice both barrel and endcaps towers are present, in particular $80$ towers for the barrel and $35$ for each endcap, with a $\theta$ coverage of $1.125\degree$ for each tower.\\
+All the towers are $2\ m$ long, composed by copper and arranged to be filled by optical fibres.
+The active elements are scintillating (polystyrene) and clear-plastic  fibers (PolyMethyl MethAcrylate - PMMA).
+The fiber diameter is $1\ mm$ thick (core + cladding) and disposed in a chess-board like geometry so that each fiber is separated from the closest ones by $0.5\ mm$ of absorber material.
+This complex geometry has been reproduced within the GEANT4 simulation toolkit \cite{GEANT4} and all results in this thesis are obtained with it.
 
 \subsection{Preshower and muon chambers}
 Both the IDEA preshower and the muon chambers are based on the micro-Resistive WELL($\mu$-RWELL) technology [35]. $\mu$-RWELL chambers are compact Micro-Patter Gaseous Detector (MPGD), with a single amplification stage intrinsically spark protected.\\
