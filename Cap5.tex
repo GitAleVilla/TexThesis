@@ -13,7 +13,7 @@ Eventually the study has been performed extending the energy range, the impact o
 \section{Project goal}
 The chapter will explore the possibility to perform particle identification through neural network algorithms. The chosen task is to recognise and distinguish neutral pions and photons analyzing the spatial released energy distribution in a fixed area where the particles are fired.\\
 As already introduced in paragraph \ref{subsec:em_shower}, photons produce electromagnetic showers in their path through matter. Considering the geometry of our DR calorimeter where the fibres are oriented towards the interaction point, a photon will release most of its energy in few adjacent fibres and the remnant energy will be absorbed by the surrounding fibres in a elliptical shape (an example can be seen in figure \ref{fig:demo_ph}.
-On the other hand, the meson has a different behaviour. It decays in two main modes shown in figure \ref{fig:pi_decays}:
+On the other hand, the meson has a different behaviour. It decays in two main modes:
 \begin{equation}
     \pi^0\xrightarrow{} 2\gamma \qquad \pi^0\xrightarrow{} \gamma + e^- + e^+
 \end{equation}
@@ -28,13 +28,13 @@ The consequence of this behaviour is that a electromagnetic shower is produced f
 	\label{fig:demo_shower}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\subfloat[][$\pi^0\xrightarrow{} 2\gamma$]{\includegraphics[height=.18\textheight]{IMG/Cap6/pi2gammas.png}} \quad
-	\subfloat[][$\pi^0\xrightarrow{} \gamma + e^- + e^+$]{\includegraphics[height=.2\textheight]{IMG/Cap6/pi_gamma_e_e.jpg}}
-	\caption{$\pi^0$ decay modes.}
-	\label{fig:pi_decays}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\subfloat[][$\pi^0\xrightarrow{} 2\gamma$]{\includegraphics[height=.18\textheight]{IMG/Cap6/pi2gammas.png}} \quad
+%	\subfloat[][$\pi^0\xrightarrow{} \gamma + e^- + e^+$]{\includegraphics[height=.2\textheight]{IMG/Cap6/pi_gamma_e_e.jpg}}
+%	\caption{$\pi^0$ decay modes.}
+%	\label{fig:pi_decays}
+%\end{figure}
 
 Usually this ID task would be performed applying a number of filters to study the elliptical shape, to find the peaks of charge integral, to measure the distances between the peaks and finally establishing, with a certain probability, the primary particle. The goal is to create a neural network able to accept data associated to an event and make a prediction on the primary particle with a small computational and timing effort.\\
 
@@ -101,7 +101,6 @@ The layer is extremely parameter consuming, let consider a single layer that con
 this number can increase very rapidly with the number of neurons.\\
 Being the basic type of layer is often used to graphically represent general neural networks, figure \ref{fig:NN_art} shows sequence made by two consecutive dense layers.
 
-
 \subsection*{Dropout layer}
 Considering the extremely large number of training parameters, it is common practice to introduce the so called \textit{regularization} techniques to increase the capability of the neural network in generalizing well on new data. The use of a Dropout layer is one of them.\\
 The basic idea is to reduce the spurious correlations that could occur between neurons in the network, preventing the overfitting. In practical terms, the dropout layer randomly "drops out" neurons (and the corresponding connections) following a probability $p$. This process is applied in each training step. An intuitive representation is sketched in figure \ref{fig:Drop}.
@@ -137,7 +136,7 @@ In terms of trainable parameters, a convolution layer with $32$ kernels of $3\ti
 
 \subsection*{MaxPool2D layer}
 A natural next-step to the convolution layer is represented by the category of pooling layers. This type of layers has the aim of reducing the size of the activation maps.\\
-In particular, MaxPool2D layer consider a sub-matrix with a fixed size, typical $2\times2$ or $3\times3$, and record the max value. Performing the process over all the input matrix, the result is a smaller output matrix that keeps the geometrical feature information. A pictorial representation of the layer is shown in figure \ref{fig:MaxPool}.
+In particular, MaxPool2D layer considers a sub-matrix with a fixed size, typical $2\times2$ or $3\times3$, and record the max value. Performing the process over all the input matrix, the result is a smaller output matrix that keeps the geometrical feature informations. A pictorial representation of the layer is shown in figure \ref{fig:MaxPool}.
 
 \begin{figure}[b]
 	\centering
@@ -147,7 +146,6 @@ In particular, MaxPool2D layer consider a sub-matrix with a fixed size, typical 
 \end{figure}
 
 %\subsection*{GlobalAveragePooling2D layer}
-
 
 \subsection*{VGGNet structure} \label{subsec:VGGNet_teo}
 The VGGNet structure is a neural network concept introduced in 2015 with the article "Very Deep Convolutional Networks for Large-Scale Image Recognition" \cite{VGGArt} (the name VGG is the acronym for Visual Geometry Group, their lab in Oxford).\\
@@ -228,7 +226,7 @@ The VGG neural networks used for the particle ID task follow the structure descr
 The input and output are well defined by the data preparation and the classification task. The elaborated data set the input as ma 3D matrix with dimensions of $133\times 133\times 2$, meanwhile the aim of distinguishing between two types of primary particle set the last layer as a dense layer with two neurons with softmax as the activation function.\\
 The optimization process has to take into account a very large number of hyperparameters combinations, to make it simple and tidy the layers can be divided in two groups separated by the flatten one: the "convolutional half" and the "dense half". The halves have been analyzed one at a time keeping fixed the other one and ranging the hyperparameters in common values.\\
 In table \ref{fig:VGGNet-tested} the structure of the six different VGGNet tested are shown with the accuracy value and the time of training to evaluate the performances.\\
-The neural networks labelled as VGGNet A, VGGNet B and VGGNet C have the aim to optimize the dense half modifying the Dropout probability. Once the best dense half has been fixed the VGGNet D, E and F have been tested to select the best hyperparameters in the convolution half. The conclusion from this study set the best structure as the VGGNet D with an accuracy of $98.875$ and a training time of $212\ s/\text{epoch}$.\\
+The neural networks labelled as VGGNet A, VGGNet B and VGGNet C have the aim to optimize the dense half modifying the Dropout probability. Once the best dense half has been fixed the VGGNet D, E and F have been tested to select the best hyperparameters in the convolution half. The conclusion from this study set the best structure as the VGGNet D with an accuracy of $98.875\%$ and a training time of $212\ s/\text{epoch}$.\\
 
 \begin{figure}
 	\centering
@@ -308,4 +306,63 @@ Also in this case a confusion matrix has been produced on validation data reachi
 \end{figure}
 
 \section{Energy range extension}
-aaa
+Once the NN performances have been studied with photons and pions of $40\ GeV$, the best structures (i.e. VGGNet D and ResNet D) have been extended in their application on particles with energies ranging from $1$ to $80\ GeV$.
+This represent the scenario occurring in an experiment where a particle, with undefined energy (neglecting other online analysis), interact with the calorimeter and the neural network has to distinguish if the particle is a $\gamma$ or a $\pi^0$.\\
+
+To perform this study, a set of $15000$ event for each particle type has been produced, where the energy parameters is uniformly distributed in the considered range.
+The dataset production and preparation have been done following the same procedure described previously in the chapter for a fixed energy value.\\
+Once again the two neural networks have been trained over the $80\%$ of the data, reaching analogue results. The validation process on the remaining $20\%$ of the dataset provides the confusion matrices shown in figure \ref{fig:CM_rangeE}.
+
+\begin{figure}
+	\centering
+	\subfloat[][VGGNet structure.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/VGG_ERange_ConfMatrix.pdf}} \quad
+	\subfloat[][ResNet structure.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Res_ERange_ConfMatrix.pdf}}
+	\caption{The confusion matrices obtained in the validation process for data produced by $\gamma$ and $\pi^0$ with different energies ($1 - 80\ GeV$).}
+	\label{fig:CM_rangeE}
+\end{figure}
+
+\subsection*{ROC and AUC}
+A way to evaluate in more detail the correctness of a neural network in classification task is the production of the Receiver Operating Characteristic curve (ROC curve) and the Area Under the ROC Curve (AUC).\\
+
+Starting from the idea that the NN goal is to identify a neutral pion signal in a set of data where photon signals are also present, the focus has to be placed on the output neuron associated to the $\pi^0$.\\
+A significant plot, as the one shown in figure \ref{fig:VGG_hist_pi} for the VGGNet, is the distribution of activation values associated to the neuron of interest dividing them in two group depending on the true particle producing the data.
+In case of data from $\gamma$s, the closer to $0$ the pion activation value, the more correct the NN prediction.
+On the other hand, in case of data from $\pi^0$s, the closer to $1$ the pion activation value, the more correct the NN prediction.\\
+An neural network is perfect classification capabilities when the two distribution are perfectly separated, one on the left of $0.5$ activation value and the other one on the right.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/VGG_hist_pi.pdf}
+	\caption{Distributions of the $\pi^0$ neuron activation value, divided in pion and photon events.}
+	\label{fig:VGG_hist_pi}
+\end{figure}
+
+In 2-classes classification tasks, the threshold to consider a neuron activated is set at $0.5$ as default. Changing this value, different confusion matrices are produced, the ROC curve is a practical way to summarise these matrices by changing the threshold. The curve is obtained by plotting a point for each threshold value assigning as $x$ coordinate the efficiency in detecting a pion (i.e. the ratio of pions events classified correctly) and as $y$ coordinate the rejection of photon (i.e. the ratio of photon events that are not classified as pions).\\
+The ideal ROC curve is the one passing on the point $(1,1)$ that corresponds to the perfect efficiency and rejection condition.\\
+The area under this curve is called AUC and represents a numerical value that easily allows to compare different NN or conditions.\\
+
+The ROC curves obtained from VGGNet and ResNet are shown in figure \ref{fig:ROC} and the AUC values are $?$ and $?$ respectively.\\
+
+ROC curves are also produced dividing the validation dataset in sub-samples depending on the energies.
+% As the graphs \ref{fig:ROC_VGG_sub} and \ref{fig:ROC_Res_sub} show, in the range $1-80\ GeV$ the performances of the neural networks developed are almost energy independent.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC.pdf}
+	\caption{ROC curve comparison obtained from the two neural networks.}
+	\label{fig:ROC}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_VGG_sub.pdf}
+	\caption{ROC curves for VGG Network obtained on subsamples of different energies as shown in the legend.}
+	\label{fig:ROC_VGG_sub}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_Res_sub.pdf}
+	\caption{ROC curves for Residual Network obtained on subsamples of different energies as shown in the legend.}
+	\label{fig:ROC_Res_sub}
+\end{figure}

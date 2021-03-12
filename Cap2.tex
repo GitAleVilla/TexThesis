@@ -13,14 +13,6 @@ Another classification can be made according to their construction technique def
 Homogeneous calorimeters are built of one type of material that performs both the main tasks: degrade the energy of the incident particles and provide the detectable signal.\\
 Sampling calorimeters, instead, consist of alternating layers of an absorber, a dense material used to perform energy degradation, and an active medium that generate the signal.\\
 
-%Calorimeters are attractive in high-energy particle physic field for various reasons:
-%\begin{itemize}
-%		\item In most cases the calorimeter energy resolution improves with energy as $1/\sqrt{E}$, where $E$ is the energy of the incident particle. Therefore calorimeters are very well suited to high-energy physics experiments.
-%		\item Calorimeters are sensitive to all types of particles, charged and neutral (e.g., neutrons). Also neutrinos and their energy can be indirectly detected can even provide indirect detection of neutrinos and their energy through the measurement of the event missing energy.
-%		\item They are versatile detectors. They can be used to determine the shower position and direction, to perform particle identification, to measure the arrival time of the particle, or even to provide fast signals useful in trigger purpose.
-%		\item They are space and therefore cost effective. Because the shower length increases only logarithmically with energy, the detector thickness needs to increase only logarithmically with the energy of the particles.
-%\end{itemize}
-
 This chapter describes the physics behind both the electromagnetic and hadronic shower developments, provides a basic description of the energy response of these detectors and introduces the particular technique of the dual-readout, a modern concept of calorimeter that has the quality of overcome the non-compensating problem measuring both electromagnetic and hadronic showers through two different type of signals simultaneously (Cherenkov and scintillation light).\\
 
 A more comprehensive descriptions of the topic can be found in the references \cite{Wigmans_book, Wigmans_art_of_cal, Gianotti_article}.
@@ -56,7 +48,7 @@ An example of energy loss in copper by electron is sketched in figure \ref{fig:C
 \end{figure}
 
 The other particles that produce electromagnetic showers are photons. The interaction between photons and matter is mainly affected by three different processes: the photoelectric effect, Compton scattering and electron–positron pair production.\\
-The photoelectric effect is the process that most likely occurs at low energies. It is characterized by an atom absorbing the photon and emitting an electron. Eventually the atom, left in an excited state, emits an Auger electrons or X-rays returning to the ground state. The photoelectric cross section strongly depends on the available number of  electrons,  and  thus  on  the $Z$ value  of  the  absorber  material. In particular it scales with $Z^n$, with the power $n$ between 4 and 5. Meanwhile the photoelectric cross section rapidly decrease with greater energies, varying as $E^{-3}$. In this way the process rapidly loses its impact as the energy increases. %Quantitatively, in uranium ($Z=92$) the cross section for photoelectric effect is dominant for energies below $700\ keV$, meanwhile for iron  ($Z=26$) decreases his importance from $100\ keV$.\\
+The photoelectric effect is the process that most likely occurs at low energies. It is characterized by an atom absorbing the photon and emitting an electron. Eventually the atom, left in an excited state, emits an Auger electrons or X-rays returning to the ground state. The photoelectric cross section strongly depends on the available number of  electrons,  and  thus  on  the $Z$ value  of  the  absorber  material. In particular it scales with $Z^n$, with the power $n$ between 4 and 5. Meanwhile the photoelectric cross section rapidly decrease with greater energies, varying as $E^{-3}$. In this way the process rapidly loses its impact as the energy increases.
 
 The Compton process is a scattering process where an impinging  photon interact with an atomic electron transferring enough momentum and energy to the struck electron to escape from the atomic Coulomb field. Kinematic variables such as energy transfer and scattering angles can be easily obtained applying the laws of energy and momentum conservation. 
 % The dynamic is illustrated in Figure \ref{fig:scatt_kin}. 
@@ -68,16 +60,14 @@ The Compton process is a scattering process where an impinging  photon interact 
 %	\label{fig:scatt_kin}
 %\end{figure}
 
-%The photon is absorbed and thus disappears in the photoelectric effect, but it only plays a role at low $\gamma$ energies.
 Photons in the $MeV$ energy range are absorbed by photoelectric effect only after a sequence of Compton scattering processes, in which the photon energy is reduced step by step in each collision until it is low enough to permit the photoelectric occurrence. In each step, the amount of loss energy is:
 \begin{equation}
     T = E_{\gamma}\frac{\xi(1 - \cos{\theta})}{1 + \xi(1 - \cos{\theta})}
 \end{equation}
 where $\xi = E_{\gamma}/m_ec^2$.
-The cross section linked to the Compton scattering is much less dependent on the $Z$ value than the photoelectric one. It is almost proportional to the number of target electrons in the nuclei. Also in this process the cross section decreases with increasing photon energy, but only with the first power of $E$. Therefore Compton scattering has more impact than photoelectric absorption above a certain threshold energy. %This  threshold varies from $20\ keV$ for carbon ($Z=6$) to $700\ keV$ for uranium ($Z=92$).\\
+The cross section linked to the Compton scattering is much less dependent on the $Z$ value than the photoelectric one. It is almost proportional to the number of target electrons in the nuclei. Also in this process the cross section decreases with increasing photon energy, but only with the first power of $E$. Therefore Compton scattering has more impact than photoelectric absorption above a certain threshold energy. 
 
 The pair production process, differently from the previous ones, has a binding threshold under which the effect can not occur. This threshold is the twice of the electron rest mass ($2\times 511\ MeV$). If the photon has a higher energy then it can produce an electron-positron pair that can continue the path in the medium producing bremsstrahlung radiation as well as ionization.
-%The electron can be eventually absorbed by an ion, while the positron annihilates with an electron producing two new photons, each with an energy of $511\ keV$.
 The cross section for pair production rises with the energy reaching an asymptotic value at energies higher then $1\ GeV$. For this reason, at high energies, pair production is the most likely process to occur. Meanwhile the dependence from the medium goes, in first approximation, as $Z^2$.\\
 
 Comparing the cross section of the three processes and its dependence with respect to the photon energy it is clear that the photoelectric effect dominates at lower energies, meanwhile at the intermediate values the Compton scattering gives the greatest contribute, at the end at higher energies almost every photon is converted in charged particles through pair production. An example of these contributions is shown in figure \ref{fig:ph_cross_E}.\\
@@ -320,9 +310,6 @@ The detector is composed by $5580$ basic element represented in figure \ref{fig:
 
 Figure \ref{fig:theta_DREAM} shows the $C-S$ scatter plot of the calibrated signals, where the correlation between them its clear.
 The two $h/e$ ratios for Cherenkov and scintillator DREAM structures are $0.21$ and $0.77$, respectively. The expression of the em fraction \ref{eq:em_frac} becomes:
-%\begin{equation}
-%    \frac{C}{S} = \frac{f_{em} + 0.12 (1-f_{em})}{f_{em} + 0.77 (1-f_{em})}.
-%\end{equation}
 \begin{equation}
     f_{em} = \frac{0.21-0.77(C/S)}{(C/S)\left[1-0.77\right]-\left[1-0.21\right]}
 \end{equation}
