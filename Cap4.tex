@@ -34,7 +34,7 @@ To correctly cover a solid angle very close to $4\pi$, each tower has a differen
 
 At present, the towers are based on copper (or brass) matrices that play the role of absorber. To have a sensitive element they have longitudinally running holes where optical fibres are inserted. The need of a projective geometry makes the detector dimensions increasing with the distance from the IP. New holes (with new fibres) open up at different depths inside the calorimeter, whenever possible, to keep constant the sampling fraction.\\
 As the dual-readout technique needs independent scintillating ($S$) and Cherenkov ($C$) signals, two types of fibres are used (fig. \ref{fig:CS_fibres}). Their characteristics are shown in tab. \ref{tab:fibres}.\\
-The fibre refractive indices determine the light transport (as consequence of the Snell's law \cite{Snell}). The signal from the scintillating fibres is parametrised by the deposited energy while the Cherenkov photons are produced accordingly to the Cherenkov emission process.\\
+The fibre refractive indices determine the light transport (as consequence of the Snell's law). The signal from the scintillating fibres is parametrised by the deposited energy while the Cherenkov photons are produced accordingly to the Cherenkov emission process.\\
 
 \begin{table}
 	\centering
@@ -459,7 +459,7 @@ where the parameters $A$ and $B$, that in first approximation should not be affe
 	\centering
 	\subfloat[][$C$ signals.]{\includegraphics[width=.8\textwidth]{IMG/Cap5/Res_cher.pdf}} \\
 	\subfloat[][$S$ signals.]{\includegraphics[width=.8\textwidth]{IMG/Cap5/Res_scin.pdf}}
-	\caption{Calorimeter resolution plot where the data have been fitted with the formula on the left of line \ref{eq:resolution}.}
+	\caption{Calorimeter resolution plot where the data have been fitted with the formula \ref{eq:resolution}.}
 	\label{fig:sigma_su_e}
 \end{figure}
 
@@ -470,10 +470,11 @@ where the parameters $A$ and $B$, that in first approximation should not be affe
 		& \textbf{Scintillation} & \textbf{Cherenkov} \\
 		\midrule
 		\textbf{pre pySiPM} &	$\frac{\sigma}{E} = \frac{18.97\%}{\sqrt{E}} \oplus 1.677\%$ 	& $\frac{\sigma}{E} = \frac{21.01\%}{\sqrt{E}} \oplus 0.386\%$ \\
-		\textbf{post pySiPM} & $\frac{\sigma}{E} = \frac{18.97\%}{\sqrt{E}} \oplus 1.677\% \oplus \frac{1.975\cdot 10^{-6}\%}{E}$ 	& $\frac{\sigma}{E} = \frac{21.01\%}{\sqrt{E}} \oplus 0.386\% \oplus \frac{4.226\cdot 10^{-4}\%}{E}$ \\
+		%\textbf{post pySiPM} & $\frac{\sigma}{E} = \frac{18.97\%}{\sqrt{E}} \oplus 1.677\% \oplus \frac{1.975\cdot 10^{-6}\%}{E}$ 	& $\frac{\sigma}{E} = \frac{21.01\%}{\sqrt{E}} \oplus 0.386\% \oplus \frac{4.226\cdot 10^{-4}\%}{E}$ \\
+		\textbf{post pySiPM} & \dots $\oplus \frac{1.975\cdot 10^{-6}\%}{E}$ 	& \dots $\oplus \frac{4.226\cdot 10^{-4}\%}{E}$ \\
 		\bottomrule
 	\end{tabular}
-	\caption{Fit results on the energy resolution using the functional form \ref{eq:resolution} on the left.}
+	\caption{Fit results on the energy resolution using the functional form \ref{eq:resolution}.}
 	\label{tab:res_regular_sum}
 \end{table}
 

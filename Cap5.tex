@@ -22,19 +22,11 @@ The consequence of this behaviour is that a electromagnetic shower is produced f
 
 \begin{figure}
 	\centering
-	\subfloat[][$40\ GeV$ photon.\label{fig:demo_ph}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Ph_01_cher.pdf}} \quad
-	\subfloat[][$40\ GeV$ neutral pion.\label{fig:demo_pi}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Pizero_01_cher.pdf}}
+	\subfloat[][$40\ GeV$ photon.\label{fig:demo_ph}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Ph40GeV_ev1_scin.pdf}} \quad
+	\subfloat[][$40\ GeV$ neutral pion.\label{fig:demo_pi}]{\includegraphics[width=.7\textwidth]{IMG/Cap6/Pizero40GeV_ev1_scin.pdf}}
 	\caption{Spatial charge integral distributions from $\gamma$ and $\pi^0$. Each point correspond to an activated fibre and it is represented in cylindrical coordinates, the color indicates the charge integral obtained from the coupled SiPM.}
 	\label{fig:demo_shower}
 \end{figure}
-
-%\begin{figure}
-%	\centering
-%	\subfloat[][$\pi^0\xrightarrow{} 2\gamma$]{\includegraphics[height=.18\textheight]{IMG/Cap6/pi2gammas.png}} \quad
-%	\subfloat[][$\pi^0\xrightarrow{} \gamma + e^- + e^+$]{\includegraphics[height=.2\textheight]{IMG/Cap6/pi_gamma_e_e.jpg}}
-%	\caption{$\pi^0$ decay modes.}
-%	\label{fig:pi_decays}
-%\end{figure}
 
 Usually this ID task would be performed applying a number of filters to study the elliptical shape, to find the peaks of charge integral, to measure the distances between the peaks and finally establishing, with a certain probability, the primary particle. The goal is to create a neural network able to accept data associated to an event and make a prediction on the primary particle with a small computational and timing effort.\\
 
@@ -188,8 +180,8 @@ The typical coordinate system for a $4\pi$ calorimeter is the spherical one so t
 
 \begin{figure}
 	\centering
-	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_3Dgraph_cher.png}} \quad
-	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_3Dgraph_scin.png}}
+	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_cher_TGraph3D.pdf}} \quad
+	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_scin_TGraph3D.pdf}}
 	\caption{3D-graphs representing Cherenkov and scintillation signals from the same sample event ($40\ GeV$ photon as primary particle).}
 	\label{fig:3Dgraph}
 \end{figure}
@@ -199,18 +191,18 @@ Hence the input matrix for each event has a shape of $133 \text{ (height) }\time
 
 \begin{figure}
 	\centering
-	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dhist_cher.png}} \quad
-	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dhist_scin.png}}
+	\subfloat[][Cherenkov signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_cher_hist_3D.pdf}} \quad
+	\subfloat[][Scintillation signal.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_scin_hist_3D.pdf}}
 	\caption{2D-histograms representing Cherenkov and scintillation signals from the same sample event ($40\ GeV$ photon as primary particle).}
 	\label{fig:2Dhist}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\subfloat[][Cherenkov signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_pre_cher.png}} \quad
-	\subfloat[][Scintillation signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_pre_scin.png}} \\
-	\subfloat[][Cherenkov signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_post_cher.png}} \quad
-	\subfloat[][Scintillation signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/ph40GeV_2Dvis_post_scin.png}}
+	\subfloat[][Cherenkov signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev1_cher_TGraph_flat.pdf}} \quad
+	\subfloat[][Scintillation signal pre data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev1_scin_TGraph_flat.pdf}} \\
+	\subfloat[][Cherenkov signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_cher_hist_flat.pdf}} \quad
+	\subfloat[][Scintillation signal post data setup.]{\includegraphics[width=.45\textwidth]{IMG/Cap6/Ph40GeV_ev15_scin_hist_flat.pdf}}
 	\caption{2D-vision of data before and after data setup.}
 	\label{fig:2Dvision}
 \end{figure}
@@ -223,17 +215,83 @@ This section shows the comparison between CNNs with different hyperparameters an
 
 \subsection{VGG Network}
 The VGG neural networks used for the particle ID task follow the structure described in section \ref{subsec:VGGNet_teo}.\\
-The input and output are well defined by the data preparation and the classification task. The elaborated data set the input as ma 3D matrix with dimensions of $133\times 133\times 2$, meanwhile the aim of distinguishing between two types of primary particle set the last layer as a dense layer with two neurons with softmax as the activation function.\\
+The input and output are well defined by the data preparation and the classification task. The elaborated data set the input as ma 3D matrix with dimensions of $133 \times 133 \times 2$, meanwhile the aim of distinguishing between two types of primary particle set the last layer as a dense layer with two neurons with softmax as the activation function.\\
 The optimization process has to take into account a very large number of hyperparameters combinations, to make it simple and tidy the layers can be divided in two groups separated by the flatten one: the "convolutional half" and the "dense half". The halves have been analyzed one at a time keeping fixed the other one and ranging the hyperparameters in common values.\\
 In table \ref{fig:VGGNet-tested} the structure of the six different VGGNet tested are shown with the accuracy value and the time of training to evaluate the performances.\\
 The neural networks labelled as VGGNet A, VGGNet B and VGGNet C have the aim to optimize the dense half modifying the Dropout probability. Once the best dense half has been fixed the VGGNet D, E and F have been tested to select the best hyperparameters in the convolution half. The conclusion from this study set the best structure as the VGGNet D with an accuracy of $98.875\%$ and a training time of $212\ s/\text{epoch}$.\\
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-Tab.png}
-	\caption{Table of different VGGNet structure studied. Performances are valuated looking at accuracy and training time values.}
-	\label{fig:VGGNet-tested}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1.\textwidth]{IMG/Cap6/VGGNet-Tab.png}
+%	\caption{Table of different VGGNet structure studied. Performances are valuated looking at accuracy and training time values.}
+%	\label{fig:VGGNet-tested}
+%\end{figure}
+
+\begin{sidewaystable}[]
+    \centering
+    %\resizebox{\textwidth}{!}
+    \tiny
+    \begin{tabular}{l|l|l|l|l|l|l}
+         \toprule
+         &\textbf{VGGNet A} & \textbf{VGGNet B} & \textbf{VGGNet C} & \textbf{VGGNet D} & \textbf{VGGNet E} & \textbf{VGGNet F} \\
+         \midrule
+         
+         &Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) \\
+         
+         &Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) \\
+         
+         &Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($23,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) \\
+         
+         &MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) \\
+         \midrule
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) \\
+         \midrule
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) \\
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) \\
+         
+         &MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) \\
+         \midrule
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($256,3\times3$,ReLU) \\
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($256,3\times3$,ReLU) \\
+         
+         &MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) \\
+         \midrule         
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($256,3\times3$,ReLU) \\
+         
+         &Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($128,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($256,3\times3$,ReLU) \\
+         
+         &MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) & MaxPool (2x2) \\
+         \midrule          
+         
+         &Flatten & Flatten & Flatten & Flatten & Flatten & Flatten \\
+         
+         &Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) \\
+         
+          & Dropout(0.3) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) \\
+         
+         &Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) \\
+         
+          & Dropout(0.3) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) \\
+         
+         &Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) \\
+         \midrule
+         Acc. & $97.275\%$ & $97.650\%$ & $97.660\%$ & $98.875\%$ & $97.299\%$ & $97.450\%$ \\
+         Time &  $230\ s/\text{epoch}$ & $229\ s/\text{epoch}$ & $228\ s/\text{epoch}$ & $212\ s/\text{epoch}$ & $170\ s/\text{epoch}$ & $240\ s/\text{epoch}$\\
+         \bottomrule
+    \end{tabular}
+    \caption{Table of different VGGNet structure studied. Performances are valuated looking at accuracy and training time values.}
+    \label{fig:VGGNet-tested}
+\end{sidewaystable}
 
 Once identified the VGGNet D as the best structure for the task deeper study have been performed.\\
 The training is applied on a training dataset and simultaneously validated on a validation dataset, this can give a double view during the process.
@@ -272,12 +330,69 @@ The input and output of the ResNets has to coincide with the ones for VGGNets, d
 The articulation of the middle layers follows the typical ResNet structure presented in section \ref{subsec:ResNet_teo}.\\
 As done for the VGGNet optimization, also this structure has been divided in two parts identified by the \textit{GlobalAveragePooling} layer ("colvolutional half" and "dense half"). In table \ref{fig:ResNet-tested} the six different ResNet with different hyperparameters are listed. ResNet A, B, C and D are dedicated to the optimization of the dense half. Once the best dense half structure has been found, the ResNet E and F have been trained to find the best ResNet for the task. As schematically shown in the table, ResNet D has the best performances with an accuracy of $97.275\%$ and a training time of $192\ s/\text{epoch}$.\\
 
-\begin{figure}
-	\centering
-	\includegraphics[width=1.\textwidth]{IMG/Cap6/ResNet-Tab.png}
-	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values. Note that the thicker lines divide the different Recurrent blocks as described in section \ref{subsec:ResNet_teo}.}
-	\label{fig:ResNet-tested}
-\end{figure}
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1.\textwidth]{IMG/Cap6/ResNet-Tab.png}
+%	\caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values. Note that the thicker lines divide the different Recurrent blocks as described in section \ref{subsec:ResNet_teo}.}
+%	\label{fig:ResNet-tested}
+%\end{figure}
+
+\begin{sidewaystable}[]
+    \centering
+    %\resizebox{\textwidth}{!}
+    \tiny
+    \begin{tabular}{l|l|l|l|l|l|l}
+         \toprule
+         &\textbf{ResNet A} & \textbf{ResNet B} & \textbf{ResNet C} & \textbf{ResNet D} & \textbf{ResNet E} & \textbf{ResNet F} \\
+         \midrule
+         
+         &Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) & Input ($133\times133\times2$) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         \midrule
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         & &  &  &  & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         \midrule
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         & &  &  &  & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         \midrule
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         &Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         
+         & &  &  &  & Conv2D ($32,3\times3$,ReLU) & Conv2D ($64,3\times3$,ReLU) \\
+         \midrule         
+         
+         &GlobalAveragePooling & GlobalAveragePooling & GlobalAveragePooling & GlobalAveragePooling & GlobalAveragePooling & GlobalAveragePooling \\
+         
+         &Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(128,ReLU) & Dense(128,ReLU) & Dense(128,ReLU) \\
+         
+         & & Dropout(0.3) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) \\
+         
+         &Dense(256,ReLU) & Dense(256,ReLU) & Dense(256,ReLU) & Dense(128,ReLU) & Dense(128,ReLU) & Dense(128,ReLU) \\
+         
+         & & Dropout(0.3) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) & Dropout(0.5) \\
+         
+         &Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) & Output(2,SoftMax) \\
+         \midrule
+         Acc. & $96.875\%$ & $96.700\%$ & $96.525\%$ & $97.275\%$ & $96.850\%$ & $97.000\%$ \\
+         Time & $223\ s/\text{epoch}$ &  $207\ s/\text{epoch}$ & $198\ s/\text{epoch}$ & $192\ s/\text{epoch}$ & $183\ s/\text{epoch}$ & $389\ s/\text{epoch}$\\
+         \bottomrule
+    \end{tabular}
+    \caption{Table of different ResNet structure studied. Performances are valuated looking at accuracy and training time values. Note that the thicker lines divide the different Recurrent blocks as described in section \ref{subsec:ResNet_teo}.}
+    \label{fig:ResNet-tested}
+\end{sidewaystable}
 
 Residual Network and VGG Network performances have been studied in same conditions such as batch size ($128$) and number of epoches ($50$) and also with the same accuracy and loss evaluation.\\
 Both accuracy and loss values have been recorded during the training process and their behaviour with respect to the training epoches is shown in figures \ref{fig:ResNet-acc} and \ref{fig:ResNet-loss}.
@@ -332,37 +447,37 @@ An neural network is perfect classification capabilities when the two distributi
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap6/VGG_hist_pi.pdf}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/Res_hist_pi.pdf}
 	\caption{Distributions of the $\pi^0$ neuron activation value, divided in pion and photon events.}
 	\label{fig:VGG_hist_pi}
 \end{figure}
 
 In 2-classes classification tasks, the threshold to consider a neuron activated is set at $0.5$ as default. Changing this value, different confusion matrices are produced, the ROC curve is a practical way to summarise these matrices by changing the threshold. The curve is obtained by plotting a point for each threshold value assigning as $x$ coordinate the efficiency in detecting a pion (i.e. the ratio of pions events classified correctly) and as $y$ coordinate the rejection of photon (i.e. the ratio of photon events that are not classified as pions).\\
 The ideal ROC curve is the one passing on the point $(1,1)$ that corresponds to the perfect efficiency and rejection condition.\\
-The area under this curve is called AUC and represents a numerical value that easily allows to compare different NN or conditions.\\
+The area under this curve is called AUC and represents a numerical value that easily allows to compare different NN or conditions (the ideal value of AUC is $1$).\\
 
-The ROC curves obtained from VGGNet and ResNet are shown in figure \ref{fig:ROC} and the AUC values are $?$ and $?$ respectively.\\
+The ROC curves obtained from VGGNet and ResNet are shown in figure \ref{fig:ROC} and the AUC values are $0.9982$ and $0.9957$ respectively.\\
 
 ROC curves are also produced dividing the validation dataset in sub-samples depending on the energies.
-% As the graphs \ref{fig:ROC_VGG_sub} and \ref{fig:ROC_Res_sub} show, in the range $1-80\ GeV$ the performances of the neural networks developed are almost energy independent.
+As the graphs \ref{fig:ROC_VGG_sub} and \ref{fig:ROC_Res_sub} show, in the range $1-80\ GeV$ the performances of the neural networks developed are almost energy independent.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC.pdf}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_VGG_Res_zoom.pdf}
 	\caption{ROC curve comparison obtained from the two neural networks.}
 	\label{fig:ROC}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_VGG_sub.pdf}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_VGG_sub_zoom.pdf}
 	\caption{ROC curves for VGG Network obtained on subsamples of different energies as shown in the legend.}
 	\label{fig:ROC_VGG_sub}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_Res_sub.pdf}
+	\includegraphics[width=0.8\textwidth]{IMG/Cap6/ROC_Res_sub_zoom.pdf}
 	\caption{ROC curves for Residual Network obtained on subsamples of different energies as shown in the legend.}
 	\label{fig:ROC_Res_sub}
 \end{figure}
