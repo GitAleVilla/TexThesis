@@ -1,4 +1,8 @@
 \documentclass[a4paper,11pt,titlepage,oneside,openright]{book}	%classe e struttura
+%\documentclass[a4paper,11pt,titlepage,twoside,openright]{book}	%classe e struttura per stampa
+%\usepackage[asymmetric,hcentering]{geometry}
+%\usepackage[asymmetric]{geometry} %per stampa
+%\usepackage[outer=3cm]{geometry}
 \usepackage[english]{babel} 	%lingua principale
 \usepackage[utf8]{inputenc}	%caratteri accentati
 \usepackage{graphicx}		%pacchetto per le immagini
@@ -11,7 +15,7 @@
 \usepackage{tabularx}		%pacchetto per tabelle 
 \usepackage{amsmath}		%pacchetto per matematica
 \usepackage{physics}		%pacchetto per fisica bra ket
-\usepackage{subfig}		    %pacchetto per sottotitoli a immagini
+\usepackage[caption=false,listofformat=subsimple,labelformat=simple]{subfig}		    %pacchetto per sottotitoli a immagini
 \usepackage{tikz}	    	%pacchetto per disegni
 \usepackage{bm}		        %pacchetto per vettori
 %\usepackage{circuitikz}	%pacchetto per disegni di circuiti
@@ -20,6 +24,11 @@
 \usepackage{gensymb}
 \usepackage{url}
 \usepackage{hyperref}
+
+%\usepackage[labelformat=simple]{subcaption}
+%\usepackage[caption=false,listofformat=subsimple,labelformat=simple]{subfig}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+
 \hypersetup{
 	colorlinks,
 	citecolor=black,
@@ -27,6 +36,13 @@
 	linkcolor=black,
 	urlcolor=blue
 }
+
+\makeatletter
+\def\cleardoublepage{\clearpage\ifodd\c@page\else
+    \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi\fi}
+\makeatother
+\setlength\parindent{0pt}
+
 
 \usepackage{frontespizio}
 
@@ -43,7 +59,7 @@
 		\Corso[laurea]{Scienze Fisiche}
 		\Annoaccademico{2019-2020}
 		%\Titoletto{Tesi di laurea magistrale}
-		\Titolo{IDEA Dual-Readout calorimeter:\\Full simulation chain and neural network on particle ID}
+		\Titolo{Dual-Readout calorimetry:\\ studies of a SiPM-based simulated readout and deep learning applications}
 		\Punteggiatura{}
 		\Candidato[462495]{Alessandro Villa}
 		\NRelatore{Supervisore}{Supervisori}
@@ -129,7 +145,7 @@
 			\bibitem{Leo}  W. R. Leo, «Techniques for nuclear and particle physics experiments»,  second ed., Springer-Verlag, 1994
 			\bibitem{Wigmans_e_gamma} R.  Wigmans  and  M.  Zeyrek, «On  the  differences  between  calorimetric  detection  of electrons and photons», Nucl. Instr. and Meth. A485 (2002) 385
 			\bibitem{fem_par} D. Acosta et al., «Lateral shower profiles in a lead/scintillating fiber calorimeter», Nucl. Instr. and Meth. A316 (1992) 184
-			\bibitem{PDG_98} «Particle Data Group», Caso, C.et al.(1998).Eur. Phys. J.C3,1
+			\bibitem{PDG_98}  Caso, C.et al. «Particle Data Group», Eur. Phys. J.C3,1 (1998)
 			\bibitem{DR_Wig} S. Lee, M. Livan, R. Wigmans, «Dual-readout calorimetry», Rev. Mod. Phys. 90 (2018)025002
 			\bibitem{DR_Theta} S. Lee et al. «On the limits of the hadronic energy resolution of calorimeters». In:Nuclear Inst. and Methods in Physics Research, A882148-157(2018).  DOI:10.1016/j.nima.2017.10.087
 			\bibitem{DREAM} N. Akchurin et al. «Hadron and jet detection with a dual-readout calorimeter». In:Nuclear Inst. and Methods in Physics Research, A537537-561(2005).  DOI:10.1016/j.nima.2004.07.285
@@ -137,20 +153,19 @@
 			\bibitem{DREAM1} N. Akchurin et al. «Muon detection with a dual-readout calorimeter». In:Nuclear Inst. and Methods in Physics Research, A533305-321(2004).  DOI:10.1016/j.nima.2004.05.134
 			\bibitem{DREAM2} N. Akchurin et al. «Hadron and jet detection with a dual-readout calorimeter». In:Nuclear Inst. and Methods in Physics Research, A537537-561(2005).  DOI:10.1016/j.nima.2004.07.285
 			%Cap 3
-			\bibitem{SiPM_art} 
-			\bibitem{SiPM_img_APD} A. Ghassemi, K. Sato, K. Kobayash,Technical Note:MPPC, 
+			%\bibitem{SiPM_art} 
+			\bibitem{SiPM_img_APD} A. Ghassemi, K. Sato, K. Kobayash,Technical Note:MPPC, \\
 			\url{https://www.hamamatsu.com/resources/pdf/ssd/mppc_kapd9005e.pdf}
 			\bibitem{electrics} C. Piemonte and A. Gola. «Overview on the main parameters and technology of modern Silicon Photomultipliers». In:Nuclear Inst. and Methods in Physics Research, A9262-15(2019).    DOI:10.1016/j.nima.2018.11.119
 			\bibitem{APD_new_ph} F.Acerbi and S.Gundacker. «Understanding and simulating SiPMs». In:Nuclear Inst. and Methods in Physics Research, A92616-35(2019).    DOI:10.1016/j.nima.2018.11.118
-			\bibitem{MPCS} V. Arosio et al. «An Educational Kit Based on a Modular Silicon Photomultiplier System». In:arXiv(2014). 
+			\bibitem{MPCS} V. Arosio et al. «An Educational Kit Based on a Modular Silicon Photomultiplier System». In:arXiv(2014).\\ 
 			\url{https://arxiv.org/abs/1308.3622v2}
 			\bibitem{PDE} P. Eckert et al. «Characterisation Studies of Silicon Photomultipliers». In:Nuclear Inst. and Methods in Physics Research, A620217-226(2010).    DOI:10.1016/j.nima.2010.03.169
-			\bibitem{occupancy} T. Bretz et al.  Dynamic range measurement and calibration of SiPMs». In:JINST,11P03009(2016).    DOI:10.1088/1748-0221/11/03/P03009
+			\bibitem{occupancy} T. Bretz et al. «Dynamic range measurement and calibration of SiPMs». In:JINST,11P03009(2016).    DOI:10.1088/1748-0221/11/03/P03009
 			
 			%Cap 4
-			%\bibitem{Snell} L.Pezzotti. «Dual readout calorimetry development for future collider experiments». Master thesis. Università degli Studi di Pavia, 2016
 			\bibitem{digitizer} R.Santoro. «International Conference on New Photo-Detectors (PD15) (July, 2015)». In:Moscow, Troitsk(2015) (cit. on p. 132)
-			\bibitem{SiPM_lineup} Hamamatsu SiPMs lineup \url{https://www.hamamatsu.com/eu/en/product/optical-sensors/mppc/mppc_mppc-array/all_products/index.html}
+			\bibitem{SiPM_lineup} Hamamatsu SiPMs lineup\\ \url{https://www.hamamatsu.com/eu/en/product/optical-sensors/mppc/mppc_mppc-array/all_products/index.html}
 			%Cap 5
 			\bibitem{pi_decay} P.A. Zyla et al. «Particle Data Group», Prog. Theor. Exp. Phys. 2020, 083C01 (2020)
 			\bibitem{NN_Bishop} C.M. Bishop «Pattern recognition and machine learning». Springer, 2006
@@ -158,6 +173,9 @@
 			\bibitem{ML_Brownlee} Jason Brownlee «Deep Learning for Computer Vision: Image Classification, Object Detection, and Face Recognition in Python». Machine Learning Mastery, 2019
 			\bibitem{VGGArt} Karen Simonyan and Andrew Zisserman «Very Deep Convolutional Networks for Large-Scale Image Recognition». arXiv:1409.1556v6, 2015
 			\bibitem{ResNetArt} Kaiming He et al. «Deep Residual Learning for Image Recognition». arXiv:1512.03385v1, 2015
+			
+			%Cap 5
+			\bibitem{keras_activation} «Layer activation functions» from Keras API reference,\\ \url{https://keras.io/api/layers/activations/}
 		\end{thebibliography}
 		
 	\end{backmatter}
